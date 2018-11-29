@@ -31,8 +31,9 @@ public class Theme {
     public class Color {
         
         static var PrimaryTint: UIColor {
-            
-            return UIColor(hexString: "#69B2FD")
+            //
+            return UIColor(hexString: "#5F6FED")
+            //return Green
         }
         
         static var Background: UIColor {
@@ -83,36 +84,30 @@ public class Theme {
             return nightMode ? UIColor(hexString: "#393939") :  UIColor(hexString: "#E1E1E1")
         }
         
-        static var Activity: UIColor {
-            return UIColor(hexString: "#FCD26F")
-        }
-        
-        static var Class: UIColor {
-            return UIColor(hexString: "#69B2FD")
-        }
-        
         static var Error: UIColor {
             return UIColor(hexString: "#F96666")
         }
         
-        static var Purple: UIColor {
-            return UIColor(hexString: "#B0BAE6")
+        static var SectionHeader: UIColor {
+            return UIColor(hexString: "#BEBEBE")
         }
         
-        static var Pink: UIColor {
-            return UIColor(hexString: "#F8B3B3")
+        static var Blue: UIColor {
+             return UIColor(hexString: "#27386B")
+            
         }
         
         static var Green: UIColor {
-            return UIColor(hexString: "#2DC985")
+             return UIColor(hexString: "#1ACA8E")
         }
         
-        static var Red: UIColor {
-            return UIColor(hexString: "#FE7466")
+        static var Yellow: UIColor {
+             return UIColor(hexString: "#FFD7A0")
+            
         }
         
-        static var SectionHeader: UIColor {
-            return UIColor(hexString: "#BEBEBE")
+        static var LightBlue: UIColor {
+            return UIColor(hexString: "#A5B3D9")
         }
     }
 }
