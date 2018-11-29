@@ -15,6 +15,9 @@
 		039498FA21AFAA95003AF16D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039498F821AFAA95003AF16D /* LaunchScreen.storyboard */; };
 		0394990521AFAA95003AF16D /* PrayerListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394990421AFAA95003AF16D /* PrayerListTests.swift */; };
 		0394991021AFAA95003AF16D /* PrayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394990F21AFAA95003AF16D /* PrayerListUITests.swift */; };
+		0394992021AFAFAC003AF16D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394991F21AFAFAC003AF16D /* Theme.swift */; };
+		0394992421AFAFE4003AF16D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394992321AFAFE4003AF16D /* UIColor+Extensions.swift */; };
+		0394992621AFB012003AF16D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394992521AFB012003AF16D /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		0394990B21AFAA95003AF16D /* PrayerListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrayerListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0394990F21AFAA95003AF16D /* PrayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerListUITests.swift; sourceTree = "<group>"; };
 		0394991121AFAA95003AF16D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0394991F21AFAFAC003AF16D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0394992321AFAFE4003AF16D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		0394992521AFB012003AF16D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,13 @@
 		039498EB21AFAA92003AF16D /* PrayerList */ = {
 			isa = PBXGroup;
 			children = (
-				039498EC21AFAA92003AF16D /* AppDelegate.swift */,
-				039498EE21AFAA92003AF16D /* ViewController.swift */,
-				039498F021AFAA92003AF16D /* Main.storyboard */,
-				039498F621AFAA95003AF16D /* Assets.xcassets */,
-				039498F821AFAA95003AF16D /* LaunchScreen.storyboard */,
 				039498FB21AFAA95003AF16D /* Info.plist */,
-				039498F321AFAA92003AF16D /* PrayerList.xcdatamodeld */,
+				039498EC21AFAA92003AF16D /* AppDelegate.swift */,
+				0394991E21AFAF95003AF16D /* DataModels */,
+				0394992121AFAFD0003AF16D /* Helpers */,
+				0394991D21AFAF7D003AF16D /* UI */,
+				039498EE21AFAA92003AF16D /* ViewController.swift */,
+				039498F621AFAA95003AF16D /* Assets.xcassets */,
 			);
 			path = PrayerList;
 			sourceTree = "<group>";
@@ -126,6 +132,41 @@
 				0394991121AFAA95003AF16D /* Info.plist */,
 			);
 			path = PrayerListUITests;
+			sourceTree = "<group>";
+		};
+		0394991D21AFAF7D003AF16D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				039498F021AFAA92003AF16D /* Main.storyboard */,
+				039498F821AFAA95003AF16D /* LaunchScreen.storyboard */,
+				0394991F21AFAFAC003AF16D /* Theme.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0394991E21AFAF95003AF16D /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				039498F321AFAA92003AF16D /* PrayerList.xcdatamodeld */,
+				0394992521AFB012003AF16D /* CoreDataManager.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		0394992121AFAFD0003AF16D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0394992221AFAFD6003AF16D /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0394992221AFAFD6003AF16D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0394992321AFAFE4003AF16D /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0394992621AFB012003AF16D /* CoreDataManager.swift in Sources */,
 				039498EF21AFAA92003AF16D /* ViewController.swift in Sources */,
+				0394992421AFAFE4003AF16D /* UIColor+Extensions.swift in Sources */,
+				0394992021AFAFAC003AF16D /* Theme.swift in Sources */,
 				039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */,
 				039498F521AFAA92003AF16D /* PrayerList.xcdatamodeld in Sources */,
 			);
