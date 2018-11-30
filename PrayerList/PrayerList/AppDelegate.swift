@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = Theme.Color.PrimaryTint
         UITabBar.appearance().unselectedItemTintColor = Theme.Color.TabBarInactive
         
+        if !PLUserDefaults.hasSetUp {
+            prepopulateCoreData()
+            PLUserDefaults.hasSetUp = true
+        }
         
         return true
     }
@@ -48,6 +52,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+    }
+    
+    func prepopulateCoreData(){
+        let defaultCategories = [PrayerCategoryModel(name: "Thanks", order: 0), PrayerCategoryModel(name: "Family & Friends", order: 1), PrayerCategoryModel(name: "EACO", order: 2), PrayerCategoryModel(name: "Ecclesia", order: 3), PrayerCategoryModel(name: "Temporary", order: 4)]
+        
+        for category in defaultCategories {
+            CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
+        }
+        
     }
 
 //    // MARK: - Core Data stack

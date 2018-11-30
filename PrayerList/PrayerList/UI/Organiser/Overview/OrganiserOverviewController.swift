@@ -1,5 +1,5 @@
 //
-//  PrayerOverviewController.swift
+//  OrganiserOverviewController.swift
 //  PrayerList
 //
 //  Created by Devin  on 29/11/18.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-class PrayerOverviewController: BaseViewController {
-    
+class OrganiserOverviewController: BaseViewController {
+
     @IBOutlet weak var collectionView: UICollectionView!
-    var prayers = [PrayerModel]()
     
-    var selectedPrayer: PrayerModel?
+    var categories = [PrayerCategoryModel]()
+    var selectedCategory: PrayerCategoryModel?
     
     fileprivate var longPressGesture: UILongPressGestureRecognizer!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         collectionView.delegate = self
+        // Do any additional setup after loading the view.
+        
         collectionView.register(UINib(nibName: PrayerCollectionViewCell.resuseIdentifier, bundle: nil), forCellWithReuseIdentifier: PrayerCollectionViewCell.resuseIdentifier)
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
@@ -31,8 +31,7 @@ class PrayerOverviewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        prayers = PrayerInterface.retrieveAllPrayers(inContext: CoreDataManager.mainContext)
+        categories = CategoryInterface.retrieveAllCategories(inContext: CoreDataManager.mainContext)
         
         collectionView.backgroundColor = Theme.Color.Background
         collectionView.reloadData()
@@ -55,79 +54,48 @@ class PrayerOverviewController: BaseViewController {
         }
     }
     
+    func updateCategoryOrder(){
+        for (index, category) in categories.enumerated() {
+            category.order = index
+            CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
+        }
+    }
+    
     func pushToDetial(){
-        self.performSegue(withIdentifier: "prayerDetailSegue", sender: self)
+        self.performSegue(withIdentifier: "categoryDetailSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destVC = segue.destination as? PrayerDetailViewController, let selectedPrayer = self.selectedPrayer {
-            destVC.prayer = selectedPrayer
-        }
-    }
-    
-    func updatePrayerOrder(){
-        for (index, prayer) in prayers.enumerated() {
-            prayer.order = index
-            PrayerInterface.savePrayer(prayer: prayer, inContext: CoreDataManager.mainContext)
+        if let destVC = segue.destination as? CategoryDetailViewController, let selectedCategory = self.selectedCategory {
+            destVC.category = selectedCategory
         }
     }
 
-    @IBAction func addPrayerAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Add Prayer", message: "Enter the name of your prayer", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        let action = UIAlertAction(title: "Add", style: .default) { [weak self] (alertAction) in
-            let textField = alert.textFields![0] as UITextField
-            self?.addPrayer(name: textField.text)
-        }
-        
-        alert.addTextField { (textField) in
-            textField.placeholder = "Name"
-            textField.autocapitalizationType = .words
-        }
-        
-        alert.view.tintColor = Theme.Color.PrimaryTint
-        
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    func addPrayer(name: String?) {
-        guard let name = name else { return }
-        
-        let prayer = PrayerModel(name: name, order: prayers.count)
-        prayers.append(prayer)
-        collectionView.insertItems(at: [IndexPath(row: prayers.count - 1, section: 0)])
-        PrayerInterface.savePrayer(prayer: prayer, inContext: CoreDataManager.mainContext)
-    }
 }
 
-extension PrayerOverviewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+extension OrganiserOverviewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return prayers.count
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrayerCollectionViewCell.resuseIdentifier, for: indexPath) as! PrayerCollectionViewCell
         
-        cell.setUp(title: prayers[indexPath.row].name, backgroundColor: Theme.Color.PrimaryTint, textColor: UIColor.white)
+        cell.setUp(title: categories[indexPath.row].name, backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedPrayer = prayers[indexPath.row]
+        selectedCategory = categories[indexPath.row]
         pushToDetial()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.bounds.width - 30, height: 100)
+        return CGSize(width: self.view.bounds.width - 30, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -151,9 +119,9 @@ extension PrayerOverviewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.prayers[sourceIndexPath.row]
-        self.prayers.remove(at: sourceIndexPath.row)
-        self.prayers.insert(movedObject, at: destinationIndexPath.row)
-        updatePrayerOrder()
+        let movedObject = self.categories[sourceIndexPath.row]
+        self.categories.remove(at: sourceIndexPath.row)
+        self.categories.insert(movedObject, at: destinationIndexPath.row)
+        updateCategoryOrder()
     }
 }

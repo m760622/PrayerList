@@ -31,11 +31,12 @@ class PrayerCollectionViewCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 20
     }
     
-    func setUp(prayerModel: PrayerModel, color: UIColor){
-        titleLabel.text = prayerModel.name
+    func setUp(title: String, backgroundColor: UIColor, textColor: UIColor){
+        titleLabel.text = title
+        titleLabel.textColor = textColor
         dropshadowView.layer.shadowColor = Theme.Color.dropShadow.cgColor
         
-        containerView.backgroundColor = color
+        containerView.backgroundColor = backgroundColor
     }
 
 }

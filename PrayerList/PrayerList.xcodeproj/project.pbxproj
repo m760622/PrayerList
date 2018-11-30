@@ -31,9 +31,19 @@
 		0394994221AFCD9A003AF16D /* PrayerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994121AFCD9A003AF16D /* PrayerSettingsViewController.swift */; };
 		0394994721AFCF0B003AF16D /* PrayerSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994521AFCF0B003AF16D /* PrayerSettingsTableViewCell.swift */; };
 		0394994821AFCF0B003AF16D /* PrayerSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394994621AFCF0B003AF16D /* PrayerSettingsTableViewCell.xib */; };
-		0394994A21AFDA47003AF16D /* PrayerModelSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994921AFDA47003AF16D /* PrayerModelSettingsController.swift */; };
 		0394994C21AFE220003AF16D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994B21AFE220003AF16D /* Button.swift */; };
 		0394995021AFE460003AF16D /* PrayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */; };
+		0394995321B12419003AF16D /* PrayerGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995221B12419003AF16D /* PrayerGroupModel.swift */; };
+		0394995521B12427003AF16D /* PrayerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995421B12427003AF16D /* PrayerItemModel.swift */; };
+		0394995721B1246E003AF16D /* PrayerCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995621B1246E003AF16D /* PrayerCategoryModel.swift */; };
+		0394995921B124E8003AF16D /* CoreDataPrayerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995821B124E8003AF16D /* CoreDataPrayerGroup.swift */; };
+		0394995B21B124F5003AF16D /* CoreDataPrayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995A21B124F5003AF16D /* CoreDataPrayerItem.swift */; };
+		0394995D21B12502003AF16D /* CoreDataPrayerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */; };
+		0394995F21B128FD003AF16D /* GroupInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995E21B128FD003AF16D /* GroupInterface.swift */; };
+		0394996121B12907003AF16D /* ItemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996021B12907003AF16D /* ItemInterface.swift */; };
+		0394996321B12912003AF16D /* CategoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996221B12912003AF16D /* CategoryInterface.swift */; };
+		0394996521B12AE4003AF16D /* PRUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996421B12AE4003AF16D /* PRUserDefaults.swift */; };
+		0394996E21B13100003AF16D /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996D21B13100003AF16D /* CategoryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,9 +94,19 @@
 		0394994121AFCD9A003AF16D /* PrayerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSettingsViewController.swift; sourceTree = "<group>"; };
 		0394994521AFCF0B003AF16D /* PrayerSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		0394994621AFCF0B003AF16D /* PrayerSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrayerSettingsTableViewCell.xib; sourceTree = "<group>"; };
-		0394994921AFDA47003AF16D /* PrayerModelSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModelSettingsController.swift; sourceTree = "<group>"; };
 		0394994B21AFE220003AF16D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerDetailViewController.swift; sourceTree = "<group>"; };
+		0394995221B12419003AF16D /* PrayerGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerGroupModel.swift; sourceTree = "<group>"; };
+		0394995421B12427003AF16D /* PrayerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerItemModel.swift; sourceTree = "<group>"; };
+		0394995621B1246E003AF16D /* PrayerCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerCategoryModel.swift; sourceTree = "<group>"; };
+		0394995821B124E8003AF16D /* CoreDataPrayerGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerGroup.swift; sourceTree = "<group>"; };
+		0394995A21B124F5003AF16D /* CoreDataPrayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerItem.swift; sourceTree = "<group>"; };
+		0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerCategory.swift; sourceTree = "<group>"; };
+		0394995E21B128FD003AF16D /* GroupInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInterface.swift; sourceTree = "<group>"; };
+		0394996021B12907003AF16D /* ItemInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInterface.swift; sourceTree = "<group>"; };
+		0394996221B12912003AF16D /* CategoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInterface.swift; sourceTree = "<group>"; };
+		0394996421B12AE4003AF16D /* PRUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRUserDefaults.swift; sourceTree = "<group>"; };
+		0394996D21B13100003AF16D /* CategoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +192,7 @@
 				0394991F21AFAFAC003AF16D /* Theme.swift */,
 				039498F021AFAA92003AF16D /* Main.storyboard */,
 				039498F821AFAA95003AF16D /* LaunchScreen.storyboard */,
+				0394994D21AFE226003AF16D /* Components */,
 				0394992C21AFB205003AF16D /* Organiser */,
 				0394992B21AFB1FE003AF16D /* Prayer */,
 				0394993121AFB46A003AF16D /* BaseViewController.swift */,
@@ -195,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				0394992221AFAFD6003AF16D /* Extensions */,
+				0394996421B12AE4003AF16D /* PRUserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -210,11 +232,9 @@
 		0394992B21AFB1FE003AF16D /* Prayer */ = {
 			isa = PBXGroup;
 			children = (
-				0394994D21AFE226003AF16D /* Components */,
 				0394992921AFB1C0003AF16D /* Prayer.storyboard */,
-				0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */,
+				0394995121B10737003AF16D /* Detail */,
 				0394994E21AFE438003AF16D /* Overview */,
-				0394994321AFCEDF003AF16D /* Prayer Settings */,
 			);
 			path = Prayer;
 			sourceTree = "<group>";
@@ -223,7 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				0394992721AFB14F003AF16D /* Organiser.storyboard */,
-				0394992F21AFB25A003AF16D /* OrganiserOverviewController.swift */,
+				0394996A21B12D45003AF16D /* Overview */,
+				0394996C21B130C8003AF16D /* Detail */,
 			);
 			path = Organiser;
 			sourceTree = "<group>";
@@ -232,6 +253,9 @@
 			isa = PBXGroup;
 			children = (
 				0394993A21AFC9F9003AF16D /* PrayerInterface.swift */,
+				0394995E21B128FD003AF16D /* GroupInterface.swift */,
+				0394996021B12907003AF16D /* ItemInterface.swift */,
+				0394996221B12912003AF16D /* CategoryInterface.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -240,6 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				0394993621AFB81C003AF16D /* PrayerModel.swift */,
+				0394995221B12419003AF16D /* PrayerGroupModel.swift */,
+				0394995421B12427003AF16D /* PrayerItemModel.swift */,
+				0394995621B1246E003AF16D /* PrayerCategoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +275,9 @@
 			isa = PBXGroup;
 			children = (
 				0394993821AFB82F003AF16D /* CoreDataPrayer.swift */,
+				0394995821B124E8003AF16D /* CoreDataPrayerGroup.swift */,
+				0394995A21B124F5003AF16D /* CoreDataPrayerItem.swift */,
+				0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -265,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				0394994121AFCD9A003AF16D /* PrayerSettingsViewController.swift */,
-				0394994921AFDA47003AF16D /* PrayerModelSettingsController.swift */,
 				0394994421AFCEEB003AF16D /* PrayerSettings TableCell */,
 			);
 			path = "Prayer Settings";
@@ -295,6 +324,31 @@
 				0394993C21AFCAD9003AF16D /* Prayer CollectionViewCell */,
 			);
 			path = Overview;
+			sourceTree = "<group>";
+		};
+		0394995121B10737003AF16D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */,
+				0394994321AFCEDF003AF16D /* Prayer Settings */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		0394996A21B12D45003AF16D /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				0394992F21AFB25A003AF16D /* OrganiserOverviewController.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		0394996C21B130C8003AF16D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0394996D21B13100003AF16D /* CategoryDetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,22 +487,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				0394994221AFCD9A003AF16D /* PrayerSettingsViewController.swift in Sources */,
+				0394996521B12AE4003AF16D /* PRUserDefaults.swift in Sources */,
 				0394993721AFB81C003AF16D /* PrayerModel.swift in Sources */,
 				0394994721AFCF0B003AF16D /* PrayerSettingsTableViewCell.swift in Sources */,
+				0394995D21B12502003AF16D /* CoreDataPrayerCategory.swift in Sources */,
 				0394993921AFB82F003AF16D /* CoreDataPrayer.swift in Sources */,
+				0394996321B12912003AF16D /* CategoryInterface.swift in Sources */,
+				0394995B21B124F5003AF16D /* CoreDataPrayerItem.swift in Sources */,
+				0394995721B1246E003AF16D /* PrayerCategoryModel.swift in Sources */,
 				0394992621AFB012003AF16D /* CoreDataManager.swift in Sources */,
 				039498EF21AFAA92003AF16D /* ViewController.swift in Sources */,
 				0394993B21AFC9F9003AF16D /* PrayerInterface.swift in Sources */,
+				0394995921B124E8003AF16D /* CoreDataPrayerGroup.swift in Sources */,
+				0394996E21B13100003AF16D /* CategoryDetailViewController.swift in Sources */,
 				0394992421AFAFE4003AF16D /* UIColor+Extensions.swift in Sources */,
+				0394995321B12419003AF16D /* PrayerGroupModel.swift in Sources */,
 				0394995021AFE460003AF16D /* PrayerDetailViewController.swift in Sources */,
 				0394993021AFB25A003AF16D /* OrganiserOverviewController.swift in Sources */,
 				0394992021AFAFAC003AF16D /* Theme.swift in Sources */,
 				0394993221AFB46A003AF16D /* BaseViewController.swift in Sources */,
+				0394995521B12427003AF16D /* PrayerItemModel.swift in Sources */,
+				0394996121B12907003AF16D /* ItemInterface.swift in Sources */,
 				0394992E21AFB225003AF16D /* PrayerOverviewController.swift in Sources */,
 				0394993F21AFCAF5003AF16D /* PrayerCollectionViewCell.swift in Sources */,
 				039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */,
+				0394995F21B128FD003AF16D /* GroupInterface.swift in Sources */,
 				039498F521AFAA92003AF16D /* PrayerList.xcdatamodeld in Sources */,
-				0394994A21AFDA47003AF16D /* PrayerModelSettingsController.swift in Sources */,
 				0394994C21AFE220003AF16D /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

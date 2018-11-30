@@ -5,7 +5,27 @@
         <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="CoreDataPrayerCategory" representedClassName=".CoreDataPrayerCategory" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataPrayerGroup" inverseName="category" inverseEntity="CoreDataPrayerGroup" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataPrayerGroup" representedClassName=".CoreDataPrayerGroup" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataPrayerCategory" inverseName="groups" inverseEntity="CoreDataPrayerCategory" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataPrayerItem" inverseName="group" inverseEntity="CoreDataPrayerItem" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataPrayerItem" representedClassName=".CoreDataPrayerItem" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataPrayerGroup" inverseName="items" inverseEntity="CoreDataPrayerGroup" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="CoreDataPrayer" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="CoreDataPrayer" positionX="-63.5859375" positionY="-156.69140625" width="128" height="90"/>
+        <element name="CoreDataPrayerGroup" positionX="-54" positionY="18" width="128" height="105"/>
+        <element name="CoreDataPrayerItem" positionX="349.35546875" positionY="-78.0078125" width="128" height="90"/>
+        <element name="CoreDataPrayerCategory" positionX="155.7578125" positionY="-206.5078125" width="128" height="103"/>
     </elements>
 </model>
