@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol PrayerSettingsDelegate: class {
-    func prayerDeleted()
+protocol SettingsDelegate: class {
+    func thingDeleted()
+    func nameUpdated(name: String)
 }
 
 class PrayerDetailViewController: UIViewController {
@@ -22,7 +23,7 @@ class PrayerDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.title = prayer.name
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,8 +45,12 @@ class PrayerDetailViewController: UIViewController {
     }
 }
 
-extension PrayerDetailViewController: PrayerSettingsDelegate {
-    func prayerDeleted() {
+extension PrayerDetailViewController: SettingsDelegate {
+    func thingDeleted() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func nameUpdated(name: String) {
+        self.title = name
     }
 }

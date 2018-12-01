@@ -9,17 +9,17 @@
 import UIKit
 
 protocol CellTextDelegate: class {
-    func textChanged(text: String?, item: PrayerSettingsTableItem)
+    func textChanged(text: String?, indexPath: IndexPath)
 }
 
-class PrayerSettingsTableViewCell: UITableViewCell {
+class TextFieldTableViewCell: UITableViewCell {
     
-    static var reuseIdentifier: String = "PrayerSettingsTableViewCell"
+    static var reuseIdentifier: String = "TextFieldTableViewCell"
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
-    var item: PrayerSettingsTableItem!
+    var indexPath: IndexPath!
     weak var delegate: CellTextDelegate?
     
     override func awakeFromNib() {
@@ -30,34 +30,30 @@ class PrayerSettingsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
-    func setUp(title: String, detail: String?, isEditable: Bool, item: PrayerSettingsTableItem) {
-        self.item = item
+    func setUp(title: String, detail: String?, placeholder: String? = nil, isEditable: Bool, indexPath: IndexPath, titleColor: UIColor = Theme.Color.Text, detailColor: UIColor = Theme.Color.Text) {
+        self.indexPath = indexPath
         self.titleLabel.text = title
         self.textField.text = detail
+        self.textField.placeholder = placeholder
         self.textField.isUserInteractionEnabled = isEditable
         
-        if item == .delete {
-            self.titleLabel.textColor = Theme.Color.Error
-        } else {
-            self.titleLabel.textColor = Theme.Color.Text
-        }
-        self.textField.textColor = Theme.Color.Subtitle
+        self.titleLabel.textColor = titleColor
+        self.textField.textColor = detailColor
     }
     
 }
 
-extension PrayerSettingsTableViewCell: UITextFieldDelegate {
+extension TextFieldTableViewCell: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.textAlignment = .left
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        delegate?.textChanged(text: textField.text, item: self.item)
+        delegate?.textChanged(text: textField.text, indexPath: self.indexPath)
         textField.textAlignment = .right
     }
     

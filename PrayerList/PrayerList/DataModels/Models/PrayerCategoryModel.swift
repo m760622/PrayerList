@@ -14,6 +14,7 @@ class PrayerCategoryModel {
     var uuid: String
     var order: Int
     
+    var prayers = [PrayerModel]()
     var groups = [PrayerGroupModel]()
     
     init(name: String, order: Int){
@@ -28,7 +29,11 @@ class PrayerCategoryModel {
         self.order = Int(coreDataCategory.order)
         
         if !coreDataCategory.groups.isEmpty {
-            self.groups = Array(coreDataCategory.groups.map({PrayerGroupModel(coreDataGroup: $0)}))
+            self.groups = Array(coreDataCategory.groups.map({PrayerGroupModel(coreDataGroup: $0)})).sorted(by: {$0.order < $1.order})
+        }
+        
+        if !coreDataCategory.prayers.isEmpty {
+            self.prayers = Array(coreDataCategory.prayers.map({PrayerModel(coreDataPrayer: $0)})).sorted(by: {$0.order < $1.order})
         }
     }
     

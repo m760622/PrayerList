@@ -17,6 +17,7 @@ class CoreDataPrayerGroup: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var uuid: String
+    @NSManaged var order: Int64
     
     @NSManaged var items: Set<CoreDataPrayerItem>
     
@@ -33,6 +34,7 @@ class CoreDataPrayerGroup: NSManagedObject {
         }
         
         group.name = groupModel.name
+        group.order = Int64(groupModel.order)
         
         if !groupModel.currentItems.isEmpty {
             group.items = Set<CoreDataPrayerItem>()

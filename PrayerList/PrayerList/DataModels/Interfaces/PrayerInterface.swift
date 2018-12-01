@@ -16,10 +16,17 @@ class PrayerInterface {
         return coreDataPrayers.map({PrayerModel(coreDataPrayer: $0)}).sorted(by: {$0.order < $1.order})
     }
     
+    class func retrievePrayersForGroup(groupID: String, inContext context: NSManagedObjectContext) -> [PrayerModel] {
+        let coreDataPrayers = CoreDataPrayer.fetchPrayers(forGroup: groupID, in: context)
+        return coreDataPrayers.map({PrayerModel(coreDataPrayer: $0)}).sorted(by: {$0.order < $1.order})
+    }
+    
     class func savePrayer(prayer: PrayerModel, inContext context: NSManagedObjectContext) {
         _ = CoreDataPrayer.new(forPrayer: prayer, in: context)
         CoreDataManager.saveContext(context)
     }
+    
+    
     
     class func deletePrayer(prayerModel: PrayerModel, inContext context: NSManagedObjectContext) {
         

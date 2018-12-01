@@ -20,6 +20,7 @@ class CoreDataPrayerCategory: NSManagedObject {
     @NSManaged var order: Int64
     
     @NSManaged var groups: Set<CoreDataPrayerGroup>
+    @NSManaged var prayers: Set<CoreDataPrayer>
     
     static let entityName: String = "CoreDataPrayerCategory"
     
@@ -41,6 +42,14 @@ class CoreDataPrayerCategory: NSManagedObject {
             for group in categoryModel.groups {
                 let group = CoreDataPrayerGroup.new(forGroup: group, in: context)
                 category.groups .insert(group)
+            }
+        }
+        
+        if !categoryModel.prayers.isEmpty {
+            category.prayers = Set<CoreDataPrayer>()
+            for prayerModel in categoryModel.prayers {
+                let prayer = CoreDataPrayer.new(forPrayer: prayerModel, in: context)
+                category.prayers .insert(prayer)
             }
         }
         

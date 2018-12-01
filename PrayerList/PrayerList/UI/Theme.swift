@@ -81,7 +81,7 @@ public class Theme {
         }
         
         static var TabBarInactive: UIColor {
-            return nightMode ? UIColor(hexString: "#393939") :  UIColor(hexString: "#E1E1E1")
+            return nightMode ? UIColor(hexString: "#393939") :  UIColor(hexString: "#C6C6C6")
         }
         
         static var Error: UIColor {

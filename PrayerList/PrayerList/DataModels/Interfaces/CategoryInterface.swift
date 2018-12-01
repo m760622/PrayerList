@@ -16,6 +16,14 @@ class CategoryInterface {
         return coredataCategories.map({PrayerCategoryModel(coreDataCategory: $0)}).sorted(by: {$0.order < $1.order})
     }
     
+    class func retrieveCategory(forID ID: String, context: NSManagedObjectContext) -> PrayerCategoryModel? {
+        if let category = CoreDataPrayerCategory.fetchCategory(withID: ID, in: context) {
+            return PrayerCategoryModel(coreDataCategory: category)
+        }
+        
+        return nil
+    }
+    
     class func saveCategory(category: PrayerCategoryModel, inContext context: NSManagedObjectContext) {
         _ = CoreDataPrayerCategory.new(forGroup: category, in: context)
         CoreDataManager.saveContext(context)

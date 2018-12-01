@@ -68,6 +68,9 @@ class OrganiserOverviewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? CategoryDetailViewController, let selectedCategory = self.selectedCategory {
             destVC.category = selectedCategory
+        } else if let destVC = segue.destination as? UINavigationController, let childVC  = destVC.topViewController as? CategoryDetailViewController {
+            childVC.category = selectedCategory
+            childVC.title = selectedCategory?.name
         }
     }
 

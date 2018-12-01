@@ -19,6 +19,8 @@ class CoreDataPrayer: NSManagedObject {
     @NSManaged var uuid: String
     @NSManaged var order: Int64
     
+    @NSManaged var groups: Set<CoreDataPrayerGroup>
+    
     static let entityName: String = "CoreDataPrayer"
     
     class func new(forPrayer prayerModel: PrayerModel, in context: NSManagedObjectContext) -> CoreDataPrayer {
@@ -34,6 +36,14 @@ class CoreDataPrayer: NSManagedObject {
         
         prayer.name = prayerModel.name
         prayer.order = Int64(prayerModel.order)
+        
+        if !prayerModel.groups.isEmpty {
+            prayer.groups = Set<CoreDataPrayerGroup>()
+            for group in prayerModel.groups {
+                let group = CoreDataPrayerGroup.new(forGroup: group, in: context)
+                 prayer.groups.insert(group)
+            }
+        }
         
         return prayer
     }
@@ -54,6 +64,22 @@ class CoreDataPrayer: NSManagedObject {
         }
         
         return prayers.first
+    }
+    
+    class func fetchPrayers(forGroup id: String, in context: NSManagedObjectContext) -> [CoreDataPrayer] {
+        var prayers = [CoreDataPrayer]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataPrayer")
+        
+        fetchRequest.predicate = NSPredicate(format: "ANY groups.uuid = %@", id)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            prayers = results as! [CoreDataPrayer]
+        } catch let error as NSError {
+            print("Could not fetch \(error)")
+        }
+        
+        return prayers
     }
     
     class func fetchAllPrayers(inContext context: NSManagedObjectContext) -> [CoreDataPrayer] {

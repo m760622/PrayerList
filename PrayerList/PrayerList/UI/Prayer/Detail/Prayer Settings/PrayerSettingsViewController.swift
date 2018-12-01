@@ -22,13 +22,13 @@ class PrayerSettingsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var prayer: PrayerModel!
-    weak var delegate: PrayerSettingsDelegate?
+    weak var delegate: SettingsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tableView.register(UINib(nibName: PrayerSettingsTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: PrayerSettingsTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: TextFieldTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.reuseIdentifier)
         tableView.estimatedRowHeight = 44
         self.title = "Settings"
     }
@@ -59,7 +59,7 @@ class PrayerSettingsViewController: BaseViewController {
     func delete(){
         PrayerInterface.deletePrayer(prayerModel: self.prayer, inContext: CoreDataManager.mainContext)
         self.dismiss(animated: true, completion: nil)
-        self.delegate?.prayerDeleted()
+        self.delegate?.thingDeleted()
     }
     
 }
@@ -78,14 +78,14 @@ extension PrayerSettingsViewController: UITableViewDataSource, UITableViewDelega
         
         switch item {
         case .name:
-            let cell = tableView.dequeueReusableCell(withIdentifier: PrayerSettingsTableViewCell.reuseIdentifier, for: indexPath) as! PrayerSettingsTableViewCell
-            cell.setUp(title: "Name", detail: prayer.name, isEditable: true, item: item)
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
+            cell.setUp(title: "Name", detail: prayer.name, isEditable: true, indexPath: indexPath)
             cell.delegate = self
             return cell
             
         case .delete:
-            let cell = tableView.dequeueReusableCell(withIdentifier: PrayerSettingsTableViewCell.reuseIdentifier, for: indexPath) as! PrayerSettingsTableViewCell
-            cell.setUp(title: "Delete", detail: nil, isEditable: false, item: item)
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
+            cell.setUp(title: "Delete", detail: nil, isEditable: false, indexPath: indexPath, titleColor: Theme.Color.Error)
             cell.delegate = self
             return cell
         }
@@ -97,7 +97,9 @@ extension PrayerSettingsViewController: UITableViewDataSource, UITableViewDelega
         
         switch item {
         case .name:
-            print("Name Selected")
+            if let cell = tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell  {
+                cell.textField.becomeFirstResponder()
+            }
         case .delete:
             deletePrayer()
         }
@@ -114,13 +116,15 @@ extension PrayerSettingsViewController: UITableViewDataSource, UITableViewDelega
 }
 
 extension PrayerSettingsViewController: CellTextDelegate {
-    func textChanged(text: String?, item: PrayerSettingsTableItem) {
+    func textChanged(text: String?, indexPath: IndexPath) {
+        let item = PrayerSettingsTableItem.sections[indexPath.section][indexPath.row]
         switch item {
         case .name:
             if let text = text {
                 self.prayer.name = text
                 PrayerInterface.savePrayer(prayer: prayer, inContext: CoreDataManager.mainContext)
                 self.view.endEditing(true)
+                delegate?.nameUpdated(name: text)
             }
         case .delete:
             print("delete")
