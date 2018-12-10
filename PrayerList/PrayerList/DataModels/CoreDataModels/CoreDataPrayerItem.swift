@@ -17,6 +17,7 @@ class CoreDataPrayerItem: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var uuid: String
+    @NSManaged var dateCreated: NSDate
     
     static let entityName: String = "CoreDataPrayerItem"
     
@@ -30,8 +31,8 @@ class CoreDataPrayerItem: NSManagedObject {
             item.uuid = itemModel.uuid
         }
         
-        
         item.name = itemModel.name
+        item.dateCreated = itemModel.dateCreated as NSDate
         
         return item
     }

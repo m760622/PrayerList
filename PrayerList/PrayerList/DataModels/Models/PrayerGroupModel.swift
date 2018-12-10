@@ -28,7 +28,7 @@ class PrayerGroupModel {
         self.order = Int(coreDataGroup.order)
         
         if !coreDataGroup.items.isEmpty {
-            self.currentItems = Array(coreDataGroup.items.map({PrayerItemModel(coreDataPrayerItem: $0)}))
+            self.currentItems = Array(coreDataGroup.items.map({PrayerItemModel(coreDataPrayerItem: $0)})).sorted(by: {$0.dateCreated < $1.dateCreated})
         }
     }
 }

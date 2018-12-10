@@ -11,12 +11,14 @@ import ContactsUI
 
 class CategoryDetailViewController: BaseViewController {
     
-    var category: PrayerCategoryModel?
-    var groups = [PrayerGroupModel]()
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     fileprivate var longPressGesture: UILongPressGestureRecognizer!
+    
+    var category: PrayerCategoryModel?
+    var groups = [PrayerGroupModel]()
+    
+    var selectedGroup: PrayerGroupModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +71,8 @@ class CategoryDetailViewController: BaseViewController {
                 childVC.category = self.category
                 childVC.delegate = self
             }
+        } else if let dest = segue.destination as? GroupDetailViewController, let group = self.selectedGroup {
+            dest.selectedGroup = group
         }
     }
     
@@ -118,8 +122,8 @@ extension CategoryDetailViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //selectedPrayer = prayers[indexPath.row]
-        //pushToDetial()
+        self.selectedGroup = groups[indexPath.row]
+        self.performSegue(withIdentifier: "showGroupDetail", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
