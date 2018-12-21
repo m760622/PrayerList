@@ -80,7 +80,7 @@ extension PrayerSelectionViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "Select the prayers that you want this group to appear under"
+        return "Selected the prayers that you would like to associate this category with"
     }
 }
 

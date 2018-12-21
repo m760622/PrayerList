@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03654B1921CD9A3700465E16 /* AddCategoryViewController.swift */; };
 		039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039498EC21AFAA92003AF16D /* AppDelegate.swift */; };
 		039498EF21AFAA92003AF16D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039498EE21AFAA92003AF16D /* ViewController.swift */; };
 		039498F221AFAA92003AF16D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039498F021AFAA92003AF16D /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03654B1921CD9A3700465E16 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		039498E921AFAA92003AF16D /* PrayerList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrayerList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039498EC21AFAA92003AF16D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		039498EE21AFAA92003AF16D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -280,8 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				0394992921AFB1C0003AF16D /* Prayer.storyboard */,
-				0394995121B10737003AF16D /* Detail */,
 				0394994E21AFE438003AF16D /* Overview */,
+				0394995121B10737003AF16D /* Detail */,
 			);
 			path = Prayer;
 			sourceTree = "<group>";
@@ -392,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				0394992F21AFB25A003AF16D /* OrganiserOverviewController.swift */,
+				03654B1921CD9A3700465E16 /* AddCategoryViewController.swift */,
 			);
 			path = "Category Overview";
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				03C2A68621BE51E30021AD66 /* ListCollectionViewCell.swift in Sources */,
 				0394992021AFAFAC003AF16D /* Theme.swift in Sources */,
 				0394993221AFB46A003AF16D /* BaseViewController.swift in Sources */,
+				03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */,
 				0394995521B12427003AF16D /* NoteModel.swift in Sources */,
 				0394996121B12907003AF16D /* NoteInterface.swift in Sources */,
 				0394992E21AFB225003AF16D /* PrayerOverviewController.swift in Sources */,

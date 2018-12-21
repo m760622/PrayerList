@@ -31,6 +31,7 @@ class AddItemFormViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: TextFieldTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.reuseIdentifier)
         selectedPrayers = category.prayers
+        self.updateNavButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +77,14 @@ class AddItemFormViewController: UIViewController {
             destVC.delegate = self
         }
     }
+    
+    func updateNavButtons(){
+        if let text = self.groupName, !text.isEmpty {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+        } else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
 }
 
 extension AddItemFormViewController: UITableViewDelegate, UITableViewDataSource {
@@ -117,23 +126,15 @@ extension AddItemFormViewController: UITableViewDelegate, UITableViewDataSource 
             performSegue(withIdentifier: "prayerSelectionSegue", sender: self)
         }
     }
-    
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == 0 {
-            return nil
-        } else if section == 1 {
-            return "Selected prayers will show the contents of this group"
-        }
-        return nil
-    }
 }
 
 extension AddItemFormViewController: CellTextDelegate {
     func textChanged(text: String?, indexPath: IndexPath) {
         let item = GroupFormCell.sections[indexPath.section][indexPath.row]
-        switch item{
+        switch item {
         case .name:
             groupName = text
+            self.updateNavButtons()
         case .prayer:
             print("what in the world?")
         }

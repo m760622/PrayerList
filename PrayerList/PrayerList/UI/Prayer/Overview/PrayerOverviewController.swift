@@ -27,6 +27,8 @@ class PrayerOverviewController: BaseViewController {
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView.addGestureRecognizer(longPressGesture)
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,9 +68,14 @@ class PrayerOverviewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destVC = segue.destination as? PrayerDetailViewController, let selectedPrayer = self.selectedPrayer {
-            destVC.prayer = selectedPrayer
+        if let selectedPrayer = self.selectedPrayer {
+            if let destVC = segue.destination as? PrayerDetailViewController {
+                destVC.prayer = selectedPrayer
+            } else if let destVC = segue.destination as? UINavigationController, let topVC = destVC.topViewController as? PrayerDetailViewController{
+                topVC.prayer = selectedPrayer
+            }
         }
+       
     }
     
     func updatePrayerOrder(){

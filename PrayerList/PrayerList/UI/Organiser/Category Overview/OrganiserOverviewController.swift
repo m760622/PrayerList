@@ -28,6 +28,8 @@ class OrganiserOverviewController: BaseViewController {
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView.addGestureRecognizer(longPressGesture)
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,7 +109,7 @@ extension OrganiserOverviewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrayerCollectionViewCell.resuseIdentifier, for: indexPath) as! PrayerCollectionViewCell
         
-        cell.setUp(title: categories[indexPath.row].name, backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.PrimaryTint.withAlphaComponent(0.8))
+        cell.setUp(title: categories[indexPath.row].name, backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.PrimaryTint)
         return cell
     }
     
@@ -151,6 +153,6 @@ extension OrganiserOverviewController: UICollectionViewDelegate, UICollectionVie
 extension OrganiserOverviewController: PlusDelegate {
     
     func action() {
-        
+        performSegue(withIdentifier: "addCategorySegue", sender: nil)
     }
 }

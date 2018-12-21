@@ -26,6 +26,7 @@ class TextFieldTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         textField.delegate = self
+        textField.addTarget(self, action: #selector(updateValues(_:)), for: UIControl.Event.editingChanged)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,6 +44,10 @@ class TextFieldTableViewCell: UITableViewCell {
         self.titleLabel.textColor = titleColor
         self.textField.textColor = detailColor
     }
+    
+     @objc func updateValues(_ textField: UITextField) {
+        delegate?.textChanged(text: textField.text, indexPath: self.indexPath)
+     }
     
 }
 

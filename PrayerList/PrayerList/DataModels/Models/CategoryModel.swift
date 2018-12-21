@@ -37,4 +37,8 @@ class CategoryModel {
         }
     }
     
+    func retrieveItemsForPrayer(prayer: PrayerModel) -> [ItemModel] {
+        return [ItemModel]()
+    }
+    
 }

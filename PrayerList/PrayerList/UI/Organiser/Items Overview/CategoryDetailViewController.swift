@@ -119,7 +119,7 @@ extension CategoryDetailViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemOverviewCollectionViewCell.reuseIdentifier, for: indexPath) as! ItemOverviewCollectionViewCell
         
-        cell.setUp(title: groups[indexPath.row].name, detail: "\(groups[indexPath.row].currentItems.count) Items", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle)
+        cell.setUp(title: groups[indexPath.row].name, detail: "\(groups[indexPath.row].currentItems.count) Notes", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle)
         return cell
     }
     

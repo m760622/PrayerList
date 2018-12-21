@@ -23,7 +23,7 @@ class ItemDetailViewController: UIViewController {
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.estimatedItemSize = CGSize(width: collectionView.bounds.width - 30, height: 200)
-            layout.headerReferenceSize = CGSize(width: self.collectionView.bounds.width, height: 50)
+            layout.headerReferenceSize = CGSize(width: self.collectionView.bounds.width - 30, height: 50)
         }
         
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 10, right: 15)
@@ -100,6 +100,7 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension ItemDetailViewController: TableViewCellDelegate {
     func tableDidSizeChange() {
+        //collectionView.collectionViewLayout.invalidateLayout()
     }
     
     func buttonAction() {
