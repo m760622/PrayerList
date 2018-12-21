@@ -8,12 +8,11 @@
 
 import Foundation
 
-class PrayerItemModel {
+class NoteModel {
     
     var name: String
     var uuid: String
     var dateCreated: Date
-    
     
     init(name: String){
         self.name = name
@@ -21,7 +20,7 @@ class PrayerItemModel {
         self.dateCreated = Date()
     }
     
-    init(coreDataPrayerItem: CoreDataPrayerItem){
+    init(coreDataPrayerItem: CoreDataPrayerNote){
         self.name = coreDataPrayerItem.name
         self.uuid = coreDataPrayerItem.uuid
         self.dateCreated = coreDataPrayerItem.dateCreated as Date

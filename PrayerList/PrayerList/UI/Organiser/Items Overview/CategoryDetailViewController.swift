@@ -15,17 +15,25 @@ class CategoryDetailViewController: BaseViewController {
     
     fileprivate var longPressGesture: UILongPressGestureRecognizer!
     
-    var category: PrayerCategoryModel?
-    var groups = [PrayerGroupModel]()
+    var category: CategoryModel?
+    var groups = [ItemModel]()
     
-    var selectedGroup: PrayerGroupModel?
+    var selectedGroup: ItemModel?
+    
+    lazy var emptyView: EmptyView = {
+        let view = EmptyView.instantiate()
+        self.view.addSubview(view)
+        view.setUp(title: "No Items", subtitle: "There aren't any items for this category", image: UIImage(named: "empty-category"), parentView: self.view)
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = self.category?.name ?? ""
         
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: GroupOverviewCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupOverviewCollectionViewCell.reuseIdentifier)
+        collectionView.register(UINib(nibName: ItemOverviewCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: ItemOverviewCollectionViewCell.reuseIdentifier)
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
@@ -34,6 +42,11 @@ class CategoryDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if let tab = self.tabBarController as? TabBarController {
+            tab.plus.delegate = self
+        }
+        
         collectionView.backgroundColor = Theme.Color.Background
         if let oldCategory = self.category {
             self.category = CategoryInterface.retrieveCategory(forID: oldCategory.uuid, context: CoreDataManager.mainContext)
@@ -43,8 +56,17 @@ class CategoryDetailViewController: BaseViewController {
             self.groups = groups
             collectionView.reloadData()
         }
+        
+        if groups.isEmpty {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+        }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
     
     @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
         switch(gesture.state) {
@@ -65,42 +87,22 @@ class CategoryDetailViewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? UINavigationController {
-            if let childVC = destVC.topViewController as? AddGroupFormViewController {
+            if let childVC = destVC.topViewController as? AddItemFormViewController {
                 childVC.category = self.category
             } else if let childVC = destVC.topViewController as? CategorySettingsViewController {
                 childVC.category = self.category
                 childVC.delegate = self
             }
-        } else if let dest = segue.destination as? GroupDetailViewController, let group = self.selectedGroup {
-            dest.selectedGroup = group
+        } else if let dest = segue.destination as? ItemDetailViewController, let group = self.selectedGroup {
+            dest.selectedItem = group
         }
     }
     
     func updateGroupsOrder(){
         for (index, group) in groups.enumerated() {
             group.order = index
-            GroupInterface.saveGroup(group: group, inContext: CoreDataManager.mainContext)
+            ItemInterface.saveGroup(group: group, inContext: CoreDataManager.mainContext)
         }
-    }
-    
-    @IBAction func addGroupAction(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (addGroup) in
-            self.performSegue(withIdentifier: "addSingleGroupSegue", sender: self)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Import From Contacts", style: .default, handler: { (importContacts) in
-            let contactPicker = CNContactPickerViewController()
-            contactPicker.delegate = self
-            self.present(contactPicker, animated: true, completion: nil)
-        }))
-        
-        alert.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItems?.last
-        
-        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -115,7 +117,7 @@ extension CategoryDetailViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupOverviewCollectionViewCell.reuseIdentifier, for: indexPath) as! GroupOverviewCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemOverviewCollectionViewCell.reuseIdentifier, for: indexPath) as! ItemOverviewCollectionViewCell
         
         cell.setUp(title: groups[indexPath.row].name, detail: "\(groups[indexPath.row].currentItems.count) Items", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle)
         return cell
@@ -162,7 +164,7 @@ extension CategoryDetailViewController: CNContactPickerDelegate {
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
         guard let catagory = self.category else { return }
         contacts.forEach { contact in
-            let group = PrayerGroupModel(name: contact.givenName + " " + contact.familyName, order: catagory.groups.count)
+            let group = ItemModel(name: contact.givenName + " " + contact.familyName, order: catagory.groups.count)
             category?.groups.append(group)
         }
         CategoryInterface.saveCategory(category: catagory, inContext: CoreDataManager.mainContext)
@@ -180,5 +182,30 @@ extension CategoryDetailViewController: SettingsDelegate {
     
     func nameUpdated(name: String) {
         self.title = name
+    }
+}
+
+extension CategoryDetailViewController: PlusDelegate {
+    func action() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (addGroup) in
+            self.performSegue(withIdentifier: "addSingleGroupSegue", sender: self)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Add From Contacts", style: .default, handler: { (importContacts) in
+            let contactPicker = CNContactPickerViewController()
+            contactPicker.delegate = self
+            self.present(contactPicker, animated: true, completion: nil)
+        }))
+        
+        if let tab = self.tabBarController as? TabBarController {
+            alert.popoverPresentationController?.sourceRect = tab.plus.bounds
+            alert.popoverPresentationController?.sourceView = tab.plus
+        }
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

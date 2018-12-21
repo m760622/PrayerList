@@ -8,14 +8,14 @@
 
 import Foundation
 
-class PrayerCategoryModel {
+class CategoryModel {
     
     var name: String
     var uuid: String
     var order: Int
     
     var prayers = [PrayerModel]()
-    var groups = [PrayerGroupModel]()
+    var groups = [ItemModel]()
     
     init(name: String, order: Int){
         self.name = name
@@ -29,7 +29,7 @@ class PrayerCategoryModel {
         self.order = Int(coreDataCategory.order)
         
         if !coreDataCategory.groups.isEmpty {
-            self.groups = Array(coreDataCategory.groups.map({PrayerGroupModel(coreDataGroup: $0)})).sorted(by: {$0.order < $1.order})
+            self.groups = Array(coreDataCategory.groups.map({ItemModel(coreDataGroup: $0)})).sorted(by: {$0.order < $1.order})
         }
         
         if !coreDataCategory.prayers.isEmpty {

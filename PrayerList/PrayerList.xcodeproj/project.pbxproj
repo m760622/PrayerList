@@ -33,31 +33,39 @@
 		0394994821AFCF0B003AF16D /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394994621AFCF0B003AF16D /* TextFieldTableViewCell.xib */; };
 		0394994C21AFE220003AF16D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994B21AFE220003AF16D /* Button.swift */; };
 		0394995021AFE460003AF16D /* PrayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */; };
-		0394995321B12419003AF16D /* PrayerGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995221B12419003AF16D /* PrayerGroupModel.swift */; };
-		0394995521B12427003AF16D /* PrayerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995421B12427003AF16D /* PrayerItemModel.swift */; };
-		0394995721B1246E003AF16D /* PrayerCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995621B1246E003AF16D /* PrayerCategoryModel.swift */; };
-		0394995921B124E8003AF16D /* CoreDataPrayerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995821B124E8003AF16D /* CoreDataPrayerGroup.swift */; };
-		0394995B21B124F5003AF16D /* CoreDataPrayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995A21B124F5003AF16D /* CoreDataPrayerItem.swift */; };
+		0394995321B12419003AF16D /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995221B12419003AF16D /* ItemModel.swift */; };
+		0394995521B12427003AF16D /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995421B12427003AF16D /* NoteModel.swift */; };
+		0394995721B1246E003AF16D /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995621B1246E003AF16D /* CategoryModel.swift */; };
+		0394995921B124E8003AF16D /* CoreDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995821B124E8003AF16D /* CoreDataItem.swift */; };
+		0394995B21B124F5003AF16D /* CoreDataPrayerNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995A21B124F5003AF16D /* CoreDataPrayerNote.swift */; };
 		0394995D21B12502003AF16D /* CoreDataPrayerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */; };
-		0394995F21B128FD003AF16D /* GroupInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995E21B128FD003AF16D /* GroupInterface.swift */; };
-		0394996121B12907003AF16D /* ItemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996021B12907003AF16D /* ItemInterface.swift */; };
+		0394995F21B128FD003AF16D /* ItemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995E21B128FD003AF16D /* ItemInterface.swift */; };
+		0394996121B12907003AF16D /* NoteInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996021B12907003AF16D /* NoteInterface.swift */; };
 		0394996321B12912003AF16D /* CategoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996221B12912003AF16D /* CategoryInterface.swift */; };
 		0394996521B12AE4003AF16D /* PRUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996421B12AE4003AF16D /* PRUserDefaults.swift */; };
 		0394996E21B13100003AF16D /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996D21B13100003AF16D /* CategoryDetailViewController.swift */; };
 		0394997021B1CD6C003AF16D /* PrimarySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996F21B1CD6C003AF16D /* PrimarySplitViewController.swift */; };
-		0394997321B1CF77003AF16D /* AddGroupFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997221B1CF77003AF16D /* AddGroupFormViewController.swift */; };
+		0394997321B1CF77003AF16D /* AddItemFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997221B1CF77003AF16D /* AddItemFormViewController.swift */; };
 		0394997521B1D461003AF16D /* PrayerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997421B1D461003AF16D /* PrayerSelectionViewController.swift */; };
-		0394997921B1DA7D003AF16D /* GroupOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997721B1DA7D003AF16D /* GroupOverviewCollectionViewCell.swift */; };
-		0394997A21B1DA7D003AF16D /* GroupOverviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394997821B1DA7D003AF16D /* GroupOverviewCollectionViewCell.xib */; };
+		0394997921B1DA7D003AF16D /* ItemOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997721B1DA7D003AF16D /* ItemOverviewCollectionViewCell.swift */; };
+		0394997A21B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394997821B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib */; };
 		0394997C21B25448003AF16D /* CategorySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997B21B25448003AF16D /* CategorySettingsViewController.swift */; };
 		0394997E21B25A86003AF16D /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997D21B25A86003AF16D /* Storyboardable.swift */; };
-		03C2A68321BE4F820021AD66 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68221BE4F820021AD66 /* GroupDetailViewController.swift */; };
-		03C2A68621BE51E30021AD66 /* GroupItemsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68421BE51E30021AD66 /* GroupItemsCollectionViewCell.swift */; };
-		03C2A68721BE51E30021AD66 /* GroupItemsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A68521BE51E30021AD66 /* GroupItemsCollectionViewCell.xib */; };
+		03C2A68321BE4F820021AD66 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68221BE4F820021AD66 /* ItemDetailViewController.swift */; };
+		03C2A68621BE51E30021AD66 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68421BE51E30021AD66 /* ListCollectionViewCell.swift */; };
+		03C2A68721BE51E30021AD66 /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A68521BE51E30021AD66 /* ListCollectionViewCell.xib */; };
 		03C2A68C21BE55310021AD66 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68A21BE55310021AD66 /* ItemTableViewCell.swift */; };
 		03C2A68D21BE55310021AD66 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A68B21BE55310021AD66 /* ItemTableViewCell.xib */; };
 		03C2A69121BE56130021AD66 /* PlainHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68F21BE56130021AD66 /* PlainHeaderCollectionReusableView.swift */; };
 		03C2A69221BE56130021AD66 /* PlainHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A69021BE56130021AD66 /* PlainHeaderCollectionReusableView.xib */; };
+		03C2A69421BF7F640021AD66 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A69321BF7F640021AD66 /* AddNoteViewController.swift */; };
+		03C2A69F21C433D50021AD66 /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A69E21C433D50021AD66 /* PlusView.swift */; };
+		03C2A6A121C433DF0021AD66 /* PlusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6A021C433DF0021AD66 /* PlusView.xib */; };
+		03C2A6A421C43BAB0021AD66 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A6A321C43BAB0021AD66 /* TabBarController.swift */; };
+		03C2A6A821C4474A0021AD66 /* LargeTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A6A621C4474A0021AD66 /* LargeTextTableViewCell.swift */; };
+		03C2A6A921C4474A0021AD66 /* LargeTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6A721C4474A0021AD66 /* LargeTextTableViewCell.xib */; };
+		03C2A6AC21CB69120021AD66 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A6AB21CB69120021AD66 /* EmptyView.swift */; };
+		03C2A6AE21CB69210021AD66 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6AD21CB69210021AD66 /* EmptyView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,31 +118,39 @@
 		0394994621AFCF0B003AF16D /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		0394994B21AFE220003AF16D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerDetailViewController.swift; sourceTree = "<group>"; };
-		0394995221B12419003AF16D /* PrayerGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerGroupModel.swift; sourceTree = "<group>"; };
-		0394995421B12427003AF16D /* PrayerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerItemModel.swift; sourceTree = "<group>"; };
-		0394995621B1246E003AF16D /* PrayerCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerCategoryModel.swift; sourceTree = "<group>"; };
-		0394995821B124E8003AF16D /* CoreDataPrayerGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerGroup.swift; sourceTree = "<group>"; };
-		0394995A21B124F5003AF16D /* CoreDataPrayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerItem.swift; sourceTree = "<group>"; };
+		0394995221B12419003AF16D /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		0394995421B12427003AF16D /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		0394995621B1246E003AF16D /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		0394995821B124E8003AF16D /* CoreDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataItem.swift; sourceTree = "<group>"; };
+		0394995A21B124F5003AF16D /* CoreDataPrayerNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerNote.swift; sourceTree = "<group>"; };
 		0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerCategory.swift; sourceTree = "<group>"; };
-		0394995E21B128FD003AF16D /* GroupInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInterface.swift; sourceTree = "<group>"; };
-		0394996021B12907003AF16D /* ItemInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInterface.swift; sourceTree = "<group>"; };
+		0394995E21B128FD003AF16D /* ItemInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInterface.swift; sourceTree = "<group>"; };
+		0394996021B12907003AF16D /* NoteInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInterface.swift; sourceTree = "<group>"; };
 		0394996221B12912003AF16D /* CategoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInterface.swift; sourceTree = "<group>"; };
 		0394996421B12AE4003AF16D /* PRUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRUserDefaults.swift; sourceTree = "<group>"; };
 		0394996D21B13100003AF16D /* CategoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewController.swift; sourceTree = "<group>"; };
 		0394996F21B1CD6C003AF16D /* PrimarySplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySplitViewController.swift; sourceTree = "<group>"; };
-		0394997221B1CF77003AF16D /* AddGroupFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupFormViewController.swift; sourceTree = "<group>"; };
+		0394997221B1CF77003AF16D /* AddItemFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemFormViewController.swift; sourceTree = "<group>"; };
 		0394997421B1D461003AF16D /* PrayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSelectionViewController.swift; sourceTree = "<group>"; };
-		0394997721B1DA7D003AF16D /* GroupOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
-		0394997821B1DA7D003AF16D /* GroupOverviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupOverviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		0394997721B1DA7D003AF16D /* ItemOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		0394997821B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemOverviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		0394997B21B25448003AF16D /* CategorySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySettingsViewController.swift; sourceTree = "<group>"; };
 		0394997D21B25A86003AF16D /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
-		03C2A68221BE4F820021AD66 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
-		03C2A68421BE51E30021AD66 /* GroupItemsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItemsCollectionViewCell.swift; sourceTree = "<group>"; };
-		03C2A68521BE51E30021AD66 /* GroupItemsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupItemsCollectionViewCell.xib; sourceTree = "<group>"; };
+		03C2A68221BE4F820021AD66 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		03C2A68421BE51E30021AD66 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		03C2A68521BE51E30021AD66 /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
 		03C2A68A21BE55310021AD66 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		03C2A68B21BE55310021AD66 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		03C2A68F21BE56130021AD66 /* PlainHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		03C2A69021BE56130021AD66 /* PlainHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlainHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		03C2A69321BF7F640021AD66 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		03C2A69E21C433D50021AD66 /* PlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusView.swift; sourceTree = "<group>"; };
+		03C2A6A021C433DF0021AD66 /* PlusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlusView.xib; sourceTree = "<group>"; };
+		03C2A6A321C43BAB0021AD66 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = PrayerList/UI/TabBarController.swift; sourceTree = SOURCE_ROOT; };
+		03C2A6A621C4474A0021AD66 /* LargeTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTextTableViewCell.swift; sourceTree = "<group>"; };
+		03C2A6A721C4474A0021AD66 /* LargeTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeTextTableViewCell.xib; sourceTree = "<group>"; };
+		03C2A6AB21CB69120021AD66 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		03C2A6AD21CB69210021AD66 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +236,7 @@
 				0394991F21AFAFAC003AF16D /* Theme.swift */,
 				039498F021AFAA92003AF16D /* Main.storyboard */,
 				039498F821AFAA95003AF16D /* LaunchScreen.storyboard */,
+				03C2A6A321C43BAB0021AD66 /* TabBarController.swift */,
 				0394994D21AFE226003AF16D /* Components */,
 				0394992C21AFB205003AF16D /* Organiser */,
 				0394992B21AFB1FE003AF16D /* Prayer */,
@@ -273,10 +290,9 @@
 			isa = PBXGroup;
 			children = (
 				0394992721AFB14F003AF16D /* Organiser.storyboard */,
-				03C2A68121BE4F3C0021AD66 /* Group Detail */,
-				0394996A21B12D45003AF16D /* Overview */,
+				0394996A21B12D45003AF16D /* Category Overview */,
 				0394996C21B130C8003AF16D /* Category Detail */,
-				0394997121B1CF3B003AF16D /* AddGroupForm */,
+				03C2A68121BE4F3C0021AD66 /* Item Detail */,
 			);
 			path = Organiser;
 			sourceTree = "<group>";
@@ -285,8 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				0394993A21AFC9F9003AF16D /* PrayerInterface.swift */,
-				0394995E21B128FD003AF16D /* GroupInterface.swift */,
-				0394996021B12907003AF16D /* ItemInterface.swift */,
+				0394995E21B128FD003AF16D /* ItemInterface.swift */,
+				0394996021B12907003AF16D /* NoteInterface.swift */,
 				0394996221B12912003AF16D /* CategoryInterface.swift */,
 			);
 			path = Interfaces;
@@ -296,9 +312,9 @@
 			isa = PBXGroup;
 			children = (
 				0394993621AFB81C003AF16D /* PrayerModel.swift */,
-				0394995221B12419003AF16D /* PrayerGroupModel.swift */,
-				0394995421B12427003AF16D /* PrayerItemModel.swift */,
-				0394995621B1246E003AF16D /* PrayerCategoryModel.swift */,
+				0394995221B12419003AF16D /* ItemModel.swift */,
+				0394995421B12427003AF16D /* NoteModel.swift */,
+				0394995621B1246E003AF16D /* CategoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,8 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				0394993821AFB82F003AF16D /* CoreDataPrayer.swift */,
-				0394995821B124E8003AF16D /* CoreDataPrayerGroup.swift */,
-				0394995A21B124F5003AF16D /* CoreDataPrayerItem.swift */,
+				0394995821B124E8003AF16D /* CoreDataItem.swift */,
+				0394995A21B124F5003AF16D /* CoreDataPrayerNote.swift */,
 				0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */,
 			);
 			path = CoreDataModels;
@@ -343,9 +359,13 @@
 		0394994D21AFE226003AF16D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				03C2A68821BE51E70021AD66 /* List Cell */,
+				03C2A6AA21CB67260021AD66 /* EmptyView */,
+				03C2A6A521C447340021AD66 /* LargeTextCell */,
 				03C2A68E21BE55FD0021AD66 /* Plain Header */,
 				0394994421AFCEEB003AF16D /* TextFieldTableCell */,
 				0394994B21AFE220003AF16D /* Button.swift */,
+				03C2A6A221C433E70021AD66 /* PlusView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -368,12 +388,12 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		0394996A21B12D45003AF16D /* Overview */ = {
+		0394996A21B12D45003AF16D /* Category Overview */ = {
 			isa = PBXGroup;
 			children = (
 				0394992F21AFB25A003AF16D /* OrganiserOverviewController.swift */,
 			);
-			path = Overview;
+			path = "Category Overview";
 			sourceTree = "<group>";
 		};
 		0394996C21B130C8003AF16D /* Category Detail */ = {
@@ -381,46 +401,47 @@
 			children = (
 				0394996D21B13100003AF16D /* CategoryDetailViewController.swift */,
 				0394997B21B25448003AF16D /* CategorySettingsViewController.swift */,
-				0394997621B1DA62003AF16D /* GroupOverViewCell */,
+				0394997121B1CF3B003AF16D /* AddItemForm */,
+				0394997621B1DA62003AF16D /* ItemOverViewCell */,
 			);
-			path = "Category Detail";
+			name = "Category Detail";
+			path = "Items Overview";
 			sourceTree = "<group>";
 		};
-		0394997121B1CF3B003AF16D /* AddGroupForm */ = {
+		0394997121B1CF3B003AF16D /* AddItemForm */ = {
 			isa = PBXGroup;
 			children = (
-				0394997221B1CF77003AF16D /* AddGroupFormViewController.swift */,
+				0394997221B1CF77003AF16D /* AddItemFormViewController.swift */,
 				0394997421B1D461003AF16D /* PrayerSelectionViewController.swift */,
 			);
-			path = AddGroupForm;
+			path = AddItemForm;
 			sourceTree = "<group>";
 		};
-		0394997621B1DA62003AF16D /* GroupOverViewCell */ = {
+		0394997621B1DA62003AF16D /* ItemOverViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				0394997721B1DA7D003AF16D /* GroupOverviewCollectionViewCell.swift */,
-				0394997821B1DA7D003AF16D /* GroupOverviewCollectionViewCell.xib */,
+				0394997721B1DA7D003AF16D /* ItemOverviewCollectionViewCell.swift */,
+				0394997821B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib */,
 			);
-			path = GroupOverViewCell;
+			path = ItemOverViewCell;
 			sourceTree = "<group>";
 		};
-		03C2A68121BE4F3C0021AD66 /* Group Detail */ = {
+		03C2A68121BE4F3C0021AD66 /* Item Detail */ = {
 			isa = PBXGroup;
 			children = (
-				03C2A68221BE4F820021AD66 /* GroupDetailViewController.swift */,
-				03C2A68821BE51E70021AD66 /* Items Cell */,
+				03C2A68221BE4F820021AD66 /* ItemDetailViewController.swift */,
+				03C2A69321BF7F640021AD66 /* AddNoteViewController.swift */,
 			);
-			path = "Group Detail";
+			path = "Item Detail";
 			sourceTree = "<group>";
 		};
-		03C2A68821BE51E70021AD66 /* Items Cell */ = {
+		03C2A68821BE51E70021AD66 /* List Cell */ = {
 			isa = PBXGroup;
 			children = (
 				03C2A68921BE55100021AD66 /* ItemTableCell */,
-				03C2A68421BE51E30021AD66 /* GroupItemsCollectionViewCell.swift */,
-				03C2A68521BE51E30021AD66 /* GroupItemsCollectionViewCell.xib */,
+				03C2A6AF21CB771C0021AD66 /* ItemGroup */,
 			);
-			path = "Items Cell";
+			path = "List Cell";
 			sourceTree = "<group>";
 		};
 		03C2A68921BE55100021AD66 /* ItemTableCell */ = {
@@ -439,6 +460,42 @@
 				03C2A69021BE56130021AD66 /* PlainHeaderCollectionReusableView.xib */,
 			);
 			path = "Plain Header";
+			sourceTree = "<group>";
+		};
+		03C2A6A221C433E70021AD66 /* PlusView */ = {
+			isa = PBXGroup;
+			children = (
+				03C2A69E21C433D50021AD66 /* PlusView.swift */,
+				03C2A6A021C433DF0021AD66 /* PlusView.xib */,
+			);
+			path = PlusView;
+			sourceTree = "<group>";
+		};
+		03C2A6A521C447340021AD66 /* LargeTextCell */ = {
+			isa = PBXGroup;
+			children = (
+				03C2A6A621C4474A0021AD66 /* LargeTextTableViewCell.swift */,
+				03C2A6A721C4474A0021AD66 /* LargeTextTableViewCell.xib */,
+			);
+			path = LargeTextCell;
+			sourceTree = "<group>";
+		};
+		03C2A6AA21CB67260021AD66 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				03C2A6AB21CB69120021AD66 /* EmptyView.swift */,
+				03C2A6AD21CB69210021AD66 /* EmptyView.xib */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		03C2A6AF21CB771C0021AD66 /* ItemGroup */ = {
+			isa = PBXGroup;
+			children = (
+				03C2A68421BE51E30021AD66 /* ListCollectionViewCell.swift */,
+				03C2A68521BE51E30021AD66 /* ListCollectionViewCell.xib */,
+			);
+			path = ItemGroup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -548,13 +605,16 @@
 				039498FA21AFAA95003AF16D /* LaunchScreen.storyboard in Resources */,
 				0394992821AFB14F003AF16D /* Organiser.storyboard in Resources */,
 				0394994821AFCF0B003AF16D /* TextFieldTableViewCell.xib in Resources */,
-				03C2A68721BE51E30021AD66 /* GroupItemsCollectionViewCell.xib in Resources */,
+				03C2A6A921C4474A0021AD66 /* LargeTextTableViewCell.xib in Resources */,
+				03C2A68721BE51E30021AD66 /* ListCollectionViewCell.xib in Resources */,
+				03C2A6A121C433DF0021AD66 /* PlusView.xib in Resources */,
 				0394992A21AFB1C0003AF16D /* Prayer.storyboard in Resources */,
 				039498F721AFAA95003AF16D /* Assets.xcassets in Resources */,
 				039498F221AFAA92003AF16D /* Main.storyboard in Resources */,
 				0394994021AFCAF5003AF16D /* PrayerCollectionViewCell.xib in Resources */,
+				03C2A6AE21CB69210021AD66 /* EmptyView.xib in Resources */,
 				03C2A68D21BE55310021AD66 /* ItemTableViewCell.xib in Resources */,
-				0394997A21B1DA7D003AF16D /* GroupOverviewCollectionViewCell.xib in Resources */,
+				0394997A21B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib in Resources */,
 				03C2A69221BE56130021AD66 /* PlainHeaderCollectionReusableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,36 +645,41 @@
 				0394996521B12AE4003AF16D /* PRUserDefaults.swift in Sources */,
 				0394993721AFB81C003AF16D /* PrayerModel.swift in Sources */,
 				0394994721AFCF0B003AF16D /* TextFieldTableViewCell.swift in Sources */,
+				03C2A69421BF7F640021AD66 /* AddNoteViewController.swift in Sources */,
+				03C2A6A821C4474A0021AD66 /* LargeTextTableViewCell.swift in Sources */,
 				0394995D21B12502003AF16D /* CoreDataPrayerCategory.swift in Sources */,
 				0394993921AFB82F003AF16D /* CoreDataPrayer.swift in Sources */,
 				03C2A69121BE56130021AD66 /* PlainHeaderCollectionReusableView.swift in Sources */,
 				0394996321B12912003AF16D /* CategoryInterface.swift in Sources */,
-				0394995B21B124F5003AF16D /* CoreDataPrayerItem.swift in Sources */,
+				0394995B21B124F5003AF16D /* CoreDataPrayerNote.swift in Sources */,
 				03C2A68C21BE55310021AD66 /* ItemTableViewCell.swift in Sources */,
-				0394995721B1246E003AF16D /* PrayerCategoryModel.swift in Sources */,
+				0394995721B1246E003AF16D /* CategoryModel.swift in Sources */,
 				0394992621AFB012003AF16D /* CoreDataManager.swift in Sources */,
-				0394997921B1DA7D003AF16D /* GroupOverviewCollectionViewCell.swift in Sources */,
+				0394997921B1DA7D003AF16D /* ItemOverviewCollectionViewCell.swift in Sources */,
+				03C2A6AC21CB69120021AD66 /* EmptyView.swift in Sources */,
 				039498EF21AFAA92003AF16D /* ViewController.swift in Sources */,
 				0394993B21AFC9F9003AF16D /* PrayerInterface.swift in Sources */,
-				0394995921B124E8003AF16D /* CoreDataPrayerGroup.swift in Sources */,
+				0394995921B124E8003AF16D /* CoreDataItem.swift in Sources */,
 				0394996E21B13100003AF16D /* CategoryDetailViewController.swift in Sources */,
 				0394997E21B25A86003AF16D /* Storyboardable.swift in Sources */,
 				0394992421AFAFE4003AF16D /* UIColor+Extensions.swift in Sources */,
 				0394997C21B25448003AF16D /* CategorySettingsViewController.swift in Sources */,
-				0394995321B12419003AF16D /* PrayerGroupModel.swift in Sources */,
-				0394997321B1CF77003AF16D /* AddGroupFormViewController.swift in Sources */,
+				0394995321B12419003AF16D /* ItemModel.swift in Sources */,
+				0394997321B1CF77003AF16D /* AddItemFormViewController.swift in Sources */,
 				0394995021AFE460003AF16D /* PrayerDetailViewController.swift in Sources */,
+				03C2A6A421C43BAB0021AD66 /* TabBarController.swift in Sources */,
 				0394993021AFB25A003AF16D /* OrganiserOverviewController.swift in Sources */,
-				03C2A68621BE51E30021AD66 /* GroupItemsCollectionViewCell.swift in Sources */,
+				03C2A68621BE51E30021AD66 /* ListCollectionViewCell.swift in Sources */,
 				0394992021AFAFAC003AF16D /* Theme.swift in Sources */,
 				0394993221AFB46A003AF16D /* BaseViewController.swift in Sources */,
-				0394995521B12427003AF16D /* PrayerItemModel.swift in Sources */,
-				0394996121B12907003AF16D /* ItemInterface.swift in Sources */,
+				0394995521B12427003AF16D /* NoteModel.swift in Sources */,
+				0394996121B12907003AF16D /* NoteInterface.swift in Sources */,
 				0394992E21AFB225003AF16D /* PrayerOverviewController.swift in Sources */,
+				03C2A69F21C433D50021AD66 /* PlusView.swift in Sources */,
 				0394993F21AFCAF5003AF16D /* PrayerCollectionViewCell.swift in Sources */,
-				03C2A68321BE4F820021AD66 /* GroupDetailViewController.swift in Sources */,
+				03C2A68321BE4F820021AD66 /* ItemDetailViewController.swift in Sources */,
 				039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */,
-				0394995F21B128FD003AF16D /* GroupInterface.swift in Sources */,
+				0394995F21B128FD003AF16D /* ItemInterface.swift in Sources */,
 				0394997021B1CD6C003AF16D /* PrimarySplitViewController.swift in Sources */,
 				039498F521AFAA92003AF16D /* PrayerList.xcdatamodeld in Sources */,
 				0394994C21AFE220003AF16D /* Button.swift in Sources */,

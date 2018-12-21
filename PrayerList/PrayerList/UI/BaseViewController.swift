@@ -9,6 +9,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    weak var plusVisibilityDelegate: TabPlusDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,11 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if let tabBar = self.tabBarController as? TabBarController {
+            plusVisibilityDelegate = tabBar
+        }
+        
         self.view.backgroundColor = Theme.Color.Background
     }
 

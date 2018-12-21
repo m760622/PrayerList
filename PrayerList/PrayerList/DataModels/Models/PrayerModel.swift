@@ -14,7 +14,7 @@ class PrayerModel {
     var uuid: String!
     var order: Int
     
-    var groups = [PrayerGroupModel]()
+    var groupIDs = [String]()
     
     init(name: String, order: Int) {
         self.name = name
@@ -28,7 +28,7 @@ class PrayerModel {
         self.order = Int(coreDataPrayer.order)
         
         if !coreDataPrayer.groups.isEmpty {
-            self.groups = Array(coreDataPrayer.groups.map({PrayerGroupModel(coreDataGroup: $0)}))
+            self.groupIDs = Array(coreDataPrayer.groups.map({$0.uuid}))
         }
     }
 }

@@ -44,11 +44,7 @@
                         <viewLayoutGuide key="safeArea" id="Gzm-6p-fHh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Prayers" id="jlV-MG-e2x">
-                        <barButtonItem key="rightBarButtonItem" image="Plus" id="QCt-cb-p1I">
-                            <connections>
-                                <action selector="addPrayerAction:" destination="yBa-3B-Rp1" id="4sm-tM-xpc"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Dots" id="QCt-cb-p1I"/>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Pa5-fc-A61" id="fpA-8d-fAW"/>
@@ -211,7 +207,6 @@
     </scenes>
     <resources>
         <image name="Dots" width="40" height="40"/>
-        <image name="Plus" width="40" height="40"/>
         <image name="Prayer" width="40" height="40"/>
     </resources>
 </document>

@@ -78,6 +78,10 @@ extension PrayerSelectionViewController: UITableViewDelegate, UITableViewDataSou
             selectedPrayers.append(prayer)
         }
     }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return "Select the prayers that you want this group to appear under"
+    }
 }
 
 extension PrayerSelectionViewController: CellTextDelegate {

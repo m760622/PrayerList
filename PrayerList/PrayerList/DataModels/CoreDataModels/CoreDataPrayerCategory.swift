@@ -19,12 +19,12 @@ class CoreDataPrayerCategory: NSManagedObject {
     @NSManaged var uuid: String
     @NSManaged var order: Int64
     
-    @NSManaged var groups: Set<CoreDataPrayerGroup>
+    @NSManaged var groups: Set<CoreDataItem>
     @NSManaged var prayers: Set<CoreDataPrayer>
     
     static let entityName: String = "CoreDataPrayerCategory"
     
-    class func new(forGroup categoryModel: PrayerCategoryModel, in context: NSManagedObjectContext) -> CoreDataPrayerCategory {
+    class func new(forGroup categoryModel: CategoryModel, in context: NSManagedObjectContext) -> CoreDataPrayerCategory {
         
         let category: CoreDataPrayerCategory
         if let existing = fetchCategory(withID: categoryModel.uuid, in: context) {
@@ -38,9 +38,9 @@ class CoreDataPrayerCategory: NSManagedObject {
         category.order = Int64(categoryModel.order)
         
         if !categoryModel.groups.isEmpty {
-            category.groups = Set<CoreDataPrayerGroup>()
+            category.groups = Set<CoreDataItem>()
             for group in categoryModel.groups {
-                let group = CoreDataPrayerGroup.new(forGroup: group, in: context)
+                let group = CoreDataItem.new(forGroup: group, in: context)
                 category.groups .insert(group)
             }
         }

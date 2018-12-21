@@ -18,10 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.tintColor = Theme.Color.PrimaryTint
+
+        UINavigationBar.appearance().tintColor = Theme.Color.PrimaryTint
         UITabBar.appearance().tintColor = Theme.Color.PrimaryTint
         UITabBar.appearance().unselectedItemTintColor = Theme.Color.TabBarInactive
+        
+        UITabBar.appearance().layer.borderWidth = 0.0
+        UITabBar.appearance().clipsToBounds = true
+        UITabBar.appearance().backgroundColor = Theme.Color.LightGrey
         
         if !PLUserDefaults.hasSetUp {
             prepopulateCoreData()
@@ -55,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func prepopulateCoreData(){
-        let defaultCategories = [PrayerCategoryModel(name: "Thanks", order: 0), PrayerCategoryModel(name: "Family & Friends", order: 1), PrayerCategoryModel(name: "EACO", order: 2), PrayerCategoryModel(name: "Ecclesia", order: 3), PrayerCategoryModel(name: "Temporary", order: 4)]
+        let defaultCategories = [CategoryModel(name: "Thanks", order: 0), CategoryModel(name: "Family & Friends", order: 1), CategoryModel(name: "EACO", order: 2), CategoryModel(name: "Ecclesia", order: 3), CategoryModel(name: "Temporary", order: 4)]
         
         for category in defaultCategories {
             CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)

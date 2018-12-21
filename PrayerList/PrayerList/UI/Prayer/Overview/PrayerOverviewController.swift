@@ -31,11 +31,17 @@ class PrayerOverviewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        plusVisibilityDelegate?.hide()
         
         prayers = PrayerInterface.retrieveAllPrayers(inContext: CoreDataManager.mainContext)
         
         collectionView.backgroundColor = Theme.Color.Background
         collectionView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        plusVisibilityDelegate?.show()
     }
     
     @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
@@ -70,28 +76,6 @@ class PrayerOverviewController: BaseViewController {
             prayer.order = index
             PrayerInterface.savePrayer(prayer: prayer, inContext: CoreDataManager.mainContext)
         }
-    }
-
-    @IBAction func addPrayerAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Add Prayer", message: "Enter the name of your prayer", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        let action = UIAlertAction(title: "Add", style: .default) { [weak self] (alertAction) in
-            let textField = alert.textFields![0] as UITextField
-            self?.addPrayer(name: textField.text)
-        }
-        
-        alert.addTextField { (textField) in
-            textField.placeholder = "Name"
-            textField.autocapitalizationType = .words
-        }
-        
-        alert.view.tintColor = Theme.Color.PrimaryTint
-        
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-        
     }
     
     func addPrayer(name: String?) {
@@ -155,5 +139,28 @@ extension PrayerOverviewController: UICollectionViewDelegate, UICollectionViewDa
         self.prayers.remove(at: sourceIndexPath.row)
         self.prayers.insert(movedObject, at: destinationIndexPath.row)
         updatePrayerOrder()
+    }
+}
+
+extension PrayerOverviewController: PlusDelegate {
+    func action() {
+        let alert = UIAlertController(title: "Add Prayer", message: "Enter the name of your prayer", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        let action = UIAlertAction(title: "Add", style: .default) { [weak self] (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            self?.addPrayer(name: textField.text)
+        }
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Name"
+            textField.autocapitalizationType = .words
+        }
+        
+        alert.view.tintColor = Theme.Color.PrimaryTint
+        
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }

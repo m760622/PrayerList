@@ -32,8 +32,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="gyl-RS-ysX">
             <objects>
-                <tabBarController id="EQg-cd-Ltg" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u5S-aG-we9">
+                <tabBarController id="EQg-cd-Ltg" customClass="TabBarController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="u5S-aG-we9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -11,25 +11,25 @@ import CoreData
 
 class CategoryInterface {
     
-    class func retrieveAllCategories(inContext context: NSManagedObjectContext) -> [PrayerCategoryModel] {
+    class func retrieveAllCategories(inContext context: NSManagedObjectContext) -> [CategoryModel] {
         let coredataCategories = CoreDataPrayerCategory.fetchAllCategories(inContext: context)
-        return coredataCategories.map({PrayerCategoryModel(coreDataCategory: $0)}).sorted(by: {$0.order < $1.order})
+        return coredataCategories.map({CategoryModel(coreDataCategory: $0)}).sorted(by: {$0.order < $1.order})
     }
     
-    class func retrieveCategory(forID ID: String, context: NSManagedObjectContext) -> PrayerCategoryModel? {
+    class func retrieveCategory(forID ID: String, context: NSManagedObjectContext) -> CategoryModel? {
         if let category = CoreDataPrayerCategory.fetchCategory(withID: ID, in: context) {
-            return PrayerCategoryModel(coreDataCategory: category)
+            return CategoryModel(coreDataCategory: category)
         }
         
         return nil
     }
     
-    class func saveCategory(category: PrayerCategoryModel, inContext context: NSManagedObjectContext) {
+    class func saveCategory(category: CategoryModel, inContext context: NSManagedObjectContext) {
         _ = CoreDataPrayerCategory.new(forGroup: category, in: context)
         CoreDataManager.saveContext(context)
     }
     
-    class func deleteCategory(category: PrayerCategoryModel, inContext context: NSManagedObjectContext) {
+    class func deleteCategory(category: CategoryModel, inContext context: NSManagedObjectContext) {
         
         if let coreDataCategory = CoreDataPrayerCategory.fetchCategory(withID: category.uuid, in: context){
             coreDataCategory.delete(inContext: context)

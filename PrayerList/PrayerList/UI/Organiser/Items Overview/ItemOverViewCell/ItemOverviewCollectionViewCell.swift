@@ -8,9 +8,9 @@
 
 import UIKit
 
-class GroupOverviewCollectionViewCell: UICollectionViewCell {
+class ItemOverviewCollectionViewCell: UICollectionViewCell {
     
-    static var reuseIdentifier: String = "GroupOverviewCollectionViewCell"
+    static var reuseIdentifier: String = "ItemOverviewCollectionViewCell"
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!

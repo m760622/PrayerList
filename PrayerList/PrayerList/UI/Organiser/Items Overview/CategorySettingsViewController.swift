@@ -21,13 +21,13 @@ enum CategorySettingsCell {
 class CategorySettingsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var category: PrayerCategoryModel!
+    var category: CategoryModel!
     
     weak var delegate: SettingsDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Settings"
+        self.title = "Category Settings"
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: TextFieldTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.reuseIdentifier)
     }

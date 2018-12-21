@@ -12,13 +12,14 @@ class OrganiserOverviewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var categories = [PrayerCategoryModel]()
-    var selectedCategory: PrayerCategoryModel?
+    var categories = [CategoryModel]()
+    var selectedCategory: CategoryModel?
     
     fileprivate var longPressGesture: UILongPressGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.delegate = self
         // Do any additional setup after loading the view.
         
@@ -35,6 +36,23 @@ class OrganiserOverviewController: BaseViewController {
         
         collectionView.backgroundColor = Theme.Color.Background
         collectionView.reloadData()
+        
+        if let tab = self.tabBarController as? TabBarController {
+            tab.plus.delegate = self
+        }
+        
+        if selectedCategory == nil && !categories.isEmpty {
+            let initialIndexPath = IndexPath(row: 0, section: 0)
+            self.collectionView.selectItem(at: initialIndexPath, animated: true, scrollPosition: .top)
+            selectedCategory = categories.first
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                self.performSegue(withIdentifier: "categoryDetailSegue", sender: self)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
@@ -68,6 +86,7 @@ class OrganiserOverviewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? CategoryDetailViewController, let selectedCategory = self.selectedCategory {
             destVC.category = selectedCategory
+            
         } else if let destVC = segue.destination as? UINavigationController, let childVC  = destVC.topViewController as? CategoryDetailViewController {
             childVC.category = selectedCategory
             childVC.title = selectedCategory?.name
@@ -88,7 +107,7 @@ extension OrganiserOverviewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrayerCollectionViewCell.resuseIdentifier, for: indexPath) as! PrayerCollectionViewCell
         
-        cell.setUp(title: categories[indexPath.row].name, backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text)
+        cell.setUp(title: categories[indexPath.row].name, backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.PrimaryTint.withAlphaComponent(0.8))
         return cell
     }
     
@@ -126,5 +145,12 @@ extension OrganiserOverviewController: UICollectionViewDelegate, UICollectionVie
         self.categories.remove(at: sourceIndexPath.row)
         self.categories.insert(movedObject, at: destinationIndexPath.row)
         updateCategoryOrder()
+    }
+}
+
+extension OrganiserOverviewController: PlusDelegate {
+    
+    func action() {
+        
     }
 }

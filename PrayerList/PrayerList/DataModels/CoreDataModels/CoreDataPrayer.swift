@@ -19,7 +19,7 @@ class CoreDataPrayer: NSManagedObject {
     @NSManaged var uuid: String
     @NSManaged var order: Int64
     
-    @NSManaged var groups: Set<CoreDataPrayerGroup>
+    @NSManaged var groups: Set<CoreDataItem>
     
     static let entityName: String = "CoreDataPrayer"
     
@@ -37,11 +37,13 @@ class CoreDataPrayer: NSManagedObject {
         prayer.name = prayerModel.name
         prayer.order = Int64(prayerModel.order)
         
-        if !prayerModel.groups.isEmpty {
-            prayer.groups = Set<CoreDataPrayerGroup>()
-            for group in prayerModel.groups {
-                let group = CoreDataPrayerGroup.new(forGroup: group, in: context)
-                 prayer.groups.insert(group)
+        if !prayerModel.groupIDs.isEmpty {
+            prayer.groups = Set<CoreDataItem>()
+            for groupID in prayerModel.groupIDs {
+                if let group = ItemInterface.retrieveGroup(withID: groupID, inContext: context){
+                    let coreGroup = CoreDataItem.new(forGroup: group, in: context)
+                    prayer.groups.insert(coreGroup)
+                }
             }
         }
         

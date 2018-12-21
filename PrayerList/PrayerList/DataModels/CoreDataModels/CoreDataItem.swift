@@ -9,27 +9,27 @@
 import Foundation
 import CoreData
 
-class CoreDataPrayerGroup: NSManagedObject {
+class CoreDataItem: NSManagedObject {
     
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataPrayerGroup> {
-        return NSFetchRequest<CoreDataPrayerGroup>(entityName: "CoreDataPrayerGroup")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataItem> {
+        return NSFetchRequest<CoreDataItem>(entityName: "CoreDataItem")
     }
     
     @NSManaged var name: String
     @NSManaged var uuid: String
     @NSManaged var order: Int64
     
-    @NSManaged var items: Set<CoreDataPrayerItem>
+    @NSManaged var items: Set<CoreDataPrayerNote>
     
-    static let entityName: String = "CoreDataPrayerGroup"
+    static let entityName: String = "CoreDataItem"
     
-    class func new(forGroup groupModel: PrayerGroupModel, in context: NSManagedObjectContext) -> CoreDataPrayerGroup {
+    class func new(forGroup groupModel: ItemModel, in context: NSManagedObjectContext) -> CoreDataItem {
         
-        let group: CoreDataPrayerGroup
+        let group: CoreDataItem
         if let existing = fetchGroup(withID: groupModel.uuid, in: context) {
             group = existing
         } else {
-            group = CoreDataPrayerGroup(entity: entity(), insertInto: context)
+            group = CoreDataItem(entity: entity(), insertInto: context)
             group.uuid = groupModel.uuid
         }
         
@@ -37,9 +37,9 @@ class CoreDataPrayerGroup: NSManagedObject {
         group.order = Int64(groupModel.order)
         
         if !groupModel.currentItems.isEmpty {
-            group.items = Set<CoreDataPrayerItem>()
+            group.items = Set<CoreDataPrayerNote>()
             for item in groupModel.currentItems {
-                let item = CoreDataPrayerItem.new(forItem: item, in: context)
+                let item = CoreDataPrayerNote.new(forItem: item, in: context)
                 group.items.insert(item)
             }
         }
@@ -48,15 +48,15 @@ class CoreDataPrayerGroup: NSManagedObject {
     }
     
     //MARK: - Retrieval
-    class func fetchGroup(withID id: String, in context: NSManagedObjectContext) -> CoreDataPrayerGroup? {
-        var groups = [CoreDataPrayerGroup]()
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataPrayerGroup")
+    class func fetchGroup(withID id: String, in context: NSManagedObjectContext) -> CoreDataItem? {
+        var groups = [CoreDataItem]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataItem")
         
         fetchRequest.predicate = NSPredicate(format: "uuid == %@", id)
         
         do {
             let results = try context.fetch(fetchRequest)
-            groups = results as! [CoreDataPrayerGroup]
+            groups = results as! [CoreDataItem]
         } catch let error as NSError {
             print("Could not fetch \(error)")
         }
@@ -64,13 +64,13 @@ class CoreDataPrayerGroup: NSManagedObject {
         return groups.first
     }
     
-    class func fetchAllPrayers(inContext context: NSManagedObjectContext) -> [CoreDataPrayerGroup] {
-        var groups = [CoreDataPrayerGroup]()
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataPrayerGroup")
+    class func fetchAllPrayers(inContext context: NSManagedObjectContext) -> [CoreDataItem] {
+        var groups = [CoreDataItem]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataItem")
         
         do {
             let results = try context.fetch(fetchRequest)
-            groups = results as! [CoreDataPrayerGroup]
+            groups = results as! [CoreDataItem]
         } catch let error as NSError {
             print("Could not fetch \(error)")
         }

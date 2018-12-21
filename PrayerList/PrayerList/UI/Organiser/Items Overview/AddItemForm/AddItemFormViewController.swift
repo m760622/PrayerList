@@ -17,11 +17,11 @@ enum GroupFormCell {
     }
 }
 
-class AddGroupFormViewController: UIViewController {
+class AddItemFormViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var category: PrayerCategoryModel!
+    var category: CategoryModel!
     var selectedPrayers = [PrayerModel]()
     var groupName: String?
     
@@ -40,12 +40,12 @@ class AddGroupFormViewController: UIViewController {
     
     func setUpGroup(){
         if let name = groupName {
-            let newGroup = PrayerGroupModel(name: name, order: category.groups.count)
+            let newGroup = ItemModel(name: name, order: category.groups.count)
             category.groups.append(newGroup)
             CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
             
             for prayer in selectedPrayers {
-                prayer.groups.append(newGroup)
+                prayer.groupIDs.append(newGroup.uuid)
                 PrayerInterface.savePrayer(prayer: prayer, inContext: CoreDataManager.mainContext)
             }
         }
@@ -78,7 +78,7 @@ class AddGroupFormViewController: UIViewController {
     }
 }
 
-extension AddGroupFormViewController: UITableViewDelegate, UITableViewDataSource {
+extension AddItemFormViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return GroupFormCell.sections.count
     }
@@ -128,7 +128,7 @@ extension AddGroupFormViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-extension AddGroupFormViewController: CellTextDelegate {
+extension AddItemFormViewController: CellTextDelegate {
     func textChanged(text: String?, indexPath: IndexPath) {
         let item = GroupFormCell.sections[indexPath.section][indexPath.row]
         switch item{
@@ -141,7 +141,7 @@ extension AddGroupFormViewController: CellTextDelegate {
     
 }
 
-extension AddGroupFormViewController: PrayerSelectionDelegate {
+extension AddItemFormViewController: PrayerSelectionDelegate {
     func prayersSelected(prayers: [PrayerModel]) {
         self.selectedPrayers = prayers
     }
