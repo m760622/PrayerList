@@ -19,8 +19,9 @@ class PlainHeaderCollectionReusableView: UICollectionReusableView {
         // Initialization code
     }
     
-    func setUp(title: String) {
+    func setUp(title: String, color: UIColor = Theme.Color.Text) {
         self.label.text = title
+        self.label.textColor = color
     }
     
 }

@@ -41,14 +41,16 @@ class AddItemFormViewController: UIViewController {
     
     func setUpGroup(){
         if let name = groupName {
-            let newGroup = ItemModel(name: name, order: category.groups.count)
-            category.groups.append(newGroup)
-            CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
+            let newGroup = ItemModel(name: name, order: category.items.count)
             
             for prayer in selectedPrayers {
-                prayer.groupIDs.append(newGroup.uuid)
+                prayer.itemIDs.append(newGroup.uuid)
+                newGroup.prayerIds.append(prayer.uuid)
                 PrayerInterface.savePrayer(prayer: prayer, inContext: CoreDataManager.mainContext)
             }
+            
+            category.items.append(newGroup)
+            CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
         }
     }
     

@@ -24,6 +24,7 @@ class ListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var items = [Any]()
     
@@ -60,9 +61,14 @@ class ListCollectionViewCell: UICollectionViewCell {
         moreButton.tintColor = Theme.Color.PrimaryTint
         moreButton.setTitleColor(Theme.Color.PrimaryTint, for: .normal)
         moreButton.layer.cornerRadius = moreButton.bounds.height / 2
+        
+        titleLabel.textColor = Theme.Color.Text
     }
     
-    func setUp(items: [Any], showActionButton: Bool, actionButtonTitle: String?, emptyTitle: String?, emptySubtitle: String?) {
+    func setUp(title: String? = nil, items: [Any], showActionButton: Bool, actionButtonTitle: String?, emptyTitle: String?, emptySubtitle: String?) {
+        
+        self.titleLabel.isHidden = title == nil
+        self.titleLabel.text = title
         self.items = items
         tableView.reloadData()
         
@@ -75,12 +81,22 @@ class ListCollectionViewCell: UICollectionViewCell {
         stackView.isHidden = items.isEmpty
         emptyView.isHidden = !items.isEmpty
         
-        tableView.layoutIfNeeded()
+        self.layoutIfNeeded()
+        self.layoutSubviews()
         self.heightConstraint.constant = !items.isEmpty ? tableView.contentSize.height : 100
+        self.layoutIfNeeded()
+        self.layoutSubviews()
     }
     
     @IBAction func moreAction(_ sender: Any) {
         delegate?.buttonAction()
+    }
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+        
+        let size = contentView.systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1), withHorizontalFittingPriority: .required, verticalFittingPriority: verticalFittingPriority)
+
+        return size
     }
 }
 

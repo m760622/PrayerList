@@ -29,9 +29,9 @@
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataItem" inverseName="items" inverseEntity="CoreDataItem" syncable="YES"/>
     </entity>
     <elements>
+        <element name="CoreDataItem" positionX="-54" positionY="18" width="128" height="135"/>
         <element name="CoreDataPrayer" positionX="-63.5859375" positionY="-156.69140625" width="128" height="120"/>
         <element name="CoreDataPrayerCategory" positionX="155.7578125" positionY="-206.5078125" width="128" height="120"/>
-        <element name="CoreDataItem" positionX="-54" positionY="18" width="128" height="135"/>
         <element name="CoreDataPrayerNote" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

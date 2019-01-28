@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03419F8E21CDC1D400F88F99 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8D21CDC1D400F88F99 /* GradientView.swift */; };
+		03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */; };
 		03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03654B1921CD9A3700465E16 /* AddCategoryViewController.swift */; };
 		039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039498EC21AFAA92003AF16D /* AppDelegate.swift */; };
 		039498EF21AFAA92003AF16D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039498EE21AFAA92003AF16D /* ViewController.swift */; };
@@ -87,6 +89,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03419F8D21CDC1D400F88F99 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		03419F9121CDC7DD00F88F99 /* PrayerList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrayerList.entitlements; sourceTree = "<group>"; };
 		03654B1921CD9A3700465E16 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		039498E921AFAA92003AF16D /* PrayerList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrayerList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039498EC21AFAA92003AF16D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +208,7 @@
 		039498EB21AFAA92003AF16D /* PrayerList */ = {
 			isa = PBXGroup;
 			children = (
+				03419F9121CDC7DD00F88F99 /* PrayerList.entitlements */,
 				039498FB21AFAA95003AF16D /* Info.plist */,
 				039498EC21AFAA92003AF16D /* AppDelegate.swift */,
 				0394991E21AFAF95003AF16D /* DataModels */,
@@ -274,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				0394992321AFAFE4003AF16D /* UIColor+Extensions.swift */,
+				03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +375,7 @@
 				0394994421AFCEEB003AF16D /* TextFieldTableCell */,
 				0394994B21AFE220003AF16D /* Button.swift */,
 				03C2A6A221C433E70021AD66 /* PlusView */,
+				03419F8D21CDC1D400F88F99 /* GradientView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -569,6 +577,11 @@
 				TargetAttributes = {
 					039498E821AFAA92003AF16D = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					039498FF21AFAA95003AF16D = {
 						CreatedOnToolsVersion = 10.1;
@@ -660,6 +673,7 @@
 				0394992621AFB012003AF16D /* CoreDataManager.swift in Sources */,
 				0394997921B1DA7D003AF16D /* ItemOverviewCollectionViewCell.swift in Sources */,
 				03C2A6AC21CB69120021AD66 /* EmptyView.swift in Sources */,
+				03419F8E21CDC1D400F88F99 /* GradientView.swift in Sources */,
 				039498EF21AFAA92003AF16D /* ViewController.swift in Sources */,
 				0394993B21AFC9F9003AF16D /* PrayerInterface.swift in Sources */,
 				0394995921B124E8003AF16D /* CoreDataItem.swift in Sources */,
@@ -678,6 +692,7 @@
 				03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */,
 				0394995521B12427003AF16D /* NoteModel.swift in Sources */,
 				0394996121B12907003AF16D /* NoteInterface.swift in Sources */,
+				03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */,
 				0394992E21AFB225003AF16D /* PrayerOverviewController.swift in Sources */,
 				03C2A69F21C433D50021AD66 /* PlusView.swift in Sources */,
 				0394993F21AFCAF5003AF16D /* PrayerCollectionViewCell.swift in Sources */,
@@ -861,6 +876,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PrayerList/PrayerList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EB8VPKS2W5;
 				INFOPLIST_FILE = PrayerList/Info.plist;
@@ -869,7 +885,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Devin.PrayerList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devin.prayerlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -880,6 +896,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PrayerList/PrayerList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EB8VPKS2W5;
 				INFOPLIST_FILE = PrayerList/Info.plist;
@@ -888,7 +905,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Devin.PrayerList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devin.prayerlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

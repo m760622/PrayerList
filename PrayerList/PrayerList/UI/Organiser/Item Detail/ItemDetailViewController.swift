@@ -11,6 +11,7 @@ import UIKit
 class ItemDetailViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var selectedItem: ItemModel!
 
     override func viewDidLoad() {
@@ -23,10 +24,10 @@ class ItemDetailViewController: UIViewController {
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.estimatedItemSize = CGSize(width: collectionView.bounds.width - 30, height: 200)
-            layout.headerReferenceSize = CGSize(width: self.collectionView.bounds.width - 30, height: 50)
+            layout.headerReferenceSize = CGSize(width: collectionView.bounds.width - 30, height: 50)
         }
         
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 10, right: 15)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 20, right: 15)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +37,7 @@ class ItemDetailViewController: UIViewController {
         if let tab = self.tabBarController as? TabBarController {
             tab.plus.delegate = self
         }
+        
         collectionView.backgroundColor = Theme.Color.Background
         
         collectionView.reloadData()
@@ -74,11 +76,15 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath) as! ListCollectionViewCell
-        let shouldShowMoreButton = self.selectedItem.currentItems.count - 5 > 0
-        cell.setUp(items: Array(self.selectedItem.currentItems.prefix(15)).map({$0.name}), showActionButton: shouldShowMoreButton, actionButtonTitle: shouldShowMoreButton ? "\(self.selectedItem.currentItems.count - 5) More" : nil, emptyTitle: "No Notes", emptySubtitle: "There aren't any notes for this item")
-        cell.delegate = self
-        return cell
+        return collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? ListCollectionViewCell {
+            let shouldShowMoreButton = self.selectedItem.currentNotes.count - 5 > 0
+            cell.setUp(items: Array(self.selectedItem.currentNotes.prefix(15)).map({$0.name}), showActionButton: shouldShowMoreButton, actionButtonTitle: shouldShowMoreButton ? "\(self.selectedItem.currentNotes.count - 5) More" : nil, emptyTitle: "No Notes", emptySubtitle: "You haven't added any notes for \(selectedItem.name)")
+            cell.delegate = self
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -111,7 +117,7 @@ extension ItemDetailViewController: TableViewCellDelegate {
 extension ItemDetailViewController: AddNoteDelegate {
     func addItem(detail: String) {
         let item = NoteModel(name: detail)
-        selectedItem.currentItems.insert(item, at: 0)
+        selectedItem.currentNotes.insert(item, at: 0)
         ItemInterface.saveGroup(group: selectedItem, inContext: CoreDataManager.mainContext)
         collectionView.reloadItems(at: [IndexPath(row: 0, section: 0)])
     }

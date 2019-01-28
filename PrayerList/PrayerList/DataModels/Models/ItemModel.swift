@@ -14,7 +14,9 @@ class ItemModel {
     var uuid: String
     var order: Int
     
-    var currentItems = [NoteModel]()
+    var prayerIds = [String]()
+    
+    var currentNotes = [NoteModel]()
     
     init(name: String, order: Int){
         self.name = name
@@ -28,7 +30,11 @@ class ItemModel {
         self.order = Int(coreDataGroup.order)
         
         if !coreDataGroup.items.isEmpty {
-            self.currentItems = Array(coreDataGroup.items.map({NoteModel(coreDataPrayerItem: $0)})).sorted(by: {$0.dateCreated > $1.dateCreated})
+            self.currentNotes = Array(coreDataGroup.items.map({NoteModel(coreDataPrayerItem: $0)})).sorted(by: {$0.dateCreated > $1.dateCreated})
+        }
+        
+        if !coreDataGroup.prayers.isEmpty {
+            self.prayerIds = Array(coreDataGroup.prayers.map({$0.uuid}))
         }
     }
 }

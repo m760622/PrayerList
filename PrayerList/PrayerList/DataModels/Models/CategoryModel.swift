@@ -15,7 +15,7 @@ class CategoryModel {
     var order: Int
     
     var prayers = [PrayerModel]()
-    var groups = [ItemModel]()
+    var items = [ItemModel]()
     
     init(name: String, order: Int){
         self.name = name
@@ -29,7 +29,7 @@ class CategoryModel {
         self.order = Int(coreDataCategory.order)
         
         if !coreDataCategory.groups.isEmpty {
-            self.groups = Array(coreDataCategory.groups.map({ItemModel(coreDataGroup: $0)})).sorted(by: {$0.order < $1.order})
+            self.items = Array(coreDataCategory.groups.map({ItemModel(coreDataGroup: $0)})).sorted(by: {$0.order < $1.order})
         }
         
         if !coreDataCategory.prayers.isEmpty {
@@ -38,7 +38,7 @@ class CategoryModel {
     }
     
     func retrieveItemsForPrayer(prayer: PrayerModel) -> [ItemModel] {
-        return [ItemModel]()
+        return items.filter({$0.prayerIds.contains(prayer.uuid)})
     }
     
 }

@@ -17,9 +17,12 @@ class CoreDataItem: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var uuid: String
+    @NSManaged var categoryID: String
     @NSManaged var order: Int64
     
     @NSManaged var items: Set<CoreDataPrayerNote>
+    
+    @NSManaged var prayers: Set<CoreDataPrayer>
     
     static let entityName: String = "CoreDataItem"
     
@@ -36,9 +39,9 @@ class CoreDataItem: NSManagedObject {
         group.name = groupModel.name
         group.order = Int64(groupModel.order)
         
-        if !groupModel.currentItems.isEmpty {
+        if !groupModel.currentNotes.isEmpty {
             group.items = Set<CoreDataPrayerNote>()
-            for item in groupModel.currentItems {
+            for item in groupModel.currentNotes {
                 let item = CoreDataPrayerNote.new(forItem: item, in: context)
                 group.items.insert(item)
             }

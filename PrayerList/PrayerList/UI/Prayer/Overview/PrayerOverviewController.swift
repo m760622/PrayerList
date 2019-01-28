@@ -107,8 +107,8 @@ extension PrayerOverviewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrayerCollectionViewCell.resuseIdentifier, for: indexPath) as! PrayerCollectionViewCell
-        
-        cell.setUp(title: prayers[indexPath.row].name, backgroundColor: Theme.Color.PrimaryTint, textColor: UIColor.white)
+    
+        cell.setUp(title: prayers[indexPath.row].name, bottomColor: Theme.Color.PrimaryTint.darker()!, topColor: Theme.Color.PrimaryTint, textColor: UIColor.white)
         return cell
     }
     

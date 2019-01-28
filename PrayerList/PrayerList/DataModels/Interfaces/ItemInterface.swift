@@ -28,6 +28,18 @@ class ItemInterface {
         CoreDataManager.saveContext(context)
     }
     
+    class func retrieveGroups(fromIds ids: [String], inContext context: NSManagedObjectContext) -> [ItemModel] {
+        var itemModels = [ItemModel]()
+        
+        for id in ids {
+            if let coreDataItem = CoreDataItem.fetchGroup(withID: id, in: context) {
+                itemModels.append(ItemModel(coreDataGroup: coreDataItem))
+            }
+        }
+        
+        return itemModels
+    }
+    
     class func deleteGroup(group: ItemModel, inContext context: NSManagedObjectContext) {
         
         if let coreDataGroup = CoreDataItem.fetchGroup(withID: group.uuid, in: context){

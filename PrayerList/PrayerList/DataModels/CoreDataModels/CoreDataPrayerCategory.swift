@@ -37,9 +37,9 @@ class CoreDataPrayerCategory: NSManagedObject {
         category.name = categoryModel.name
         category.order = Int64(categoryModel.order)
         
-        if !categoryModel.groups.isEmpty {
+        if !categoryModel.items.isEmpty {
             category.groups = Set<CoreDataItem>()
-            for group in categoryModel.groups {
+            for group in categoryModel.items {
                 let group = CoreDataItem.new(forGroup: group, in: context)
                 category.groups .insert(group)
             }

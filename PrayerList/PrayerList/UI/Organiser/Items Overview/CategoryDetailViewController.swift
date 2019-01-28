@@ -52,7 +52,7 @@ class CategoryDetailViewController: BaseViewController {
             self.category = CategoryInterface.retrieveCategory(forID: oldCategory.uuid, context: CoreDataManager.mainContext)
         }
         
-        if let groups = category?.groups {
+        if let groups = category?.items {
             self.groups = groups
             collectionView.reloadData()
         }
@@ -119,7 +119,7 @@ extension CategoryDetailViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemOverviewCollectionViewCell.reuseIdentifier, for: indexPath) as! ItemOverviewCollectionViewCell
         
-        cell.setUp(title: groups[indexPath.row].name, detail: "\(groups[indexPath.row].currentItems.count) Notes", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle)
+        cell.setUp(title: groups[indexPath.row].name, detail: "\(groups[indexPath.row].currentNotes.count) Notes", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle)
         return cell
     }
     
@@ -164,8 +164,10 @@ extension CategoryDetailViewController: CNContactPickerDelegate {
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
         guard let catagory = self.category else { return }
         contacts.forEach { contact in
-            let group = ItemModel(name: contact.givenName + " " + contact.familyName, order: catagory.groups.count)
-            category?.groups.append(group)
+            let group = ItemModel(name: contact.givenName + " " + contact.familyName, order: catagory.items.count)
+            group.prayerIds = catagory.prayers.map({$0.uuid})
+            category?.items.append(group)
+            
         }
         CategoryInterface.saveCategory(category: catagory, inContext: CoreDataManager.mainContext)
         self.collectionView.reloadData()

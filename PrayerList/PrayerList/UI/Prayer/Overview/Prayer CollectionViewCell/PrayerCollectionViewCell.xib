@@ -22,29 +22,25 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Akb-q9-wdh">
                         <rect key="frame" x="0.0" y="0.0" width="162" height="62"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dr6-do-dcs">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dr6-do-dcs" customClass="GradientView" customModule="PrayerList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="162" height="62"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haP-Cz-s1e">
-                                        <rect key="frame" x="16" y="15.5" width="130" height="31.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="haP-Cz-s1e" firstAttribute="centerX" secondItem="Dr6-do-dcs" secondAttribute="centerX" id="VTq-yD-3iy"/>
-                                    <constraint firstItem="haP-Cz-s1e" firstAttribute="width" secondItem="Dr6-do-dcs" secondAttribute="width" multiplier="0.8" id="YEW-br-k0V"/>
-                                    <constraint firstItem="haP-Cz-s1e" firstAttribute="centerY" secondItem="Dr6-do-dcs" secondAttribute="centerY" id="lac-DI-BqJ"/>
-                                </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haP-Cz-s1e">
+                                <rect key="frame" x="16" y="15.5" width="130" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="haP-Cz-s1e" firstAttribute="width" secondItem="Akb-q9-wdh" secondAttribute="width" multiplier="0.8" id="0dp-gb-Tqc"/>
+                            <constraint firstItem="haP-Cz-s1e" firstAttribute="centerX" secondItem="Akb-q9-wdh" secondAttribute="centerX" id="FIp-pL-z2c"/>
                             <constraint firstAttribute="trailing" secondItem="Dr6-do-dcs" secondAttribute="trailing" id="MH9-py-imm"/>
                             <constraint firstAttribute="bottom" secondItem="Dr6-do-dcs" secondAttribute="bottom" id="Vnm-ny-THJ"/>
                             <constraint firstItem="Dr6-do-dcs" firstAttribute="top" secondItem="Akb-q9-wdh" secondAttribute="top" id="tEh-wU-rLM"/>
+                            <constraint firstItem="haP-Cz-s1e" firstAttribute="centerY" secondItem="Akb-q9-wdh" secondAttribute="centerY" id="uep-s6-jzl"/>
                             <constraint firstItem="Dr6-do-dcs" firstAttribute="leading" secondItem="Akb-q9-wdh" secondAttribute="leading" id="y5s-Gf-CG9"/>
                         </constraints>
                     </view>

@@ -38,15 +38,15 @@ public protocol NibInstantiatable {
 }
 
 public extension NibInstantiatable where Self: NSObject {
-    public static var nibName: String { return className }
-    public static var nibBundle: Bundle { return Bundle(for: self) }
-    public static var nibOwner: Any? { return self }
-    public static var nibOptions: [AnyHashable: Any]? { return nil }
-    public static var instantiateIndex: Int { return 0 }
+    static var nibName: String { return className }
+    static var nibBundle: Bundle { return Bundle(for: self) }
+    static var nibOwner: Any? { return self }
+    static var nibOptions: [AnyHashable: Any]? { return nil }
+    static var instantiateIndex: Int { return 0 }
 }
 
 public extension NibInstantiatable where Self: UIView {
-    public static func instantiate() -> Self {
+    static func instantiate() -> Self {
         let nib = UINib(nibName: nibName, bundle: nibBundle)
         return nib.instantiate(withOwner: nibOwner, options: nibOptions as? [UINib.OptionsKey : Any])[instantiateIndex] as! Self
     }
@@ -60,11 +60,11 @@ public protocol ClassNameProtocol {
 }
 
 public extension ClassNameProtocol {
-    public static var className: String {
+    static var className: String {
         return String(describing: self)
     }
     
-    public var className: String {
+    var className: String {
         return type(of: self).className
     }
 }
@@ -72,7 +72,7 @@ public extension ClassNameProtocol {
 extension NSObject: ClassNameProtocol {}
 
 public extension UIView {
-    public func fillSuperview() {
+    func fillSuperview() {
         guard let superview = self.superview else { return }
         translatesAutoresizingMaskIntoConstraints = superview.translatesAutoresizingMaskIntoConstraints
         if translatesAutoresizingMaskIntoConstraints {
@@ -88,7 +88,7 @@ public extension UIView {
 }
 
 public extension Collection {
-    public subscript(safe index: Index) -> Element? {
+    subscript(safe index: Index) -> Element? {
         return startIndex <= index && index < endIndex ? self[index] : nil
     }
 }

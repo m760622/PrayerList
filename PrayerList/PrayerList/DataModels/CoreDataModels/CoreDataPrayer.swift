@@ -37,9 +37,9 @@ class CoreDataPrayer: NSManagedObject {
         prayer.name = prayerModel.name
         prayer.order = Int64(prayerModel.order)
         
-        if !prayerModel.groupIDs.isEmpty {
+        if !prayerModel.itemIDs.isEmpty {
             prayer.groups = Set<CoreDataItem>()
-            for groupID in prayerModel.groupIDs {
+            for groupID in prayerModel.itemIDs {
                 if let group = ItemInterface.retrieveGroup(withID: groupID, inContext: context){
                     let coreGroup = CoreDataItem.new(forGroup: group, in: context)
                     prayer.groups.insert(coreGroup)

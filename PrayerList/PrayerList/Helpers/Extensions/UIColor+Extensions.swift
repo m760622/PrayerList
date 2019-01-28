@@ -53,11 +53,11 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
-    func lighter(by percentage: CGFloat = 30.0) -> UIColor? {
+    func lighter(by percentage: CGFloat = 5.0) -> UIColor? {
         return self.adjust(by: abs(percentage) )
     }
     
-    func darker(by percentage: CGFloat = 30.0) -> UIColor? {
+    func darker(by percentage: CGFloat = 5.0) -> UIColor? {
         return self.adjust(by: -1 * abs(percentage) )
     }
     

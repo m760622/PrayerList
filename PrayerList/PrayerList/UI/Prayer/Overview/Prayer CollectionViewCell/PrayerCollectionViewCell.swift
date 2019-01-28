@@ -13,7 +13,7 @@ class PrayerCollectionViewCell: UICollectionViewCell {
     static var resuseIdentifier: String = "PrayerCollectionViewCell"
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerView: GradientView!
     @IBOutlet weak var dropshadowView: UIView!
     
     override func awakeFromNib() {
@@ -28,7 +28,6 @@ class PrayerCollectionViewCell: UICollectionViewCell {
         self.clipsToBounds = false
         
         containerView.clipsToBounds = true
-        containerView.layer.cornerRadius = 20
     }
     
     func setUp(title: String, backgroundColor: UIColor, textColor: UIColor){
@@ -36,7 +35,17 @@ class PrayerCollectionViewCell: UICollectionViewCell {
         titleLabel.textColor = textColor
         dropshadowView.layer.shadowColor = Theme.Color.dropShadow.cgColor
         
-        containerView.backgroundColor = backgroundColor
+        containerView.bottomColor = backgroundColor
+        containerView.topColor = backgroundColor
+    }
+    
+    func setUp(title: String, bottomColor: UIColor, topColor: UIColor, textColor: UIColor) {
+        titleLabel.text = title
+        titleLabel.textColor = textColor
+        dropshadowView.layer.shadowColor = Theme.Color.dropShadow.cgColor
+        
+        containerView.bottomColor = bottomColor
+        containerView.topColor = topColor
     }
 
 }

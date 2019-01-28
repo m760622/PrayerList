@@ -61,6 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func prepopulateCoreData(){
         let defaultCategories = [CategoryModel(name: "Thanks", order: 0), CategoryModel(name: "Family & Friends", order: 1), CategoryModel(name: "EACO", order: 2), CategoryModel(name: "Ecclesia", order: 3), CategoryModel(name: "Temporary", order: 4)]
         
+        let defaultPrayers = [PrayerModel(name: "Morning", order: 0), PrayerModel(name: "Midday", order: 1), PrayerModel(name: "Evening", order: 2)]
+        
+        for prayer in defaultPrayers {
+            PrayerInterface.savePrayer(prayer: prayer, inContext: CoreDataManager.mainContext)
+        }
+        
         for category in defaultCategories {
             CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
         }
