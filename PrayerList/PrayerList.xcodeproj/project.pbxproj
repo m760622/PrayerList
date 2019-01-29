@@ -69,6 +69,7 @@
 		03C2A6A921C4474A0021AD66 /* LargeTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6A721C4474A0021AD66 /* LargeTextTableViewCell.xib */; };
 		03C2A6AC21CB69120021AD66 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A6AB21CB69120021AD66 /* EmptyView.swift */; };
 		03C2A6AE21CB69210021AD66 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6AD21CB69210021AD66 /* EmptyView.xib */; };
+		03F32B422200220200F7F0A6 /* FullNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B412200220200F7F0A6 /* FullNotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		03C2A6A721C4474A0021AD66 /* LargeTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeTextTableViewCell.xib; sourceTree = "<group>"; };
 		03C2A6AB21CB69120021AD66 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		03C2A6AD21CB69210021AD66 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		03F32B412200220200F7F0A6 /* FullNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +444,7 @@
 			children = (
 				03C2A68221BE4F820021AD66 /* ItemDetailViewController.swift */,
 				03C2A69321BF7F640021AD66 /* AddNoteViewController.swift */,
+				03F32B412200220200F7F0A6 /* FullNotesViewController.swift */,
 			);
 			path = "Item Detail";
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */,
 				0394992E21AFB225003AF16D /* PrayerOverviewController.swift in Sources */,
 				03C2A69F21C433D50021AD66 /* PlusView.swift in Sources */,
+				03F32B422200220200F7F0A6 /* FullNotesViewController.swift in Sources */,
 				0394993F21AFCAF5003AF16D /* PrayerCollectionViewCell.swift in Sources */,
 				03C2A68321BE4F820021AD66 /* ItemDetailViewController.swift in Sources */,
 				039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */,

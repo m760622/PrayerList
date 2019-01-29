@@ -84,8 +84,12 @@ class ListCollectionViewCell: UICollectionViewCell {
         self.layoutIfNeeded()
         self.layoutSubviews()
         self.heightConstraint.constant = !items.isEmpty ? tableView.contentSize.height : 100
+    }
+    
+    func layout(){
         self.layoutIfNeeded()
         self.layoutSubviews()
+        self.heightConstraint.constant = !items.isEmpty ? tableView.contentSize.height : 100
     }
     
     @IBAction func moreAction(_ sender: Any) {
@@ -135,16 +139,19 @@ extension ListCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        let item = items[indexPath.row]
-//        items.remove(at: indexPath.row)
-//        ItemInterface.deleteItem(item: item, inContext: CoreDataManager.mainContext)
-//
-//        tableView.beginUpdates()
-//        tableView.deleteRows(at: [indexPath], with: .automatic)
-//        tableView.endUpdates()
-//        tableView.layoutIfNeeded()
-//        self.heightConstraint.constant = tableView.contentSize.height
-//        delegate?.tableDidSizeChange()
+        let item = items[indexPath.row]
+        items.remove(at: indexPath.row)
+        
+        if let item = item as? NoteModel {
+            NoteInterface.deleteItem(item: item, inContext: CoreDataManager.mainContext)
+        }
+        
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+        tableView.layoutIfNeeded()
+        self.heightConstraint.constant = tableView.contentSize.height
+        delegate?.tableDidSizeChange()
     }
 
 }

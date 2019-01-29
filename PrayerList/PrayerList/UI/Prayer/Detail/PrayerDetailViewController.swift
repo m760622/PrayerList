@@ -104,13 +104,17 @@ extension PrayerDetailViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath) as! ListCollectionViewCell
+        
+        let item = categories[indexPath.section].retrieveItemsForPrayer(prayer: self.prayer)[indexPath.row]
+         cell.setUp(title: item.name, items: item.currentNotes, showActionButton: false, actionButtonTitle: nil, emptyTitle: nil, emptySubtitle: nil)
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let item = categories[indexPath.section].retrieveItemsForPrayer(prayer: self.prayer)[indexPath.row]
         if let cell = cell as? ListCollectionViewCell {
-            cell.setUp(title: item.name, items: item.currentNotes, showActionButton: false, actionButtonTitle: nil, emptyTitle: nil, emptySubtitle: nil)
+            cell.layout()
         }
     }
     

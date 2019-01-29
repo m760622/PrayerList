@@ -12,7 +12,7 @@ protocol AddNoteDelegate: class {
     func addItem(detail: String)
 }
 
-class AddNoteViewController: UIViewController {
+class AddNoteViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     weak var delegate: AddNoteDelegate?
@@ -63,6 +63,7 @@ extension AddNoteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LargeTextTableViewCell.reuseIdentifier, for: indexPath) as! LargeTextTableViewCell
+        cell.selectionStyle = .none
         return cell
     }
     

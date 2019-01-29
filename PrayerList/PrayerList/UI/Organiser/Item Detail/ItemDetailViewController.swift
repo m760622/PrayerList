@@ -56,6 +56,8 @@ class ItemDetailViewController: UIViewController {
             if let child = dest.topViewController as? AddNoteViewController {
                 child.delegate = self
             }
+        } else if let dest = segue.destination as? FullNotesViewController {
+            dest.selectedItem = self.selectedItem
         }
     }
 }
@@ -76,14 +78,17 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath) as! ListCollectionViewCell
+            let shouldShowMoreButton = self.selectedItem.currentNotes.count - 5 > 0
+            cell.setUp(items: Array(self.selectedItem.currentNotes.prefix(15)).map({$0.name}), showActionButton: shouldShowMoreButton, actionButtonTitle: shouldShowMoreButton ? "\(self.selectedItem.currentNotes.count - 5) More" : nil, emptyTitle: "No Notes", emptySubtitle: "You haven't added any notes for \(selectedItem.name)")
+            cell.delegate = self
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? ListCollectionViewCell {
-            let shouldShowMoreButton = self.selectedItem.currentNotes.count - 5 > 0
-            cell.setUp(items: Array(self.selectedItem.currentNotes.prefix(15)).map({$0.name}), showActionButton: shouldShowMoreButton, actionButtonTitle: shouldShowMoreButton ? "\(self.selectedItem.currentNotes.count - 5) More" : nil, emptyTitle: "No Notes", emptySubtitle: "You haven't added any notes for \(selectedItem.name)")
-            cell.delegate = self
+            cell.layout()
         }
     }
     
@@ -106,11 +111,12 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension ItemDetailViewController: TableViewCellDelegate {
     func tableDidSizeChange() {
+        //collectionView.reloadItems(at: [Inde])
         //collectionView.collectionViewLayout.invalidateLayout()
     }
     
     func buttonAction() {
-        
+        performSegue(withIdentifier: "fullNotesSegue", sender: self)
     }
 }
 

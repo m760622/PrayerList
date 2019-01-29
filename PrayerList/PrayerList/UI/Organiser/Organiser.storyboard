@@ -277,6 +277,7 @@
                     <connections>
                         <outlet property="collectionView" destination="7zB-cS-9Ry" id="7RO-dm-D4w"/>
                         <segue destination="WXs-ic-UQb" kind="presentation" identifier="addItemSegue" modalPresentationStyle="formSheet" id="HpM-8v-Z49"/>
+                        <segue destination="adk-lm-2Iw" kind="show" identifier="fullNotesSegue" id="LuO-2X-U1v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAL-1e-0Jw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -327,7 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Hd-3f-COx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2951.1999999999998" y="1485.6071964017992"/>
+            <point key="canvasLocation" x="2718" y="869"/>
         </scene>
         <!--Category Settings View Controller-->
         <scene sceneID="S4q-pA-bst">
@@ -440,6 +441,40 @@
             </objects>
             <point key="canvasLocation" x="181.59999999999999" y="742.5787106446777"/>
         </scene>
+        <!--Full Notes View Controller-->
+        <scene sceneID="REM-99-PXR">
+            <objects>
+                <viewController id="adk-lm-2Iw" customClass="FullNotesViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s1g-Ho-PcJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s2L-Cz-ggH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="adk-lm-2Iw" id="qdM-bM-v5b"/>
+                                    <outlet property="delegate" destination="adk-lm-2Iw" id="YNS-i8-1La"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="s2L-Cz-ggH" firstAttribute="top" secondItem="s1g-Ho-PcJ" secondAttribute="top" id="PoL-1O-5EJ"/>
+                            <constraint firstAttribute="trailing" secondItem="s2L-Cz-ggH" secondAttribute="trailing" id="c7a-a2-eo7"/>
+                            <constraint firstItem="s2L-Cz-ggH" firstAttribute="leading" secondItem="AoS-ts-fZz" secondAttribute="leading" id="ibw-F8-Gpe"/>
+                            <constraint firstAttribute="bottom" secondItem="s2L-Cz-ggH" secondAttribute="bottom" id="tbQ-gu-wvq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AoS-ts-fZz"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="s2L-Cz-ggH" id="Hhs-Ax-cAv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZMS-gk-KSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="1539"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y5D-xb-kQN">
             <objects>
@@ -474,7 +509,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Uh-5i-50W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="1485.6071964017992"/>
+            <point key="canvasLocation" x="1966" y="869"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nkM-ii-hvu">
