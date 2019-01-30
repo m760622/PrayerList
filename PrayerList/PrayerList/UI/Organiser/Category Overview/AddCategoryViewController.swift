@@ -12,7 +12,7 @@ enum CategoryFormCell {
     case name
     case prayer
     
-    static var sections: [GroupFormCell] {
+    static var sections: [CategoryFormCell] {
         return [.name, .prayer]
     }
 }
@@ -24,11 +24,25 @@ class AddCategoryViewController: UIViewController {
     var selectedPrayers = [PrayerModel]()
     var name: String?
     
+    var isFreshLoad = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: TextFieldTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.reuseIdentifier)
         // Do any additional setup after loading the view.
         updateNavButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        
+        if isFreshLoad {
+            isFreshLoad = false
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldTableViewCell {
+                cell.textField.becomeFirstResponder()
+            }
+        }
     }
     
     @IBAction func doneActio(_ sender: Any) {
@@ -112,7 +126,7 @@ extension AddCategoryViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension AddCategoryViewController: CellTextDelegate {
     func textChanged(text: String?, indexPath: IndexPath) {
-        let item = GroupFormCell.sections[indexPath.section][indexPath.row]
+        let item = CategoryFormCell.sections[indexPath.section]
         switch item{
         case .name:
             name = text

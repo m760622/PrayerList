@@ -35,7 +35,6 @@
 		0394994721AFCF0B003AF16D /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994521AFCF0B003AF16D /* TextFieldTableViewCell.swift */; };
 		0394994821AFCF0B003AF16D /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394994621AFCF0B003AF16D /* TextFieldTableViewCell.xib */; };
 		0394994C21AFE220003AF16D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994B21AFE220003AF16D /* Button.swift */; };
-		0394995021AFE460003AF16D /* PrayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */; };
 		0394995321B12419003AF16D /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995221B12419003AF16D /* ItemModel.swift */; };
 		0394995521B12427003AF16D /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995421B12427003AF16D /* NoteModel.swift */; };
 		0394995721B1246E003AF16D /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995621B1246E003AF16D /* CategoryModel.swift */; };
@@ -69,7 +68,15 @@
 		03C2A6A921C4474A0021AD66 /* LargeTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6A721C4474A0021AD66 /* LargeTextTableViewCell.xib */; };
 		03C2A6AC21CB69120021AD66 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A6AB21CB69120021AD66 /* EmptyView.swift */; };
 		03C2A6AE21CB69210021AD66 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6AD21CB69210021AD66 /* EmptyView.xib */; };
+		03C3CAA32201772F007827DF /* PrayerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA22201772E007827DF /* PrayerPageViewController.swift */; };
+		03C3CAA522017751007827DF /* PrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA422017751007827DF /* PrayerViewController.swift */; };
+		03C3CAA822018020007827DF /* AddNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA622018020007827DF /* AddNoteTableViewCell.swift */; };
+		03C3CAA922018020007827DF /* AddNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C3CAA722018020007827DF /* AddNoteTableViewCell.xib */; };
 		03F32B422200220200F7F0A6 /* FullNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B412200220200F7F0A6 /* FullNotesViewController.swift */; };
+		03F32B4522002CD800F7F0A6 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B4322002CD800F7F0A6 /* NoteCollectionViewCell.swift */; };
+		03F32B4622002CD800F7F0A6 /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F32B4422002CD800F7F0A6 /* NoteCollectionViewCell.xib */; };
+		03F32B49220030DF00F7F0A6 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B48220030DF00F7F0A6 /* DateHelper.swift */; };
+		03F32B4B220036CF00F7F0A6 /* PrayerSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B4A220036CF00F7F0A6 /* PrayerSectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +132,6 @@
 		0394994521AFCF0B003AF16D /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		0394994621AFCF0B003AF16D /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		0394994B21AFE220003AF16D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerDetailViewController.swift; sourceTree = "<group>"; };
 		0394995221B12419003AF16D /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		0394995421B12427003AF16D /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		0394995621B1246E003AF16D /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
@@ -159,7 +165,15 @@
 		03C2A6A721C4474A0021AD66 /* LargeTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeTextTableViewCell.xib; sourceTree = "<group>"; };
 		03C2A6AB21CB69120021AD66 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		03C2A6AD21CB69210021AD66 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		03C3CAA22201772E007827DF /* PrayerPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerPageViewController.swift; sourceTree = "<group>"; };
+		03C3CAA422017751007827DF /* PrayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerViewController.swift; sourceTree = "<group>"; };
+		03C3CAA622018020007827DF /* AddNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteTableViewCell.swift; sourceTree = "<group>"; };
+		03C3CAA722018020007827DF /* AddNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNoteTableViewCell.xib; sourceTree = "<group>"; };
 		03F32B412200220200F7F0A6 /* FullNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNotesViewController.swift; sourceTree = "<group>"; };
+		03F32B4322002CD800F7F0A6 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		03F32B4422002CD800F7F0A6 /* NoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCollectionViewCell.xib; sourceTree = "<group>"; };
+		03F32B48220030DF00F7F0A6 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		03F32B4A220036CF00F7F0A6 /* PrayerSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +288,7 @@
 				0394992221AFAFD6003AF16D /* Extensions */,
 				0394996421B12AE4003AF16D /* PRUserDefaults.swift */,
 				0394997D21B25A86003AF16D /* Storyboardable.swift */,
+				03F32B48220030DF00F7F0A6 /* DateHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -378,6 +393,7 @@
 				0394994B21AFE220003AF16D /* Button.swift */,
 				03C2A6A221C433E70021AD66 /* PlusView */,
 				03419F8D21CDC1D400F88F99 /* GradientView.swift */,
+				03F32B4722002CDC00F7F0A6 /* Note Cell */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -394,7 +410,9 @@
 		0394995121B10737003AF16D /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				0394994F21AFE460003AF16D /* PrayerDetailViewController.swift */,
+				03C3CAA22201772E007827DF /* PrayerPageViewController.swift */,
+				03F32B4A220036CF00F7F0A6 /* PrayerSectionViewController.swift */,
+				03C3CAA422017751007827DF /* PrayerViewController.swift */,
 				0394994321AFCEDF003AF16D /* Prayer Settings */,
 			);
 			path = Detail;
@@ -426,6 +444,7 @@
 			children = (
 				0394997221B1CF77003AF16D /* AddItemFormViewController.swift */,
 				0394997421B1D461003AF16D /* PrayerSelectionViewController.swift */,
+				03C3CAAA22018026007827DF /* Add Note Cell */,
 			);
 			path = AddItemForm;
 			sourceTree = "<group>";
@@ -510,6 +529,24 @@
 				03C2A68521BE51E30021AD66 /* ListCollectionViewCell.xib */,
 			);
 			path = ItemGroup;
+			sourceTree = "<group>";
+		};
+		03C3CAAA22018026007827DF /* Add Note Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03C3CAA622018020007827DF /* AddNoteTableViewCell.swift */,
+				03C3CAA722018020007827DF /* AddNoteTableViewCell.xib */,
+			);
+			path = "Add Note Cell";
+			sourceTree = "<group>";
+		};
+		03F32B4722002CDC00F7F0A6 /* Note Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03F32B4322002CD800F7F0A6 /* NoteCollectionViewCell.swift */,
+				03F32B4422002CD800F7F0A6 /* NoteCollectionViewCell.xib */,
+			);
+			path = "Note Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -632,8 +669,10 @@
 				039498F221AFAA92003AF16D /* Main.storyboard in Resources */,
 				0394994021AFCAF5003AF16D /* PrayerCollectionViewCell.xib in Resources */,
 				03C2A6AE21CB69210021AD66 /* EmptyView.xib in Resources */,
+				03C3CAA922018020007827DF /* AddNoteTableViewCell.xib in Resources */,
 				03C2A68D21BE55310021AD66 /* ItemTableViewCell.xib in Resources */,
 				0394997A21B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib in Resources */,
+				03F32B4622002CD800F7F0A6 /* NoteCollectionViewCell.xib in Resources */,
 				03C2A69221BE56130021AD66 /* PlainHeaderCollectionReusableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,6 +716,7 @@
 				0394997921B1DA7D003AF16D /* ItemOverviewCollectionViewCell.swift in Sources */,
 				03C2A6AC21CB69120021AD66 /* EmptyView.swift in Sources */,
 				03419F8E21CDC1D400F88F99 /* GradientView.swift in Sources */,
+				03C3CAA522017751007827DF /* PrayerViewController.swift in Sources */,
 				039498EF21AFAA92003AF16D /* ViewController.swift in Sources */,
 				0394993B21AFC9F9003AF16D /* PrayerInterface.swift in Sources */,
 				0394995921B124E8003AF16D /* CoreDataItem.swift in Sources */,
@@ -685,8 +725,10 @@
 				0394992421AFAFE4003AF16D /* UIColor+Extensions.swift in Sources */,
 				0394997C21B25448003AF16D /* CategorySettingsViewController.swift in Sources */,
 				0394995321B12419003AF16D /* ItemModel.swift in Sources */,
+				03C3CAA822018020007827DF /* AddNoteTableViewCell.swift in Sources */,
+				03F32B49220030DF00F7F0A6 /* DateHelper.swift in Sources */,
+				03F32B4B220036CF00F7F0A6 /* PrayerSectionViewController.swift in Sources */,
 				0394997321B1CF77003AF16D /* AddItemFormViewController.swift in Sources */,
-				0394995021AFE460003AF16D /* PrayerDetailViewController.swift in Sources */,
 				03C2A6A421C43BAB0021AD66 /* TabBarController.swift in Sources */,
 				0394993021AFB25A003AF16D /* OrganiserOverviewController.swift in Sources */,
 				03C2A68621BE51E30021AD66 /* ListCollectionViewCell.swift in Sources */,
@@ -695,11 +737,13 @@
 				03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */,
 				0394995521B12427003AF16D /* NoteModel.swift in Sources */,
 				0394996121B12907003AF16D /* NoteInterface.swift in Sources */,
+				03F32B4522002CD800F7F0A6 /* NoteCollectionViewCell.swift in Sources */,
 				03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */,
 				0394992E21AFB225003AF16D /* PrayerOverviewController.swift in Sources */,
 				03C2A69F21C433D50021AD66 /* PlusView.swift in Sources */,
 				03F32B422200220200F7F0A6 /* FullNotesViewController.swift in Sources */,
 				0394993F21AFCAF5003AF16D /* PrayerCollectionViewCell.swift in Sources */,
+				03C3CAA32201772F007827DF /* PrayerPageViewController.swift in Sources */,
 				03C2A68321BE4F820021AD66 /* ItemDetailViewController.swift in Sources */,
 				039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */,
 				0394995F21B128FD003AF16D /* ItemInterface.swift in Sources */,

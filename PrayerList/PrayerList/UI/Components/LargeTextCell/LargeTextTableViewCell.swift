@@ -25,6 +25,11 @@ class LargeTextTableViewCell: UITableViewCell {
         textView.delegate = self
         textView.sizeToFit()
     }
+    
+    func setUp(text: String) {
+        textView.text = text
+        //delegate?.textUpdated(text: textView.text)
+    }
 
 }
 

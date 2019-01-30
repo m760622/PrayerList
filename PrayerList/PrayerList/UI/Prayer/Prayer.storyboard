@@ -55,16 +55,82 @@
             </objects>
             <point key="canvasLocation" x="1528.8" y="-212.74362818590706"/>
         </scene>
-        <!--Prayer Detail View Controller-->
+        <!--Prayer View Controller-->
+        <scene sceneID="Ibi-Uc-uVE">
+            <objects>
+                <viewController id="OZi-0A-4IQ" customClass="PrayerViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Kp-bJ-fJM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNt-Ra-qcf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="RWe-pE-daJ" kind="embed" id="2Op-bM-1m7"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRm-WG-pbW">
+                                <rect key="frame" x="15" y="612" width="70" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nle-Rr-L6H">
+                                        <rect key="frame" x="13.5" y="10" width="43.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="nle-Rr-L6H" firstAttribute="centerX" secondItem="vRm-WG-pbW" secondAttribute="centerX" id="MF0-cE-fEG"/>
+                                    <constraint firstAttribute="height" constant="40" id="tI8-er-tQp"/>
+                                    <constraint firstAttribute="width" constant="70" id="wct-Du-UFe"/>
+                                    <constraint firstItem="nle-Rr-L6H" firstAttribute="centerY" secondItem="vRm-WG-pbW" secondAttribute="centerY" id="yOv-8l-syw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="oNt-Ra-qcf" secondAttribute="bottom" id="F6P-CQ-6HI"/>
+                            <constraint firstItem="Icb-a8-DOR" firstAttribute="trailing" secondItem="oNt-Ra-qcf" secondAttribute="trailing" id="HYQ-wg-mAi"/>
+                            <constraint firstItem="vRm-WG-pbW" firstAttribute="leading" secondItem="Icb-a8-DOR" secondAttribute="leading" constant="15" id="WnR-rT-S8p"/>
+                            <constraint firstItem="oNt-Ra-qcf" firstAttribute="leading" secondItem="Icb-a8-DOR" secondAttribute="leading" id="aKY-FH-NVV"/>
+                            <constraint firstItem="oNt-Ra-qcf" firstAttribute="top" secondItem="5Kp-bJ-fJM" secondAttribute="top" id="asD-WV-JDU"/>
+                            <constraint firstItem="Icb-a8-DOR" firstAttribute="bottom" secondItem="vRm-WG-pbW" secondAttribute="bottom" constant="15" id="yzd-54-fs9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Icb-a8-DOR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pSh-YS-BDY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="L8P-se-gUT">
+                            <connections>
+                                <action selector="cancelAction:" destination="OZi-0A-4IQ" id="bFn-cx-Slg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pageCountLabel" destination="nle-Rr-L6H" id="oBN-EL-ofH"/>
+                        <outlet property="pageCountView" destination="vRm-WG-pbW" id="arm-Xn-2YE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axs-0P-KII" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3127" y="-213"/>
+        </scene>
+        <!--Prayer Section View Controller-->
         <scene sceneID="bJz-PR-zpQ">
             <objects>
-                <viewController id="MP9-cz-0D8" customClass="PrayerDetailViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrayerSectionViewController" id="MP9-cz-0D8" customClass="PrayerSectionViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9J3-xu-IUC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ftX-qT-iB8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ki8-Qq-CZ4">
+                                <rect key="frame" x="15" y="35" width="345" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ftX-qT-iB8">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="eRL-qX-Im7">
                                     <size key="itemSize" width="50" height="50"/>
@@ -78,17 +144,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                                 <connections>
-                                    <outlet property="dataSource" destination="MP9-cz-0D8" id="dHr-s8-qkP"/>
-                                    <outlet property="delegate" destination="MP9-cz-0D8" id="lw5-is-Jrv"/>
+                                    <outlet property="dataSource" destination="MP9-cz-0D8" id="GUS-qU-BF8"/>
+                                    <outlet property="delegate" destination="MP9-cz-0D8" id="KiE-Qm-6hV"/>
                                 </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ftX-qT-iB8" firstAttribute="leading" secondItem="48f-Wd-PHX" secondAttribute="leading" id="JhP-a4-Xy6"/>
-                            <constraint firstItem="ftX-qT-iB8" firstAttribute="top" secondItem="9J3-xu-IUC" secondAttribute="top" id="TYR-wo-kaL"/>
+                            <constraint firstItem="ftX-qT-iB8" firstAttribute="top" secondItem="ki8-Qq-CZ4" secondAttribute="bottom" id="TYR-wo-kaL"/>
+                            <constraint firstItem="48f-Wd-PHX" firstAttribute="trailing" secondItem="ki8-Qq-CZ4" secondAttribute="trailing" constant="15" id="XwB-pU-UHH"/>
+                            <constraint firstItem="ki8-Qq-CZ4" firstAttribute="leading" secondItem="48f-Wd-PHX" secondAttribute="leading" constant="15" id="gCt-nO-cb8"/>
                             <constraint firstAttribute="bottom" secondItem="ftX-qT-iB8" secondAttribute="bottom" id="jZV-g0-oU7"/>
                             <constraint firstItem="48f-Wd-PHX" firstAttribute="trailing" secondItem="ftX-qT-iB8" secondAttribute="trailing" id="rgu-YS-NhS"/>
+                            <constraint firstItem="ki8-Qq-CZ4" firstAttribute="top" secondItem="48f-Wd-PHX" secondAttribute="top" constant="15" id="wb9-Np-sab"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="48f-Wd-PHX"/>
                     </view>
@@ -105,12 +174,29 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="ftX-qT-iB8" id="HSn-3j-3Br"/>
+                        <outlet property="collectionView" destination="ftX-qT-iB8" id="U1M-ib-skJ"/>
+                        <outlet property="titleLabel" destination="ki8-Qq-CZ4" id="f1A-YQ-Nt5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Kx-Ik-yey" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3404" y="165.96701649175412"/>
+            <point key="canvasLocation" x="4754" y="-213"/>
+        </scene>
+        <!--Prayer Page View Controller-->
+        <scene sceneID="IAJ-CT-FqR">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="RWe-pE-daJ" customClass="PrayerPageViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="A9m-69-F73">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="V8e-YG-Efy">
+                            <connections>
+                                <action selector="cancelAction:" destination="RWe-pE-daJ" id="8Lo-rx-3Ml"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Gl-Q1-maF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3868" y="-185"/>
         </scene>
         <!--Settings-->
         <scene sceneID="S9M-kB-cGq">
@@ -177,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YjU-tO-OAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5268" y="165.06746626686657"/>
+            <point key="canvasLocation" x="6247" y="1283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="paR-60-GIQ">
@@ -215,25 +301,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3U-2u-cL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4328.8000000000002" y="165.06746626686657"/>
+            <point key="canvasLocation" x="5308" y="1283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Yr-fT-wvp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rh4-dX-eqm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aEe-wr-med">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="aEe-wr-med">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="MP9-cz-0D8" kind="relationship" relationship="rootViewController" id="ofv-OT-qAu"/>
+                        <segue destination="OZi-0A-4IQ" kind="relationship" relationship="rootViewController" id="vNc-9A-KQe"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csk-oq-iMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2464.8000000000002" y="165.96701649175412"/>
+            <point key="canvasLocation" x="2362" y="-213"/>
         </scene>
     </scenes>
     <resources>

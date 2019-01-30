@@ -38,7 +38,11 @@ class CategoryModel {
     }
     
     func retrieveItemsForPrayer(prayer: PrayerModel) -> [ItemModel] {
-        return items.filter({$0.prayerIds.contains(prayer.uuid)})
+        return items.filter({$0.prayerIds.contains(prayer.uuid) && !$0.currentNotes.isEmpty})
+    }
+    
+    func updatePrayerSelection(prayers: [PrayerModel]) {
+        self.prayers = prayers
     }
     
 }

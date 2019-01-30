@@ -29,12 +29,8 @@ class ItemModel {
         self.uuid = coreDataGroup.uuid
         self.order = Int(coreDataGroup.order)
         
-        if !coreDataGroup.items.isEmpty {
-            self.currentNotes = Array(coreDataGroup.items.map({NoteModel(coreDataPrayerItem: $0)})).sorted(by: {$0.dateCreated > $1.dateCreated})
-        }
-        
-        if !coreDataGroup.prayers.isEmpty {
-            self.prayerIds = Array(coreDataGroup.prayers.map({$0.uuid}))
+        if !coreDataGroup.notes.isEmpty {
+            self.currentNotes = Array(coreDataGroup.notes.map({NoteModel(coreDataPrayerItem: $0)})).sorted(by: {$0.dateCreated > $1.dateCreated})
         }
     }
 }

@@ -24,6 +24,16 @@ class CategoryInterface {
         return nil
     }
     
+    class func retrieveCategories(forIDs IDs: [String], context: NSManagedObjectContext) -> [CategoryModel] {
+        var categories = [CategoryModel]()
+        for id in IDs {
+            if let category = retrieveCategory(forID: id, context: context) {
+                categories.append(category)
+            }
+        }
+        return categories
+    }
+    
     class func saveCategory(category: CategoryModel, inContext context: NSManagedObjectContext) {
         _ = CoreDataPrayerCategory.new(forGroup: category, in: context)
         CoreDataManager.saveContext(context)

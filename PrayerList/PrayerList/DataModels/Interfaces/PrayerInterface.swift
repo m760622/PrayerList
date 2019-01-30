@@ -21,6 +21,13 @@ class PrayerInterface {
         return coreDataPrayers.map({PrayerModel(coreDataPrayer: $0)}).sorted(by: {$0.order < $1.order})
     }
     
+    class func retrievePrayer(withID ID: String, inContext context: NSManagedObjectContext) -> PrayerModel? {
+        if let coreDataPrayer = CoreDataPrayer.fetchPrayer(withID: ID, in: context) {
+            return PrayerModel(coreDataPrayer: coreDataPrayer)
+        }
+        return nil
+    }
+    
     class func savePrayer(prayer: PrayerModel, inContext context: NSManagedObjectContext) {
         _ = CoreDataPrayer.new(forPrayer: prayer, in: context)
         CoreDataManager.saveContext(context)

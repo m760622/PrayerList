@@ -69,9 +69,9 @@ class PrayerOverviewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let selectedPrayer = self.selectedPrayer {
-            if let destVC = segue.destination as? PrayerDetailViewController {
+            if let destVC = segue.destination as? PrayerViewController {
                 destVC.prayer = selectedPrayer
-            } else if let destVC = segue.destination as? UINavigationController, let topVC = destVC.topViewController as? PrayerDetailViewController{
+            } else if let destVC = segue.destination as? UINavigationController, let topVC = destVC.topViewController as? PrayerViewController {
                 topVC.prayer = selectedPrayer
             }
         }

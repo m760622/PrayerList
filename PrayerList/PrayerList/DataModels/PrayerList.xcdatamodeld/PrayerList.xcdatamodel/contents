@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C48a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.72" systemVersion="18C48a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CoreDataItem" representedClassName=".CoreDataItem" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataPrayerCategory" inverseName="groups" inverseEntity="CoreDataPrayerCategory" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataPrayerNote" inverseName="group" inverseEntity="CoreDataPrayerNote" syncable="YES"/>
-        <relationship name="prayers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataPrayer" inverseName="groups" inverseEntity="CoreDataPrayer" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataPrayerNote" inverseName="group" inverseEntity="CoreDataPrayerNote" syncable="YES"/>
     </entity>
     <entity name="CoreDataPrayer" representedClassName=".CoreDataPrayer" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataPrayerCategory" inverseName="prayers" inverseEntity="CoreDataPrayerCategory" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataItem" inverseName="prayers" inverseEntity="CoreDataItem" syncable="YES"/>
     </entity>
     <entity name="CoreDataPrayerCategory" representedClassName=".CoreDataPrayerCategory" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,11 +24,11 @@
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataItem" inverseName="items" inverseEntity="CoreDataItem" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataItem" inverseName="notes" inverseEntity="CoreDataItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CoreDataItem" positionX="-54" positionY="18" width="128" height="135"/>
-        <element name="CoreDataPrayer" positionX="-63.5859375" positionY="-156.69140625" width="128" height="120"/>
+        <element name="CoreDataItem" positionX="-54" positionY="18" width="128" height="120"/>
+        <element name="CoreDataPrayer" positionX="-63.5859375" positionY="-156.69140625" width="128" height="105"/>
         <element name="CoreDataPrayerCategory" positionX="155.7578125" positionY="-206.5078125" width="128" height="120"/>
         <element name="CoreDataPrayerNote" positionX="160" positionY="192" width="128" height="105"/>
     </elements>

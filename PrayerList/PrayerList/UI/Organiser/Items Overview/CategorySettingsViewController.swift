@@ -112,9 +112,7 @@ extension CategorySettingsViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 0 {
-            return nil
-        } else if section == 1 {
-            return "Selected prayers will show the contents of this group"
+            return "Selected prayers will show the items under this category"
         }
         return nil
     }
@@ -140,7 +138,7 @@ extension CategorySettingsViewController: CellTextDelegate {
 
 extension CategorySettingsViewController: PrayerSelectionDelegate {
     func prayersSelected(prayers: [PrayerModel]) {
-        self.category.prayers = prayers
+        self.category.updatePrayerSelection(prayers: prayers)
         CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
     }
 }
