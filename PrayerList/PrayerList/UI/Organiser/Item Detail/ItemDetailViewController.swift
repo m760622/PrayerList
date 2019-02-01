@@ -83,10 +83,6 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         
         cell.setUp(text: note.name, subtext: DateHelper.getStringFromDate(date: note.dateCreated, format: "eee dd MMM yyyy"), style: .light)
         
-//            let shouldShowMoreButton = self.selectedItem.currentNotes.count - 5 > 0
-//            cell.setUp(items: Array(self.selectedItem.currentNotes.prefix(15)).map({$0.name}), showActionButton: shouldShowMoreButton, actionButtonTitle: shouldShowMoreButton ? "\(self.selectedItem.currentNotes.count - 5) More" : nil, emptyTitle: "No Notes", emptySubtitle: "You haven't added any notes for \(selectedItem.name)")
-//            cell.delegate = self
-        
         return cell
     }
     
