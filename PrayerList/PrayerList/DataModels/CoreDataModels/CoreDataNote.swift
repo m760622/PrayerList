@@ -9,25 +9,25 @@
 import Foundation
 import CoreData
 
-class CoreDataPrayerNote: NSManagedObject {
+class CoreDataNote: NSManagedObject {
     
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataPrayerNote> {
-        return NSFetchRequest<CoreDataPrayerNote>(entityName: "CoreDataPrayerNote")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataNote> {
+        return NSFetchRequest<CoreDataNote>(entityName: "CoreDataNote")
     }
     
     @NSManaged var name: String
     @NSManaged var uuid: String
     @NSManaged var dateCreated: NSDate
     
-    static let entityName: String = "CoreDataPrayerNote"
+    static let entityName: String = "CoreDataNote"
     
-    class func new(forItem itemModel: NoteModel, in context: NSManagedObjectContext) -> CoreDataPrayerNote {
+    class func new(forItem itemModel: NoteModel, in context: NSManagedObjectContext) -> CoreDataNote {
         
-        let item: CoreDataPrayerNote
+        let item: CoreDataNote
         if let existing = fetchItem(withID: itemModel.uuid, in: context) {
             item = existing
         } else {
-            item = CoreDataPrayerNote(entity: entity(), insertInto: context)
+            item = CoreDataNote(entity: entity(), insertInto: context)
             item.uuid = itemModel.uuid
         }
         
@@ -38,15 +38,15 @@ class CoreDataPrayerNote: NSManagedObject {
     }
     
     //MARK: - Retrieval
-    class func fetchItem(withID id: String, in context: NSManagedObjectContext) -> CoreDataPrayerNote? {
-        var items = [CoreDataPrayerNote]()
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataPrayerNote")
+    class func fetchItem(withID id: String, in context: NSManagedObjectContext) -> CoreDataNote? {
+        var items = [CoreDataNote]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataNote")
         
         fetchRequest.predicate = NSPredicate(format: "uuid == %@", id)
         
         do {
             let results = try context.fetch(fetchRequest)
-            items = results as! [CoreDataPrayerNote]
+            items = results as! [CoreDataNote]
         } catch let error as NSError {
             print("Could not fetch \(error)")
         }
@@ -54,13 +54,13 @@ class CoreDataPrayerNote: NSManagedObject {
         return items.first
     }
     
-    class func fetchAllPrayers(inContext context: NSManagedObjectContext) -> [CoreDataPrayerNote] {
-        var items = [CoreDataPrayerNote]()
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataPrayerNote")
+    class func fetchAllPrayers(inContext context: NSManagedObjectContext) -> [CoreDataNote] {
+        var items = [CoreDataNote]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataNote")
         
         do {
             let results = try context.fetch(fetchRequest)
-            items = results as! [CoreDataPrayerNote]
+            items = results as! [CoreDataNote]
         } catch let error as NSError {
             print("Could not fetch \(error)")
         }

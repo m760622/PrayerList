@@ -19,37 +19,39 @@ class CoreDataItem: NSManagedObject {
     @NSManaged var uuid: String
     @NSManaged var categoryID: String
     @NSManaged var order: Int64
+    @NSManaged var completedForSet: Bool
     
-    @NSManaged var notes: Set<CoreDataPrayerNote>
+    @NSManaged var notes: Set<CoreDataNote>
     
     static let entityName: String = "CoreDataItem"
     
-    class func new(forGroup groupModel: ItemModel, in context: NSManagedObjectContext) -> CoreDataItem {
+    class func new(forItem itemModel: ItemModel, in context: NSManagedObjectContext) -> CoreDataItem {
         
-        let group: CoreDataItem
-        if let existing = fetchGroup(withID: groupModel.uuid, in: context) {
-            group = existing
+        let item: CoreDataItem
+        if let existing = fetchItem(withID: itemModel.uuid, in: context) {
+            item = existing
         } else {
-            group = CoreDataItem(entity: entity(), insertInto: context)
-            group.uuid = groupModel.uuid
+            item = CoreDataItem(entity: entity(), insertInto: context)
+            item.uuid = itemModel.uuid
         }
         
-        group.name = groupModel.name
-        group.order = Int64(groupModel.order)
+        item.name = itemModel.name
+        item.order = Int64(itemModel.order)
+        item.completedForSet = itemModel.completedForSet
         
-        if !groupModel.currentNotes.isEmpty {
-            group.notes = Set<CoreDataPrayerNote>()
-            for item in groupModel.currentNotes {
-                let item = CoreDataPrayerNote.new(forItem: item, in: context)
-                group.notes.insert(item)
+        if !itemModel.currentNotes.isEmpty {
+            item.notes = Set<CoreDataNote>()
+            for note in itemModel.currentNotes {
+                let coreDataNote = CoreDataNote.new(forItem: note, in: context)
+                item.notes.insert(coreDataNote)
             }
         }
         
-        return group
+        return item
     }
     
     //MARK: - Retrieval
-    class func fetchGroup(withID id: String, in context: NSManagedObjectContext) -> CoreDataItem? {
+    class func fetchItem(withID id: String, in context: NSManagedObjectContext) -> CoreDataItem? {
         var groups = [CoreDataItem]()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataItem")
         

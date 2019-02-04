@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CategoryModel {
+class CategoryModel: NSObject {
     
     var name: String
     var uuid: String
@@ -17,19 +17,26 @@ class CategoryModel {
     var prayers = [PrayerModel]()
     var items = [ItemModel]()
     
+    var setType: SetType = .consecutive
+    var totalPerSet: Int = 3
+    var showEmptyItems: Bool = false
+    
     init(name: String, order: Int){
         self.name = name
         self.uuid = UUID().uuidString
         self.order = order
     }
     
-    init(coreDataCategory: CoreDataPrayerCategory) {
+    init(coreDataCategory: CoreDataCategory) {
         self.name = coreDataCategory.name
         self.uuid = coreDataCategory.uuid
         self.order = Int(coreDataCategory.order)
+        self.totalPerSet = coreDataCategory.totalPerSet
+        self.setType = SetType(rawValue: coreDataCategory.setType)!
+        self.showEmptyItems = coreDataCategory.showEmptyItems
         
         if !coreDataCategory.groups.isEmpty {
-            self.items = Array(coreDataCategory.groups.map({ItemModel(coreDataGroup: $0)})).sorted(by: {$0.order < $1.order})
+            self.items = Array(coreDataCategory.groups.map({ItemModel(coreDataItem: $0)})).sorted(by: {$0.order < $1.order})
         }
         
         if !coreDataCategory.prayers.isEmpty {
@@ -37,9 +44,7 @@ class CategoryModel {
         }
     }
     
-    func retrieveItemsForPrayer(prayer: PrayerModel) -> [ItemModel] {
-        return items.filter({$0.prayerIds.contains(prayer.uuid) && !$0.currentNotes.isEmpty})
-    }
+    
     
     func updatePrayerSelection(prayers: [PrayerModel]) {
         self.prayers = prayers

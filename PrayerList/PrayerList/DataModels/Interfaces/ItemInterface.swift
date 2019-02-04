@@ -12,19 +12,19 @@ import CoreData
 class ItemInterface {
     
     class func retrieveGroup(withID ID: String, inContext context: NSManagedObjectContext) -> ItemModel? {
-        if let coreGroup = CoreDataItem.fetchGroup(withID: ID, in: context) {
-            return ItemModel(coreDataGroup: coreGroup)
+        if let coreGroup = CoreDataItem.fetchItem(withID: ID, in: context) {
+            return ItemModel(coreDataItem: coreGroup)
         }
         return nil
     }
     
     class func retrieveAllGroups(inContext context: NSManagedObjectContext) -> [ItemModel] {
         let coredataGroups = CoreDataItem.fetchAllPrayers(inContext: context)
-        return coredataGroups.map({ItemModel(coreDataGroup: $0)})
+        return coredataGroups.map({ItemModel(coreDataItem: $0)})
     }
     
     class func saveGroup(group: ItemModel, inContext context: NSManagedObjectContext) {
-        _ = CoreDataItem.new(forGroup: group, in: context)
+        _ = CoreDataItem.new(forItem: group, in: context)
         CoreDataManager.saveContext(context)
     }
     
@@ -32,8 +32,8 @@ class ItemInterface {
         var itemModels = [ItemModel]()
         
         for id in ids {
-            if let coreDataItem = CoreDataItem.fetchGroup(withID: id, in: context) {
-                itemModels.append(ItemModel(coreDataGroup: coreDataItem))
+            if let coreDataItem = CoreDataItem.fetchItem(withID: id, in: context) {
+                itemModels.append(ItemModel(coreDataItem: coreDataItem))
             }
         }
         
@@ -42,7 +42,7 @@ class ItemInterface {
     
     class func deleteGroup(group: ItemModel, inContext context: NSManagedObjectContext) {
         
-        if let coreDataGroup = CoreDataItem.fetchGroup(withID: group.uuid, in: context){
+        if let coreDataGroup = CoreDataItem.fetchItem(withID: group.uuid, in: context){
             coreDataGroup.delete(inContext: context)
         }
         CoreDataManager.saveContext(context)

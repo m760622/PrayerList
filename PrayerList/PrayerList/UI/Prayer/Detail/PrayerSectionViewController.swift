@@ -14,7 +14,8 @@ class PrayerSectionViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     var category: CategoryModel?
-    var prayer: PrayerModel!
+    
+    var prayerManager: PrayerSessionManager!
     
     var items = [ItemModel]()
     
@@ -41,7 +42,7 @@ class PrayerSectionViewController: UIViewController {
         }
 
         if let category = self.category {
-            items = category.items
+            items = prayerManager.getItemsForCategory(category: category)
             emptyView.isHidden = true
         } else {
             emptyView.isHidden = false

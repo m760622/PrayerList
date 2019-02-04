@@ -16,7 +16,8 @@ class PrayerPageViewController: UIPageViewController {
     
     var completeButton: UIBarButtonItem!
     
-    var prayer: PrayerModel!
+    var prayerManager: PrayerSessionManager! 
+    
     var categories = [CategoryModel]()
     
     var controllers = [PrayerSectionViewController]()
@@ -33,13 +34,13 @@ class PrayerPageViewController: UIPageViewController {
     }
     
     func loadControllers(){
-        categories = CategoryInterface.retrieveCategories(forIDs: prayer.categoryIds, context: CoreDataManager.mainContext)
+        categories = CategoryInterface.retrieveCategories(forIDs: prayerManager.prayer.categoryIds, context: CoreDataManager.mainContext)
         
         if !categories.isEmpty {
             for category in categories {
                 let controller = PrayerSectionViewController.instantiate() as! PrayerSectionViewController
-                controller.prayer = self.prayer
                 controller.category = category
+                controller.prayerManager = self.prayerManager
                 controllers.append(controller)
             }
             
@@ -48,7 +49,6 @@ class PrayerPageViewController: UIPageViewController {
             }
         } else {
             let controller = PrayerSectionViewController.instantiate() as! PrayerSectionViewController
-            controller.prayer = self.prayer
             
             setViewControllers([controller], direction: .forward, animated: true, completion: nil)
         }

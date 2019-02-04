@@ -19,7 +19,7 @@ class CoreDataPrayer: NSManagedObject {
     @NSManaged var uuid: String
     @NSManaged var order: Int64
     
-    @NSManaged var categories: Set<CoreDataPrayerCategory>
+    @NSManaged var categories: Set<CoreDataCategory>
     
     static let entityName: String = "CoreDataPrayer"
     

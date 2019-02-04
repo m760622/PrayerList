@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		03419F8E21CDC1D400F88F99 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8D21CDC1D400F88F99 /* GradientView.swift */; };
 		03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */; };
+		034E407322080AC400A6B292 /* OrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E407222080AC400A6B292 /* OrderType.swift */; };
+		034E407622080DD700A6B292 /* PrayerSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E407522080DD700A6B292 /* PrayerSessionManager.swift */; };
 		03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03654B1921CD9A3700465E16 /* AddCategoryViewController.swift */; };
 		039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039498EC21AFAA92003AF16D /* AppDelegate.swift */; };
 		039498EF21AFAA92003AF16D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039498EE21AFAA92003AF16D /* ViewController.swift */; };
@@ -39,8 +41,8 @@
 		0394995521B12427003AF16D /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995421B12427003AF16D /* NoteModel.swift */; };
 		0394995721B1246E003AF16D /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995621B1246E003AF16D /* CategoryModel.swift */; };
 		0394995921B124E8003AF16D /* CoreDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995821B124E8003AF16D /* CoreDataItem.swift */; };
-		0394995B21B124F5003AF16D /* CoreDataPrayerNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995A21B124F5003AF16D /* CoreDataPrayerNote.swift */; };
-		0394995D21B12502003AF16D /* CoreDataPrayerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */; };
+		0394995B21B124F5003AF16D /* CoreDataNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995A21B124F5003AF16D /* CoreDataNote.swift */; };
+		0394995D21B12502003AF16D /* CoreDataCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995C21B12502003AF16D /* CoreDataCategory.swift */; };
 		0394995F21B128FD003AF16D /* ItemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995E21B128FD003AF16D /* ItemInterface.swift */; };
 		0394996121B12907003AF16D /* NoteInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996021B12907003AF16D /* NoteInterface.swift */; };
 		0394996321B12912003AF16D /* CategoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996221B12912003AF16D /* CategoryInterface.swift */; };
@@ -100,6 +102,8 @@
 		03419F8D21CDC1D400F88F99 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		03419F9121CDC7DD00F88F99 /* PrayerList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrayerList.entitlements; sourceTree = "<group>"; };
+		034E407222080AC400A6B292 /* OrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderType.swift; sourceTree = "<group>"; };
+		034E407522080DD700A6B292 /* PrayerSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSessionManager.swift; sourceTree = "<group>"; };
 		03654B1921CD9A3700465E16 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		039498E921AFAA92003AF16D /* PrayerList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrayerList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039498EC21AFAA92003AF16D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,8 +140,8 @@
 		0394995421B12427003AF16D /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		0394995621B1246E003AF16D /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		0394995821B124E8003AF16D /* CoreDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataItem.swift; sourceTree = "<group>"; };
-		0394995A21B124F5003AF16D /* CoreDataPrayerNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerNote.swift; sourceTree = "<group>"; };
-		0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPrayerCategory.swift; sourceTree = "<group>"; };
+		0394995A21B124F5003AF16D /* CoreDataNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataNote.swift; sourceTree = "<group>"; };
+		0394995C21B12502003AF16D /* CoreDataCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCategory.swift; sourceTree = "<group>"; };
 		0394995E21B128FD003AF16D /* ItemInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInterface.swift; sourceTree = "<group>"; };
 		0394996021B12907003AF16D /* NoteInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInterface.swift; sourceTree = "<group>"; };
 		0394996221B12912003AF16D /* CategoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInterface.swift; sourceTree = "<group>"; };
@@ -201,6 +205,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		034E407122080AA700A6B292 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				034E407222080AC400A6B292 /* OrderType.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		034E407422080DC500A6B292 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				034E407522080DD700A6B292 /* PrayerSessionManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		039498E021AFAA92003AF16D = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +249,7 @@
 				039498EC21AFAA92003AF16D /* AppDelegate.swift */,
 				0394991E21AFAF95003AF16D /* DataModels */,
 				0394992121AFAFD0003AF16D /* Helpers */,
+				034E407422080DC500A6B292 /* Managers */,
 				0394991D21AFAF7D003AF16D /* UI */,
 				039498EE21AFAA92003AF16D /* ViewController.swift */,
 				039498F621AFAA95003AF16D /* Assets.xcassets */,
@@ -274,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				039498F321AFAA92003AF16D /* PrayerList.xcdatamodeld */,
+				034E407122080AA700A6B292 /* Types */,
 				0394993321AFB803003AF16D /* Interfaces */,
 				0394993521AFB80E003AF16D /* CoreDataModels */,
 				0394993421AFB809003AF16D /* Models */,
@@ -350,8 +372,8 @@
 			children = (
 				0394993821AFB82F003AF16D /* CoreDataPrayer.swift */,
 				0394995821B124E8003AF16D /* CoreDataItem.swift */,
-				0394995A21B124F5003AF16D /* CoreDataPrayerNote.swift */,
-				0394995C21B12502003AF16D /* CoreDataPrayerCategory.swift */,
+				0394995A21B124F5003AF16D /* CoreDataNote.swift */,
+				0394995C21B12502003AF16D /* CoreDataCategory.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -389,11 +411,11 @@
 				03C2A6AA21CB67260021AD66 /* EmptyView */,
 				03C2A6A521C447340021AD66 /* LargeTextCell */,
 				03C2A68E21BE55FD0021AD66 /* Plain Header */,
-				0394994421AFCEEB003AF16D /* TextFieldTableCell */,
-				0394994B21AFE220003AF16D /* Button.swift */,
 				03C2A6A221C433E70021AD66 /* PlusView */,
-				03419F8D21CDC1D400F88F99 /* GradientView.swift */,
+				0394994421AFCEEB003AF16D /* TextFieldTableCell */,
 				03F32B4722002CDC00F7F0A6 /* Note Cell */,
+				0394994B21AFE220003AF16D /* Button.swift */,
+				03419F8D21CDC1D400F88F99 /* GradientView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -705,11 +727,11 @@
 				0394994721AFCF0B003AF16D /* TextFieldTableViewCell.swift in Sources */,
 				03C2A69421BF7F640021AD66 /* AddNoteViewController.swift in Sources */,
 				03C2A6A821C4474A0021AD66 /* LargeTextTableViewCell.swift in Sources */,
-				0394995D21B12502003AF16D /* CoreDataPrayerCategory.swift in Sources */,
+				0394995D21B12502003AF16D /* CoreDataCategory.swift in Sources */,
 				0394993921AFB82F003AF16D /* CoreDataPrayer.swift in Sources */,
 				03C2A69121BE56130021AD66 /* PlainHeaderCollectionReusableView.swift in Sources */,
 				0394996321B12912003AF16D /* CategoryInterface.swift in Sources */,
-				0394995B21B124F5003AF16D /* CoreDataPrayerNote.swift in Sources */,
+				0394995B21B124F5003AF16D /* CoreDataNote.swift in Sources */,
 				03C2A68C21BE55310021AD66 /* ItemTableViewCell.swift in Sources */,
 				0394995721B1246E003AF16D /* CategoryModel.swift in Sources */,
 				0394992621AFB012003AF16D /* CoreDataManager.swift in Sources */,
@@ -734,6 +756,7 @@
 				03C2A68621BE51E30021AD66 /* ListCollectionViewCell.swift in Sources */,
 				0394992021AFAFAC003AF16D /* Theme.swift in Sources */,
 				0394993221AFB46A003AF16D /* BaseViewController.swift in Sources */,
+				034E407322080AC400A6B292 /* OrderType.swift in Sources */,
 				03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */,
 				0394995521B12427003AF16D /* NoteModel.swift in Sources */,
 				0394996121B12907003AF16D /* NoteInterface.swift in Sources */,
@@ -748,6 +771,7 @@
 				039498ED21AFAA92003AF16D /* AppDelegate.swift in Sources */,
 				0394995F21B128FD003AF16D /* ItemInterface.swift in Sources */,
 				0394997021B1CD6C003AF16D /* PrimarySplitViewController.swift in Sources */,
+				034E407622080DD700A6B292 /* PrayerSessionManager.swift in Sources */,
 				039498F521AFAA92003AF16D /* PrayerList.xcdatamodeld in Sources */,
 				0394994C21AFE220003AF16D /* Button.swift in Sources */,
 			);

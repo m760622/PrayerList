@@ -12,12 +12,12 @@ import CoreData
 class CategoryInterface {
     
     class func retrieveAllCategories(inContext context: NSManagedObjectContext) -> [CategoryModel] {
-        let coredataCategories = CoreDataPrayerCategory.fetchAllCategories(inContext: context)
+        let coredataCategories = CoreDataCategory.fetchAllCategories(inContext: context)
         return coredataCategories.map({CategoryModel(coreDataCategory: $0)}).sorted(by: {$0.order < $1.order})
     }
     
     class func retrieveCategory(forID ID: String, context: NSManagedObjectContext) -> CategoryModel? {
-        if let category = CoreDataPrayerCategory.fetchCategory(withID: ID, in: context) {
+        if let category = CoreDataCategory.fetchCategory(withID: ID, in: context) {
             return CategoryModel(coreDataCategory: category)
         }
         
@@ -35,13 +35,13 @@ class CategoryInterface {
     }
     
     class func saveCategory(category: CategoryModel, inContext context: NSManagedObjectContext) {
-        _ = CoreDataPrayerCategory.new(forGroup: category, in: context)
+        _ = CoreDataCategory.new(forGroup: category, in: context)
         CoreDataManager.saveContext(context)
     }
     
     class func deleteCategory(category: CategoryModel, inContext context: NSManagedObjectContext) {
         
-        if let coreDataCategory = CoreDataPrayerCategory.fetchCategory(withID: category.uuid, in: context){
+        if let coreDataCategory = CoreDataCategory.fetchCategory(withID: category.uuid, in: context){
             coreDataCategory.delete(inContext: context)
         }
         CoreDataManager.saveContext(context)

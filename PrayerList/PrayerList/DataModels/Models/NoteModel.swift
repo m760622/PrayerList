@@ -20,7 +20,7 @@ class NoteModel {
         self.dateCreated = Date()
     }
     
-    init(coreDataPrayerItem: CoreDataPrayerNote){
+    init(coreDataPrayerItem: CoreDataNote){
         self.name = coreDataPrayerItem.name
         self.uuid = coreDataPrayerItem.uuid
         self.dateCreated = coreDataPrayerItem.dateCreated as Date
