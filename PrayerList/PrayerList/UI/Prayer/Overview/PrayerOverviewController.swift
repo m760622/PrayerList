@@ -109,8 +109,13 @@ extension PrayerOverviewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrayerCollectionViewCell.resuseIdentifier, for: indexPath) as! PrayerCollectionViewCell
-    
-        cell.setUp(title: prayers[indexPath.row].name, bottomColor: Theme.Color.PrimaryTint.darker()!, topColor: Theme.Color.PrimaryTint, textColor: UIColor.white)
+        
+        var dateString: String?
+        if let lastCompletedDate = prayers[indexPath.row].lastCompleted {
+            dateString = "Completed: \(DateHelper.timeAgoSinceDate(date: lastCompletedDate as NSDate, numericDates: false))"
+        }
+        
+        cell.setUp(title: prayers[indexPath.row].name, subtitle: dateString, bottomColor: Theme.Color.PrimaryTint.darker()!, topColor: Theme.Color.PrimaryTint, textColor: UIColor.white)
         return cell
     }
     

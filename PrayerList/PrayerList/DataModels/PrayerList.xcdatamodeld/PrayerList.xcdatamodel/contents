@@ -25,15 +25,16 @@
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataItem" inverseName="notes" inverseEntity="CoreDataItem" syncable="YES"/>
     </entity>
     <entity name="CoreDataPrayer" representedClassName=".CoreDataPrayer" syncable="YES">
+        <attribute name="lastCompleted" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataCategory" inverseName="prayers" inverseEntity="CoreDataCategory" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CoreDataItem" positionX="-54" positionY="18" width="128" height="135"/>
-        <element name="CoreDataPrayer" positionX="-63.5859375" positionY="-156.69140625" width="128" height="105"/>
         <element name="CoreDataCategory" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="CoreDataItem" positionX="-54" positionY="18" width="128" height="135"/>
         <element name="CoreDataNote" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="CoreDataPrayer" positionX="-63.5859375" positionY="-156.69140625" width="128" height="120"/>
     </elements>
 </model>

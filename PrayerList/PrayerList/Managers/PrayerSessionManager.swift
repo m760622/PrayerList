@@ -24,24 +24,29 @@ class PrayerSessionManager {
     
     func markPrayerAsComplete(){
         let context = CoreDataManager.mainContext
+        
         for (_, prayerItems) in items {
             for item in prayerItems {
                 item.completedForSet = true
                 ItemInterface.saveGroup(group: item, inContext: context)
             }
         }
-        CoreDataManager.saveContext(context)
+        
+        prayer.lastCompleted = Date()
+        PrayerInterface.savePrayer(prayer: prayer, inContext: context)
     }
     
     func getItemsForCategory(category: CategoryModel) -> [ItemModel] {
         var availableItems = category.items.filter({!$0.completedForSet})
         
+        if !category.showEmptyItems {
+            availableItems = availableItems.filter({!$0.currentNotes.isEmpty})
+        }
+        
         var subsetForPrayer = [ItemModel]()
         switch category.setType {
         case .consecutive:
-            
             subsetForPrayer = Array(availableItems.prefix(category.totalPerSet))
-            
             if subsetForPrayer.count < category.totalPerSet {
                 let refreshedItems = resetCategory(category: category)
                 subsetForPrayer.append(contentsOf: Array(refreshedItems.prefix(category.totalPerSet - subsetForPrayer.count)))

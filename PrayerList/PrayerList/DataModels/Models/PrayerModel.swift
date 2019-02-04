@@ -14,6 +14,8 @@ class PrayerModel {
     var uuid: String!
     var order: Int
     
+    var lastCompleted: Date?
+    
     var categoryIds = [String]()
     
     init(name: String, order: Int) {
@@ -26,6 +28,7 @@ class PrayerModel {
         self.name = coreDataPrayer.name
         self.uuid = coreDataPrayer.uuid
         self.order = Int(coreDataPrayer.order)
+        self.lastCompleted = coreDataPrayer.lastCompleted as Date?
         
         if !coreDataPrayer.categories.isEmpty {
             self.categoryIds = Array(coreDataPrayer.categories.map({$0.uuid}))

@@ -13,6 +13,8 @@ class PrayerCollectionViewCell: UICollectionViewCell {
     static var resuseIdentifier: String = "PrayerCollectionViewCell"
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    
     @IBOutlet weak var containerView: GradientView!
     @IBOutlet weak var dropshadowView: UIView!
     
@@ -28,21 +30,30 @@ class PrayerCollectionViewCell: UICollectionViewCell {
         self.clipsToBounds = false
         
         containerView.clipsToBounds = true
+        
+        subtitleLabel.alpha = 0.7
     }
     
-    func setUp(title: String, backgroundColor: UIColor, textColor: UIColor){
+    func setUp(title: String, subtitle: String? = nil, backgroundColor: UIColor, textColor: UIColor){
         titleLabel.text = title
         titleLabel.textColor = textColor
         dropshadowView.layer.shadowColor = Theme.Color.dropShadow.cgColor
+        
+        subtitleLabel.text = subtitle
+        subtitleLabel.isHidden = subtitle == nil
+        
         
         containerView.bottomColor = backgroundColor
         containerView.topColor = backgroundColor
     }
     
-    func setUp(title: String, bottomColor: UIColor, topColor: UIColor, textColor: UIColor) {
+    func setUp(title: String, subtitle: String? = nil, bottomColor: UIColor, topColor: UIColor, textColor: UIColor) {
         titleLabel.text = title
         titleLabel.textColor = textColor
         dropshadowView.layer.shadowColor = Theme.Color.dropShadow.cgColor
+        
+        subtitleLabel.text = subtitle
+        subtitleLabel.isHidden = subtitle == nil
         
         containerView.bottomColor = bottomColor
         containerView.topColor = topColor

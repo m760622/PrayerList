@@ -19,6 +19,9 @@ class CoreDataPrayer: NSManagedObject {
     @NSManaged var uuid: String
     @NSManaged var order: Int64
     
+    
+    @NSManaged var lastCompleted: NSDate?
+    
     @NSManaged var categories: Set<CoreDataCategory>
     
     static let entityName: String = "CoreDataPrayer"
@@ -36,6 +39,7 @@ class CoreDataPrayer: NSManagedObject {
         
         prayer.name = prayerModel.name
         prayer.order = Int64(prayerModel.order)
+        prayer.lastCompleted = prayerModel.lastCompleted as NSDate?
         
 //        if !prayerModel.categoryIds.isEmpty {
 //            prayer.categories = Set<CoreDataPrayerCategory>()
