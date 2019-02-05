@@ -31,7 +31,7 @@ public class Theme {
     public class Color {
         
         static var PrimaryTint: UIColor {
-            return UIColor(hexString: "#59B1F9")
+            return UIColor(hexString: "#59B4FB")
         }
         
         static var Background: UIColor {
@@ -95,8 +95,13 @@ public class Theme {
             
         }
         
+        static var Red: UIColor {
+            return UIColor(hexString: "#E65A5A")
+            
+        }
+        
         static var Green: UIColor {
-             return UIColor(hexString: "#1ACA8E")
+             return UIColor(hexString: "#00CB85")
         }
         
         static var Yellow: UIColor {

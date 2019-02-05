@@ -23,7 +23,7 @@ class CategoryDetailViewController: BaseViewController {
     lazy var emptyView: EmptyView = {
         let view = EmptyView.instantiate()
         self.view.addSubview(view)
-        view.setUp(title: "No Items", subtitle: "There aren't any items for this category", image: UIImage(named: "empty-category"), parentView: self.view)
+        view.setUp(title: "Add Items", subtitle: "Add your items to this category to get started.", image: UIImage(named: "empty-category"), parentView: self.view)
         return view
     }()
     
@@ -34,6 +34,7 @@ class CategoryDetailViewController: BaseViewController {
         
         collectionView.delegate = self
         collectionView.register(UINib(nibName: ItemOverviewCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: ItemOverviewCollectionViewCell.reuseIdentifier)
+        collectionView.register(UINib(nibName: GroupOverviewCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupOverviewCollectionViewCell.reuseIdentifier)
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
@@ -113,14 +114,15 @@ extension CategoryDetailViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return groups.count
+         return groups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemOverviewCollectionViewCell.reuseIdentifier, for: indexPath) as! ItemOverviewCollectionViewCell
         
-        cell.setUp(title: groups[indexPath.row].name, detail: "\(groups[indexPath.row].currentNotes.count) Notes", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle)
+        cell.setUp(title: groups[indexPath.row].name, detail: "\(groups[indexPath.row].currentNotes.count) Notes", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle, tickVisble: groups[indexPath.row].completedForSet)
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

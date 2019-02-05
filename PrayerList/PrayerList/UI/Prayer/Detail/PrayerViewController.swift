@@ -39,7 +39,7 @@ class PrayerViewController: UIViewController {
     func setUpPageCount(){
         pageCountView.layer.cornerRadius = pageCountView.bounds.height / 2
         pageCountView.backgroundColor = UIColor(hexString: "#242424")
-        pageCountLabel.textColor = Theme.Color.Subtitle
+        pageCountLabel.textColor = Theme.Color.PrimaryTint.withAlphaComponent(0.4)
         pageCountLabel.text = "\(1) of \(prayerManager.sections)"
         
         pageCountView.layer.shadowOffset = CGSize(width: 2, height: 6)
@@ -68,8 +68,8 @@ class PrayerViewController: UIViewController {
 extension PrayerViewController: PrayerProgressDelegate {
     func progressUpdated(categoriesCompleted: Int) {
          pageCountLabel.text = "\(categoriesCompleted) of \(prayerManager.prayer.categoryIds.count)"
-        if categoriesCompleted == prayerManager.prayer.categoryIds.count {
-            self.navigationItem.rightBarButtonItem = completeButton
+        if categoriesCompleted == self.prayerManager.prayer.categoryIds.count {
+            self.navigationItem.rightBarButtonItem = self.completeButton
         } else {
             self.navigationItem.rightBarButtonItem = nil
         }

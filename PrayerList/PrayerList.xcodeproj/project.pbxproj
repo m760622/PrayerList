@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030900C32209624D0064C344 /* GroupOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900C12209624D0064C344 /* GroupOverviewCollectionViewCell.swift */; };
+		030900C42209624D0064C344 /* GroupOverviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900C22209624D0064C344 /* GroupOverviewCollectionViewCell.xib */; };
+		030900C6220962B50064C344 /* SnippitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900C5220962B50064C344 /* SnippitView.xib */; };
+		030900C8220962C00064C344 /* SnippitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900C7220962C00064C344 /* SnippitView.swift */; };
+		030900CC220977840064C344 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900CA220977840064C344 /* ButtonTableViewCell.swift */; };
+		030900CD220977840064C344 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900CB220977840064C344 /* ButtonTableViewCell.xib */; };
 		03419F8E21CDC1D400F88F99 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8D21CDC1D400F88F99 /* GradientView.swift */; };
 		03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */; };
 		034E407322080AC400A6B292 /* OrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E407222080AC400A6B292 /* OrderType.swift */; };
@@ -99,6 +105,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030900C12209624D0064C344 /* GroupOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		030900C22209624D0064C344 /* GroupOverviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupOverviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		030900C5220962B50064C344 /* SnippitView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnippitView.xib; sourceTree = "<group>"; };
+		030900C7220962C00064C344 /* SnippitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippitView.swift; sourceTree = "<group>"; };
+		030900CA220977840064C344 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		030900CB220977840064C344 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
 		03419F8D21CDC1D400F88F99 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		03419F9121CDC7DD00F88F99 /* PrayerList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrayerList.entitlements; sourceTree = "<group>"; };
@@ -205,6 +217,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030900BF220961FF0064C344 /* CategoryOverview Cell */ = {
+			isa = PBXGroup;
+			children = (
+				030900C12209624D0064C344 /* GroupOverviewCollectionViewCell.swift */,
+				030900C22209624D0064C344 /* GroupOverviewCollectionViewCell.xib */,
+				030900C5220962B50064C344 /* SnippitView.xib */,
+				030900C7220962C00064C344 /* SnippitView.swift */,
+			);
+			path = "CategoryOverview Cell";
+			sourceTree = "<group>";
+		};
+		030900C9220977600064C344 /* Button TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				030900CA220977840064C344 /* ButtonTableViewCell.swift */,
+				030900CB220977840064C344 /* ButtonTableViewCell.xib */,
+			);
+			path = "Button TableCell";
+			sourceTree = "<group>";
+		};
 		034E407122080AA700A6B292 /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +439,8 @@
 		0394994D21AFE226003AF16D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				030900C9220977600064C344 /* Button TableCell */,
+				030900BF220961FF0064C344 /* CategoryOverview Cell */,
 				03C2A68821BE51E70021AD66 /* List Cell */,
 				03C2A6AA21CB67260021AD66 /* EmptyView */,
 				03C2A6A521C447340021AD66 /* LargeTextCell */,
@@ -680,9 +714,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				030900C42209624D0064C344 /* GroupOverviewCollectionViewCell.xib in Resources */,
 				039498FA21AFAA95003AF16D /* LaunchScreen.storyboard in Resources */,
 				0394992821AFB14F003AF16D /* Organiser.storyboard in Resources */,
 				0394994821AFCF0B003AF16D /* TextFieldTableViewCell.xib in Resources */,
+				030900C6220962B50064C344 /* SnippitView.xib in Resources */,
 				03C2A6A921C4474A0021AD66 /* LargeTextTableViewCell.xib in Resources */,
 				03C2A68721BE51E30021AD66 /* ListCollectionViewCell.xib in Resources */,
 				03C2A6A121C433DF0021AD66 /* PlusView.xib in Resources */,
@@ -691,6 +727,7 @@
 				039498F221AFAA92003AF16D /* Main.storyboard in Resources */,
 				0394994021AFCAF5003AF16D /* PrayerCollectionViewCell.xib in Resources */,
 				03C2A6AE21CB69210021AD66 /* EmptyView.xib in Resources */,
+				030900CD220977840064C344 /* ButtonTableViewCell.xib in Resources */,
 				03C3CAA922018020007827DF /* AddNoteTableViewCell.xib in Resources */,
 				03C2A68D21BE55310021AD66 /* ItemTableViewCell.xib in Resources */,
 				0394997A21B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib in Resources */,
@@ -722,6 +759,7 @@
 			files = (
 				0394994221AFCD9A003AF16D /* PrayerSettingsViewController.swift in Sources */,
 				0394997521B1D461003AF16D /* PrayerSelectionViewController.swift in Sources */,
+				030900C32209624D0064C344 /* GroupOverviewCollectionViewCell.swift in Sources */,
 				0394996521B12AE4003AF16D /* PRUserDefaults.swift in Sources */,
 				0394993721AFB81C003AF16D /* PrayerModel.swift in Sources */,
 				0394994721AFCF0B003AF16D /* TextFieldTableViewCell.swift in Sources */,
@@ -749,6 +787,7 @@
 				0394995321B12419003AF16D /* ItemModel.swift in Sources */,
 				03C3CAA822018020007827DF /* AddNoteTableViewCell.swift in Sources */,
 				03F32B49220030DF00F7F0A6 /* DateHelper.swift in Sources */,
+				030900CC220977840064C344 /* ButtonTableViewCell.swift in Sources */,
 				03F32B4B220036CF00F7F0A6 /* PrayerSectionViewController.swift in Sources */,
 				0394997321B1CF77003AF16D /* AddItemFormViewController.swift in Sources */,
 				03C2A6A421C43BAB0021AD66 /* TabBarController.swift in Sources */,
@@ -757,6 +796,7 @@
 				0394992021AFAFAC003AF16D /* Theme.swift in Sources */,
 				0394993221AFB46A003AF16D /* BaseViewController.swift in Sources */,
 				034E407322080AC400A6B292 /* OrderType.swift in Sources */,
+				030900C8220962C00064C344 /* SnippitView.swift in Sources */,
 				03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */,
 				0394995521B12427003AF16D /* NoteModel.swift in Sources */,
 				0394996121B12907003AF16D /* NoteInterface.swift in Sources */,

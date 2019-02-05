@@ -31,7 +31,10 @@ class PrayerModel {
         self.lastCompleted = coreDataPrayer.lastCompleted as Date?
         
         if !coreDataPrayer.categories.isEmpty {
-            self.categoryIds = Array(coreDataPrayer.categories.map({$0.uuid}))
+            let categoriesArray = Array(coreDataPrayer.categories).sorted { (a, b) -> Bool in
+                return a.order < b.order
+            }
+            self.categoryIds = categoriesArray.map({$0.uuid})
         }
     }
 }

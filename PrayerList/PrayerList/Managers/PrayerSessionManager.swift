@@ -13,13 +13,15 @@ class PrayerSessionManager {
     var prayer: PrayerModel!
         
     var items = [CategoryModel: [ItemModel]]()
+    var categories = [CategoryModel]()
     
     var sections: Int {
-        return prayer.categoryIds.count
+        return categories.filter({!$0.items.filter({!$0.currentNotes.isEmpty}).isEmpty}).count
     }
     
     init(prayer: PrayerModel){
         self.prayer = prayer
+        categories = CategoryInterface.retrieveCategories(forIDs: prayer.categoryIds, context: CoreDataManager.mainContext)
     }
     
     func markPrayerAsComplete(){
@@ -39,6 +41,10 @@ class PrayerSessionManager {
     func getItemsForCategory(category: CategoryModel) -> [ItemModel] {
         var availableItems = category.items.filter({!$0.completedForSet})
         
+        if availableItems.isEmpty && !category.items.isEmpty {
+            availableItems = resetCategory(category: category)
+        }
+        
         if !category.showEmptyItems {
             availableItems = availableItems.filter({!$0.currentNotes.isEmpty})
         }
@@ -46,11 +52,13 @@ class PrayerSessionManager {
         var subsetForPrayer = [ItemModel]()
         switch category.setType {
         case .consecutive:
+            
             subsetForPrayer = Array(availableItems.prefix(category.totalPerSet))
-            if subsetForPrayer.count < category.totalPerSet {
-                let refreshedItems = resetCategory(category: category)
-                subsetForPrayer.append(contentsOf: Array(refreshedItems.prefix(category.totalPerSet - subsetForPrayer.count)))
-            }
+            
+//            if subsetForPrayer.count < category.totalPerSet {
+//                let refreshedItems = resetCategory(category: category)
+//                subsetForPrayer.append(contentsOf: Array(refreshedItems.prefix(category.totalPerSet - subsetForPrayer.count)))
+//            }
         case .random:
             for _ in 0...min(category.totalPerSet, availableItems.count) {
                 if let randomElement = availableItems.randomElement() , let index = availableItems.firstIndex(where: {$0.uuid == randomElement.uuid}){

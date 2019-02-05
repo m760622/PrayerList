@@ -48,7 +48,7 @@ class PrayerSectionViewController: UIViewController {
             emptyView.isHidden = false
         }
         
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 20, right: 15)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 45, right: 15)
         
         collectionView.backgroundColor = UIColor.black
         view.backgroundColor = UIColor.black

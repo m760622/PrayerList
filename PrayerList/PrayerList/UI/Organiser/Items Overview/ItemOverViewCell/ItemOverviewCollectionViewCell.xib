@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,13 +60,45 @@
                             <constraint firstItem="nL9-Gp-NGB" firstAttribute="top" secondItem="1BO-nY-fbf" secondAttribute="top" id="fhu-6P-WSk"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTZ-R4-bUT">
+                        <rect key="frame" x="198" y="-5" width="25" height="25"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1Q-Zd-WD8">
+                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tick" translatesAutoresizingMaskIntoConstraints="NO" id="oBS-k5-6ve">
+                                        <rect key="frame" x="2" y="2" width="21" height="21"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oBS-k5-6ve" secondAttribute="trailing" constant="2" id="WLB-k7-1AX"/>
+                                    <constraint firstAttribute="bottom" secondItem="oBS-k5-6ve" secondAttribute="bottom" constant="2" id="d4H-dc-dPl"/>
+                                    <constraint firstItem="oBS-k5-6ve" firstAttribute="leading" secondItem="s1Q-Zd-WD8" secondAttribute="leading" constant="2" id="oe3-RB-JeZ"/>
+                                    <constraint firstItem="oBS-k5-6ve" firstAttribute="top" secondItem="s1Q-Zd-WD8" secondAttribute="top" constant="2" id="xwS-yf-NiZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="JTZ-R4-bUT" secondAttribute="height" multiplier="1:1" id="3PG-rh-GI4"/>
+                            <constraint firstAttribute="trailing" secondItem="s1Q-Zd-WD8" secondAttribute="trailing" id="DC7-uU-ieD"/>
+                            <constraint firstItem="s1Q-Zd-WD8" firstAttribute="leading" secondItem="JTZ-R4-bUT" secondAttribute="leading" id="Jsw-E2-wVB"/>
+                            <constraint firstItem="s1Q-Zd-WD8" firstAttribute="top" secondItem="JTZ-R4-bUT" secondAttribute="top" id="daR-fJ-WeJ"/>
+                            <constraint firstAttribute="bottom" secondItem="s1Q-Zd-WD8" secondAttribute="bottom" id="ecz-t6-bLQ"/>
+                            <constraint firstAttribute="height" constant="25" id="fOj-c9-4Xu"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="1BO-nY-fbf" secondAttribute="bottom" id="DPQ-wI-RMt"/>
                 <constraint firstAttribute="trailing" secondItem="1BO-nY-fbf" secondAttribute="trailing" id="R89-sO-4yb"/>
                 <constraint firstItem="1BO-nY-fbf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XPC-EG-xH3"/>
+                <constraint firstAttribute="trailing" secondItem="JTZ-R4-bUT" secondAttribute="trailing" constant="-5" id="Xq4-AK-JG2"/>
                 <constraint firstItem="1BO-nY-fbf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="b8d-9z-Mjo"/>
+                <constraint firstItem="JTZ-R4-bUT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="-5" id="hAe-e7-bdk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="218" height="61"/>
@@ -74,9 +106,15 @@
                 <outlet property="containerView" destination="nL9-Gp-NGB" id="vBK-FB-mGY"/>
                 <outlet property="detailLabel" destination="ohs-Cg-sd7" id="uvr-1U-03O"/>
                 <outlet property="dropshadowView" destination="1BO-nY-fbf" id="6FN-ff-GWk"/>
+                <outlet property="tickImage" destination="oBS-k5-6ve" id="Joh-Ad-Qhw"/>
+                <outlet property="tickView" destination="s1Q-Zd-WD8" id="86P-HJ-ci3"/>
+                <outlet property="tickViewContainer" destination="JTZ-R4-bUT" id="9np-SN-Z0u"/>
                 <outlet property="titleLabel" destination="eQY-Hn-sfH" id="mqi-rR-57f"/>
             </connections>
             <point key="canvasLocation" x="272" y="131.78410794602701"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Tick" width="40" height="40"/>
+    </resources>
 </document>

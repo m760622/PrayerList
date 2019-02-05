@@ -16,9 +16,7 @@ class PrayerPageViewController: UIPageViewController {
     
     var completeButton: UIBarButtonItem!
     
-    var prayerManager: PrayerSessionManager! 
-    
-    var categories = [CategoryModel]()
+    var prayerManager: PrayerSessionManager!
     
     var controllers = [PrayerSectionViewController]()
     
@@ -34,14 +32,16 @@ class PrayerPageViewController: UIPageViewController {
     }
     
     func loadControllers(){
-        categories = CategoryInterface.retrieveCategories(forIDs: prayerManager.prayer.categoryIds, context: CoreDataManager.mainContext)
         
-        if !categories.isEmpty {
-            for category in categories {
-                let controller = PrayerSectionViewController.instantiate() as! PrayerSectionViewController
-                controller.category = category
-                controller.prayerManager = self.prayerManager
-                controllers.append(controller)
+        if prayerManager.sections != 0 {
+            for category in prayerManager.categories {
+                if !category.items.filter({!$0.currentNotes.isEmpty}).isEmpty {
+                    let controller = PrayerSectionViewController.instantiate() as! PrayerSectionViewController
+                    controller.category = category
+                    
+                    controller.prayerManager = self.prayerManager
+                    controllers.append(controller)
+                }
             }
             
             if let firstCategory = self.controllers.first {
@@ -49,7 +49,6 @@ class PrayerPageViewController: UIPageViewController {
             }
         } else {
             let controller = PrayerSectionViewController.instantiate() as! PrayerSectionViewController
-            
             setViewControllers([controller], direction: .forward, animated: true, completion: nil)
         }
     }
@@ -95,7 +94,7 @@ extension PrayerPageViewController: UIPageViewControllerDataSource, UIPageViewCo
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return categories.count
+        return prayerManager.sections
     }
     
     override var prefersHomeIndicatorAutoHidden: Bool {

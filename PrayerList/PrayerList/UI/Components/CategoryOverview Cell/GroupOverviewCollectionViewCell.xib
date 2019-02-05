@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GroupOverviewCollectionViewCell" customModule="PrayerList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="201" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="201" height="101"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FG4-ii-VuR">
+                        <rect key="frame" x="0.0" y="0.0" width="201" height="101"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Oa-bI-q0z">
+                                <rect key="frame" x="0.0" y="0.0" width="201" height="101"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n1J-Rp-eIm">
+                                        <rect key="frame" x="0.0" y="10" width="201" height="81"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="smj-Ta-KpF">
+                                                <rect key="frame" x="0.0" y="0.0" width="201" height="35.5"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JFn-46-xvw">
+                                                <rect key="frame" x="0.0" y="45.5" width="201" height="35.5"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="n1J-Rp-eIm" firstAttribute="leading" secondItem="9Oa-bI-q0z" secondAttribute="leading" id="IJM-H7-0Kn"/>
+                                    <constraint firstAttribute="bottom" secondItem="n1J-Rp-eIm" secondAttribute="bottom" constant="10" id="MBu-ey-dRS"/>
+                                    <constraint firstItem="n1J-Rp-eIm" firstAttribute="top" secondItem="9Oa-bI-q0z" secondAttribute="top" constant="10" id="VS6-pY-dQo"/>
+                                    <constraint firstAttribute="trailing" secondItem="n1J-Rp-eIm" secondAttribute="trailing" id="oAp-Em-drD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9Oa-bI-q0z" secondAttribute="trailing" id="1bh-rj-E01"/>
+                            <constraint firstItem="9Oa-bI-q0z" firstAttribute="top" secondItem="FG4-ii-VuR" secondAttribute="top" id="au2-Fm-MzG"/>
+                            <constraint firstAttribute="bottom" secondItem="9Oa-bI-q0z" secondAttribute="bottom" id="hxJ-h7-NIp"/>
+                            <constraint firstItem="9Oa-bI-q0z" firstAttribute="leading" secondItem="FG4-ii-VuR" secondAttribute="leading" id="ksd-Pe-VS1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FG4-ii-VuR" secondAttribute="trailing" id="FMD-gz-2fK"/>
+                <constraint firstItem="FG4-ii-VuR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Sra-SE-MZz"/>
+                <constraint firstAttribute="bottom" secondItem="FG4-ii-VuR" secondAttribute="bottom" id="aKj-y9-38J"/>
+                <constraint firstItem="FG4-ii-VuR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jPt-h9-quK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="201" height="101"/>
+            <connections>
+                <outlet property="bottomStack" destination="JFn-46-xvw" id="nCQ-DX-Vme"/>
+                <outlet property="stackView" destination="n1J-Rp-eIm" id="qZq-vZ-Atj"/>
+                <outlet property="topStack" destination="smj-Ta-KpF" id="3Ld-mL-D7d"/>
+            </connections>
+            <point key="canvasLocation" x="247.10144927536234" y="112.83482142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -17,7 +17,7 @@ enum CategoryFormCell {
     }
 }
 
-class AddCategoryViewController: UIViewController {
+class AddCategoryViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -105,6 +105,37 @@ extension AddCategoryViewController: UITableViewDelegate, UITableViewDataSource 
                 cell.setUp(title: "Prayers", detail: detailText, placeholder: "Select prayers", isEditable: false, indexPath: indexPath, detailColor: Theme.Color.Subtitle)
                 cell.accessoryType = .disclosureIndicator
             }
+        }
+        
+        //Top Left Right Corners
+        let maskPathTop = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 12.0, height: 12.0))
+        let shapeLayerTop = CAShapeLayer()
+        shapeLayerTop.frame = cell.bounds
+        shapeLayerTop.path = maskPathTop.cgPath
+        
+        //Bottom Left Right Corners
+        let maskPathBottom = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 12.0, height: 12.0))
+        let shapeLayerBottom = CAShapeLayer()
+        shapeLayerBottom.frame = cell.bounds
+        shapeLayerBottom.path = maskPathBottom.cgPath
+        
+        //All Corners
+        let maskPathAll = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.topLeft, .topRight, .bottomRight, .bottomLeft], cornerRadii: CGSize(width: 12.0, height: 12.0))
+        let shapeLayerAll = CAShapeLayer()
+        shapeLayerAll.frame = cell.bounds
+        shapeLayerAll.path = maskPathAll.cgPath
+        
+        if (indexPath.row == 0 && indexPath.row == tableView.numberOfRows(inSection: indexPath.section)-1)
+        {
+            cell.layer.mask = shapeLayerAll
+        }
+        else if (indexPath.row == 0)
+        {
+            cell.layer.mask = shapeLayerTop
+        }
+        else if (indexPath.row == tableView.numberOfRows(inSection: indexPath.section)-1)
+        {
+            cell.layer.mask = shapeLayerBottom
         }
     }
     

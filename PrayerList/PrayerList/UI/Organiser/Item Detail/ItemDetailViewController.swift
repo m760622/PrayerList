@@ -8,11 +8,20 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController {
+class ItemDetailViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    lazy var emptyView: EmptyView = {
+        let view = EmptyView.instantiate()
+        self.view.addSubview(view)
+        view.setUp(title: "Add Notes", subtitle: "Add notes to this item. Notes will be visible when you enter a prayer", image: UIImage(named: "EmptyNote"), parentView: self.view)
+        return view
+    }()
+    
     var selectedItem: ItemModel!
+    
+    var selectedNote: NoteModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +51,20 @@ class ItemDetailViewController: UIViewController {
         
         collectionView.reloadData()
         
+        updateView()
+        
         if let tab = self.tabBarController as? TabBarController {
             tab.plus.delegate = self
+        }
+    }
+    
+    func updateView(){
+        if selectedItem.currentNotes.isEmpty {
+            collectionView.isHidden = true
+            emptyView.isHidden = false
+        } else {
+            collectionView.isHidden = false
+            emptyView.isHidden = true
         }
     }
     
@@ -55,10 +76,13 @@ class ItemDetailViewController: UIViewController {
         if let dest = segue.destination as? UINavigationController {
             if let child = dest.topViewController as? AddNoteViewController {
                 child.delegate = self
+                child.note = selectedNote
             }
         } else if let dest = segue.destination as? FullNotesViewController {
             dest.selectedItem = self.selectedItem
         }
+        
+        selectedNote = nil
     }
 }
 
@@ -70,20 +94,40 @@ extension ItemDetailViewController: PlusDelegate {
 
 extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 0
+        }
+        
         return self.selectedItem.currentNotes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.resuseIdientifier, for: indexPath) as! NoteCollectionViewCell
-        let note = self.selectedItem.currentNotes[indexPath.row]
-        
-        cell.setUp(text: note.name, subtext: DateHelper.getStringFromDate(date: note.dateCreated, format: "eee dd MMM yyyy"), style: .light)
-        
-        return cell
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.resuseIdientifier, for: indexPath) as! NoteCollectionViewCell
+            let note = self.selectedItem.currentNotes[indexPath.row]
+            
+            cell.setUp(text: note.name, subtext: DateHelper.timeAgoSinceDate(date: note.dateCreated as NSDate, numericDates: true), style: .light)
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCollectionViewCell.resuseIdientifier, for: indexPath) as! NoteCollectionViewCell
+            let note = self.selectedItem.currentNotes[indexPath.row]
+            
+            cell.setUp(text: note.name, subtext: DateHelper.timeAgoSinceDate(date: note.dateCreated as NSDate, numericDates: true), style: .light)
+            
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            selectedNote = selectedItem.currentNotes[indexPath.row]
+            self.performSegue(withIdentifier: "addItemSegue", sender: self)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -92,7 +136,11 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
             
         case UICollectionView.elementKindSectionHeader:
             if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PlainHeaderCollectionReusableView.reuseIdentifier, for: indexPath) as? PlainHeaderCollectionReusableView {
-                sectionHeader.setUp(title: "Notes")
+                if indexPath.section == 0 {
+                    sectionHeader.setUp(title: "Details")
+                } else {
+                    sectionHeader.setUp(title: "Notes")
+                }
                 return sectionHeader
             }
             return UICollectionReusableView()
@@ -115,15 +163,34 @@ extension ItemDetailViewController: TableViewCellDelegate {
 }
 
 extension ItemDetailViewController: AddNoteDelegate {
+    func deleteNote(note: NoteModel) {
+        NoteInterface.deleteItem(item: note, inContext: CoreDataManager.mainContext)
+        
+        if let index = selectedItem.currentNotes.firstIndex(where: {$0.uuid == note.uuid}) {
+            selectedItem.currentNotes.remove(at: index)
+            collectionView.deleteItems(at: [IndexPath(row: index, section: 1)])
+        }
+    }
+    
+    func updateNote(note: NoteModel) {
+        NoteInterface.saveItem(item: note, inContext: CoreDataManager.mainContext)
+        
+        if let index = selectedItem.currentNotes.firstIndex(where: {$0.uuid == note.uuid}) {
+            collectionView.reloadItems(at: [IndexPath(row: index, section: 1)])
+        }
+    }
+    
     func addItem(detail: String) {
         let item = NoteModel(name: detail)
         selectedItem.currentNotes.insert(item, at: 0)
         ItemInterface.saveGroup(group: selectedItem, inContext: CoreDataManager.mainContext)
         
         collectionView.performBatchUpdates({
-            collectionView.insertItems(at: [IndexPath(row: 0, section: 0)])
+            collectionView.insertItems(at: [IndexPath(row: 0, section: 1)])
         }) { (completed) in
             
         }
+        
+        updateView()
     }
 }
