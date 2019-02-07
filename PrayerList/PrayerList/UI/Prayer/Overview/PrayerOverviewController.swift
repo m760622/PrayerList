@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class PrayerOverviewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -67,6 +68,11 @@ class PrayerOverviewController: BaseViewController {
         self.performSegue(withIdentifier: "prayerDetailSegue", sender: self)
     }
     
+    @IBAction func displayPrayerSettings(_ sender: Any) {
+        let storyboard = UIStoryboard(name: AppStoryboard.prayer.rawValue, bundle: nil)
+        let settingsNav = storyboard.instantiateViewController(withIdentifier: "PrayerSettingsNavigationController")
+        self.present(settingsNav, animated: true, completion: nil)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if let selectedPrayer = self.selectedPrayer {

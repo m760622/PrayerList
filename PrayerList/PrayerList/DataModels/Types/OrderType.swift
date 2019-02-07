@@ -8,7 +8,16 @@
 
 import Foundation
 
-enum SetType: String {
+enum SetType: String, CaseIterable {
     case consecutive = "CONSECUTIVE"
     case random = "RANDOM"
+    
+    var title: String {
+        switch self {
+        case .consecutive:
+            return "Consecutive"
+        case .random:
+            return "Random"
+        }
+    }
 }

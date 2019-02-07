@@ -38,6 +38,8 @@ class AddNoteViewController: BaseViewController {
         
         addButton.isEnabled = false
         
+        entry = note?.name
+        
         navigationItem.rightBarButtonItem = addButton
         
         self.navigationItem.rightBarButtonItem?.isEnabled = false
@@ -57,13 +59,16 @@ class AddNoteViewController: BaseViewController {
     }
     
     @objc func addAction(){
-        if let note = note {
-            delegate?.updateNote(note: note)
-            self.dismiss(animated: true, completion: nil)
-        } else if let entry = entry, !entry.isEmpty {
-            self.view.endEditing(true)
-            delegate?.addItem(detail: entry)
-            self.dismiss(animated: true, completion: nil)
+        if let entry = entry, !entry.isEmpty {
+            if let note = note {
+                note.name = entry
+                delegate?.updateNote(note: note)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.view.endEditing(true)
+                delegate?.addItem(detail: entry)
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }
@@ -80,7 +85,7 @@ extension AddNoteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: LargeTextTableViewCell.reuseIdentifier, for: indexPath) as! LargeTextTableViewCell
-            cell.textView.text = note?.name
+            cell.textView.text = entry//note?.name
             cell.selectionStyle = .none
             return cell
         } else {
@@ -101,41 +106,12 @@ extension AddNoteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let cell = cell as? LargeTextTableViewCell{
+        
+        if let cell = cell as? LargeTextTableViewCell {
             cell.delegate = self
             cell.textView.becomeFirstResponder()
         }
         
-        //Top Left Right Corners
-        let maskPathTop = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 12.0, height: 12.0))
-        let shapeLayerTop = CAShapeLayer()
-        shapeLayerTop.frame = cell.bounds
-        shapeLayerTop.path = maskPathTop.cgPath
-        
-        //Bottom Left Right Corners
-        let maskPathBottom = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 12.0, height: 12.0))
-        let shapeLayerBottom = CAShapeLayer()
-        shapeLayerBottom.frame = cell.bounds
-        shapeLayerBottom.path = maskPathBottom.cgPath
-        
-        //All Corners
-        let maskPathAll = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.topLeft, .topRight, .bottomRight, .bottomLeft], cornerRadii: CGSize(width: 12.0, height: 12.0))
-        let shapeLayerAll = CAShapeLayer()
-        shapeLayerAll.frame = cell.bounds
-        shapeLayerAll.path = maskPathAll.cgPath
-        
-        if (indexPath.row == 0 && indexPath.row == tableView.numberOfRows(inSection: indexPath.section)-1)
-        {
-            cell.layer.mask = shapeLayerAll
-        }
-        else if (indexPath.row == 0)
-        {
-            cell.layer.mask = shapeLayerTop
-        }
-        else if (indexPath.row == tableView.numberOfRows(inSection: indexPath.section)-1)
-        {
-            cell.layer.mask = shapeLayerBottom
-        }
     }
 }
 
@@ -143,9 +119,10 @@ extension AddNoteViewController: LargeTextCellDelegate {
     func textUpdated(text: String?) {
         guard let text = text else { return }
         entry = text
-        note?.name = text
         self.navigationItem.rightBarButtonItem?.isEnabled = !text.isEmpty
+        
         tableView.beginUpdates()
+        //tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         tableView.endUpdates()
     }
 }

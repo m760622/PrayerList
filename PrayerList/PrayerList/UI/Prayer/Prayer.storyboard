@@ -44,7 +44,11 @@
                         <viewLayoutGuide key="safeArea" id="Gzm-6p-fHh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Prayers" id="jlV-MG-e2x">
-                        <barButtonItem key="rightBarButtonItem" image="Dots" id="QCt-cb-p1I"/>
+                        <barButtonItem key="rightBarButtonItem" image="Dots" id="QCt-cb-p1I">
+                            <connections>
+                                <action selector="displayPrayerSettings:" destination="yBa-3B-Rp1" id="N55-L5-OG6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Pa5-fc-A61" id="fpA-8d-fAW"/>
@@ -196,7 +200,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gl-Q1-maF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3868" y="-185"/>
+            <point key="canvasLocation" x="3879" y="-214"/>
         </scene>
         <!--Settings-->
         <scene sceneID="S9M-kB-cGq">
@@ -206,35 +210,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-jX-CRu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RightDetailCell" textLabel="3TI-KG-yaT" detailTextLabel="331-g0-JPI" style="IBUITableViewCellStyleValue1" id="dOB-Nt-P2I">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dOB-Nt-P2I" id="Dh1-kE-HPc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3TI-KG-yaT">
-                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="331-g0-JPI">
-                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-jX-CRu">
+                                <rect key="frame" x="10" y="0.0" width="355" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="eH5-7u-hj9" id="Ly0-4E-paH"/>
                                     <outlet property="delegate" destination="eH5-7u-hj9" id="lcH-zK-6PC"/>
@@ -244,9 +222,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xBG-jX-CRu" firstAttribute="top" secondItem="SsX-BL-fVc" secondAttribute="top" id="Ows-ZI-jd2"/>
-                            <constraint firstItem="HHl-kR-I6I" firstAttribute="trailing" secondItem="xBG-jX-CRu" secondAttribute="trailing" id="TYK-SL-IuU"/>
+                            <constraint firstItem="HHl-kR-I6I" firstAttribute="trailing" secondItem="xBG-jX-CRu" secondAttribute="trailing" constant="10" id="TYK-SL-IuU"/>
                             <constraint firstAttribute="bottom" secondItem="xBG-jX-CRu" secondAttribute="bottom" id="aFH-yE-HFp"/>
-                            <constraint firstItem="xBG-jX-CRu" firstAttribute="leading" secondItem="HHl-kR-I6I" secondAttribute="leading" id="oNX-qM-d6X"/>
+                            <constraint firstItem="xBG-jX-CRu" firstAttribute="leading" secondItem="HHl-kR-I6I" secondAttribute="leading" constant="10" id="oNX-qM-d6X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HHl-kR-I6I"/>
                     </view>
@@ -263,7 +241,327 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YjU-tO-OAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6247" y="1283"/>
+            <point key="canvasLocation" x="1527" y="641"/>
+        </scene>
+        <!--Passcode View Controller-->
+        <scene sceneID="i8z-qO-9kM">
+            <objects>
+                <viewController storyboardIdentifier="PasscodeViewController" id="Gdt-g7-o4D" customClass="PasscodeViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wyR-lI-xVa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HKc-NI-V1H">
+                                <rect key="frame" x="40" y="168.5" width="295" height="398.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="obB-7B-9yT">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="88.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-Nb-Xub" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ks0-Nb-Xub" secondAttribute="height" multiplier="1:1" id="kmX-zG-lAl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="1"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="MEo-hy-cdw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btM-CP-muB" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="0.0" width="88" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="btM-CP-muB" secondAttribute="height" multiplier="1:1" id="xyn-oK-1Ew"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="2"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="3Ge-j0-3op"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPx-b2-UT4" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="206.5" y="0.0" width="88.5" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="kPx-b2-UT4" secondAttribute="height" multiplier="1:1" id="O7y-9f-zEV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="3"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="xUm-3r-GOA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Xsq-Hi-QmL">
+                                        <rect key="frame" x="0.0" y="103.5" width="295" height="88.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9z-1Y-i3S" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="U9z-1Y-i3S" secondAttribute="height" multiplier="1:1" id="AKP-xP-pRd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="4"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="Yo3-aH-9CN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZ5-pa-ybq" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="0.0" width="88" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="HZ5-pa-ybq" secondAttribute="height" multiplier="1:1" id="hfe-4F-lyN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="5"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="3QB-WZ-R5G"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5C-lO-itA" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="206.5" y="0.0" width="88.5" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="r5C-lO-itA" secondAttribute="height" multiplier="1:1" id="p89-hW-ZIA"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="6"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="4HX-Vx-h43"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Pay-d4-dwc">
+                                        <rect key="frame" x="0.0" y="207" width="295" height="88"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-eG-y8Z" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="88"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Nql-eG-y8Z" secondAttribute="height" multiplier="1:1" id="Kkl-Aj-Oqo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="7"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="YEw-NS-uzn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOP-2E-SKU" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="0.0" width="88" height="88"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="lOP-2E-SKU" secondAttribute="height" multiplier="1:1" id="Xef-IA-JlN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="8"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="iEq-5w-JDA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ds5-R2-sxo" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="206.5" y="0.0" width="88.5" height="88"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Ds5-R2-sxo" secondAttribute="height" multiplier="1:1" id="kLX-vs-WHa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="9"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="9"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="byR-JQ-F4p"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="olF-82-S8f">
+                                        <rect key="frame" x="0.0" y="310" width="295" height="88.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icC-Fw-Nt1">
+                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="icC-Fw-Nt1" secondAttribute="height" multiplier="1:1" id="EYo-r8-L2c"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                <state key="normal" title="cancel">
+                                                    <color key="titleColor" red="0.27534399869999998" green="0.27534399869999998" blue="0.27534399869999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancelAction:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="xHS-3Z-1FS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNK-eC-nsB" customClass="PasscodeButton" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="103.5" y="0.0" width="88" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="oNK-eC-nsB" secondAttribute="height" multiplier="1:1" id="hqZ-RL-YTd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <state key="normal" title="0"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="Jbv-CT-cJs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-il-Mjy">
+                                                <rect key="frame" x="206.5" y="0.0" width="88.5" height="88.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Hcb-il-Mjy" secondAttribute="height" multiplier="1:1" id="PdD-tQ-Jik"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                                <state key="normal" title="x"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="number">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="backspaceAction:" destination="Gdt-g7-o4D" eventType="touchUpInside" id="8fb-wA-qlp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QKh-Cn-weO">
+                                <rect key="frame" x="20" y="52.5" width="335" height="76"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ffz-9o-PXZ">
+                                        <rect key="frame" x="73" y="0.0" width="189.5" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passcode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-uP-hbL">
+                                                <rect key="frame" x="49" y="0.0" width="91.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your passcode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clM-1x-CDY">
+                                                <rect key="frame" x="0.0" y="26" width="189.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="I7p-jW-e69">
+                                        <rect key="frame" x="113.5" y="64" width="108" height="12"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0v-fq-PXs" customClass="PassCodeDot" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="12" id="ggS-67-XbP"/>
+                                                    <constraint firstAttribute="width" secondItem="b0v-fq-PXs" secondAttribute="height" multiplier="1:1" id="ovs-wT-CEz"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XbI-Gv-a7X" customClass="PassCodeDot" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="0.0" width="12" height="12"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="12" id="mjC-pV-ksu"/>
+                                                    <constraint firstAttribute="width" secondItem="XbI-Gv-a7X" secondAttribute="height" multiplier="1:1" id="wPF-j6-JU8"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53I-HZ-igB" customClass="PassCodeDot" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="0.0" width="12" height="12"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="12" id="4EE-gI-OdQ"/>
+                                                    <constraint firstAttribute="width" secondItem="53I-HZ-igB" secondAttribute="height" multiplier="1:1" id="QyZ-0n-Apv"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rk-8Y-KSh" customClass="PassCodeDot" customModule="PrayerList" customModuleProvider="target">
+                                                <rect key="frame" x="96" y="0.0" width="12" height="12"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="0rk-8Y-KSh" secondAttribute="height" multiplier="1:1" id="SxE-6k-n3o"/>
+                                                    <constraint firstAttribute="height" constant="12" id="kPh-I8-2Ju"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HKc-NI-V1H" firstAttribute="leading" secondItem="rXH-Dj-H16" secondAttribute="leading" constant="40" id="EB4-UM-asH"/>
+                            <constraint firstItem="rXH-Dj-H16" firstAttribute="bottom" secondItem="HKc-NI-V1H" secondAttribute="bottom" constant="100" id="LvJ-RY-s8t"/>
+                            <constraint firstItem="QKh-Cn-weO" firstAttribute="centerX" secondItem="wyR-lI-xVa" secondAttribute="centerX" id="QX4-hm-jVr"/>
+                            <constraint firstItem="HKc-NI-V1H" firstAttribute="top" secondItem="QKh-Cn-weO" secondAttribute="bottom" constant="40" id="aEd-rp-NTh"/>
+                            <constraint firstItem="QKh-Cn-weO" firstAttribute="leading" secondItem="rXH-Dj-H16" secondAttribute="leading" constant="20" id="gcl-g8-J4o"/>
+                            <constraint firstItem="rXH-Dj-H16" firstAttribute="trailing" secondItem="HKc-NI-V1H" secondAttribute="trailing" constant="40" id="lya-nH-Fkl"/>
+                            <constraint firstItem="rXH-Dj-H16" firstAttribute="trailing" secondItem="QKh-Cn-weO" secondAttribute="trailing" constant="20" id="sh3-FQ-PNi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rXH-Dj-H16"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lbm-ed-SEC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bsO-id-tgt">
+                            <connections>
+                                <action selector="cancelAction:" destination="Gdt-g7-o4D" id="Uou-a6-juq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dotFour" destination="0rk-8Y-KSh" id="7Pb-nk-bVo"/>
+                        <outlet property="dotOne" destination="b0v-fq-PXs" id="Me9-9j-qak"/>
+                        <outlet property="dotThree" destination="53I-HZ-igB" id="q3z-cc-6tn"/>
+                        <outlet property="dotTwo" destination="XbI-Gv-a7X" id="OaN-26-Ujs"/>
+                        <outlet property="dotsStack" destination="I7p-jW-e69" id="404-5M-wBR"/>
+                        <outlet property="subtitleLabel" destination="clM-1x-CDY" id="WXm-VU-qZ1"/>
+                        <outlet property="titleLabel" destination="hR4-uP-hbL" id="eNy-Q7-g1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rt8-o4-cKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1528.8" y="1405.5472263868066"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="paR-60-GIQ">
@@ -288,10 +586,10 @@
         <!--Navigation Controller-->
         <scene sceneID="rEE-dL-jeL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VaW-UE-2h8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PrayerSettingsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="VaW-UE-2h8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f6P-tV-5TT">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="f6P-tV-5TT">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -301,7 +599,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3U-2u-cL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5308" y="1283"/>
+            <point key="canvasLocation" x="590" y="641"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Yr-fT-wvp">

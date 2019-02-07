@@ -13,8 +13,12 @@ enum CategorySettingsCell {
     case prayer
     case delete
     
+    case showEmpty
+    case count
+    case setType
+    
     static var sections: [[CategorySettingsCell]] {
-        return [[.name, .prayer], [.delete]]
+        return [[.name, .prayer], [.setType, .count, .showEmpty], [.delete]]
     }
 }
 
@@ -30,11 +34,19 @@ class CategorySettingsViewController: BaseViewController {
         self.title = "Category Settings"
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: TextFieldTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.reuseIdentifier)
+        
+        tableView.register(UINib(nibName: SwitchTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SwitchTableViewCell.reuseIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
     }
     
     func deleteCategory(){
@@ -72,23 +84,49 @@ extension CategorySettingsViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
-        cell.delegate = self
         let item = CategorySettingsCell.sections[indexPath.section][indexPath.row]
+        
         switch item {
-            
         case .name:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
+            cell.delegate = self
+            
             cell.setUp(title: "Name", detail: self.category.name, placeholder: "Name", isEditable: true, indexPath: indexPath)
             cell.accessoryType = .none
+            return cell
         case .prayer:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
+            cell.delegate = self
             let detailText = category.prayers.count > 1 ? "\(category.prayers.count) Selected" : category.prayers.first?.name
             cell.setUp(title: "Prayers", detail: detailText, placeholder: "Select prayers", isEditable: false, indexPath: indexPath, detailColor: Theme.Color.Subtitle)
             cell.accessoryType = .disclosureIndicator
+            return cell
         case .delete:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
+            cell.delegate = self
             cell.setUp(title: "Delete", detail: nil, isEditable: false, indexPath: indexPath, titleColor: Theme.Color.Error)
+            return cell
+        case .count:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
+            cell.delegate = self
+            let detailText = "\(category.totalPerSet)"
+            cell.setUp(title: "Items Per Prayer", detail: detailText, placeholder: "Count", isEditable: true, indexPath: indexPath, detailColor: Theme.Color.Subtitle, keyboardType: UIKeyboardType.numberPad)
+            cell.accessoryType = .none
+            return cell
+        case .showEmpty:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.reuseIdentifier, for: indexPath) as! SwitchTableViewCell
+            cell.setUp(title: "Show Empty Items", switchState: category.showEmptyItems, indexPath: indexPath)
+            cell.delegate = self
+            return cell
+        case .setType:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
+            cell.delegate = self
+            let detailText = category.setType.title
+            cell.setUp(title: "Sort Type", detail: detailText, placeholder: "Select Type", isEditable: false, indexPath: indexPath, detailColor: Theme.Color.Subtitle)
+            cell.accessoryType = .disclosureIndicator
+            
+            return cell
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -140,13 +178,31 @@ extension CategorySettingsViewController: UITableViewDelegate, UITableViewDataSo
             self.navigationController?.pushViewController(prayerSelectionController, animated: true)
         case .delete:
             deleteCategory()
+        case .showEmpty:
+            print("hhhfh")
+        case .count:
+            print("hhhfh")
+        case .setType:
+            let sortController = CategorySortSelectionController.instantiate() as! CategorySortSelectionController
+            sortController.category = category
+            self.navigationController?.pushViewController(sortController, animated: true)
         }
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 0 {
-            return "Selected prayers will show the items under this category"
+            return nil
         }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Prayer Settings"
+        } else if section == 0 {
+            return "Detials"
+        }
+        
         return nil
     }
 }
@@ -155,7 +211,7 @@ extension CategorySettingsViewController: CellTextDelegate {
     func textChanged(text: String?, indexPath: IndexPath) {
         guard let text = text else { return }
         let item = CategorySettingsCell.sections[indexPath.section][indexPath.row]
-        switch item{
+        switch item {
         case .name:
             category.name = text
             CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
@@ -164,9 +220,28 @@ extension CategorySettingsViewController: CellTextDelegate {
             print("what in the world?")
         case .delete:
             print("what in the world?")
+        case .showEmpty:
+            print("what in the world?")
+        case .count:
+            if let newCount = Int(text){
+                category.totalPerSet = newCount
+            }
+        case .setType:
+            print("what in the world?")
         }
     }
     
+}
+
+extension CategorySettingsViewController: SwitchCellDelegate {
+    func switchToggled(indexPath: IndexPath) {
+        let item = CategorySettingsCell.sections[indexPath.section][indexPath.row]
+        
+        if item == .showEmpty {
+            category.showEmptyItems = !category.showEmptyItems
+            CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
+        }
+    }
 }
 
 extension CategorySettingsViewController: PrayerSelectionDelegate {

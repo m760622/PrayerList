@@ -16,7 +16,7 @@ class PrayerSessionManager {
     var categories = [CategoryModel]()
     
     var sections: Int {
-        return categories.filter({!$0.items.filter({!$0.currentNotes.isEmpty}).isEmpty}).count
+        return categories.filter({!$0.items.filter({!$0.currentNotes.isEmpty}).isEmpty || $0.showEmptyItems}).count
     }
     
     init(prayer: PrayerModel){
@@ -41,42 +41,24 @@ class PrayerSessionManager {
     func getItemsForCategory(category: CategoryModel) -> [ItemModel] {
         var availableItems = category.items.filter({!$0.completedForSet})
         
-        if availableItems.isEmpty && !category.items.isEmpty {
-            availableItems = resetCategory(category: category)
-        }
-        
         if !category.showEmptyItems {
             availableItems = availableItems.filter({!$0.currentNotes.isEmpty})
+        }
+        
+        if availableItems.isEmpty && !category.items.isEmpty {
+            availableItems = resetCategory(category: category)
         }
         
         var subsetForPrayer = [ItemModel]()
         switch category.setType {
         case .consecutive:
-            
             subsetForPrayer = Array(availableItems.prefix(category.totalPerSet))
-            
-//            if subsetForPrayer.count < category.totalPerSet {
-//                let refreshedItems = resetCategory(category: category)
-//                subsetForPrayer.append(contentsOf: Array(refreshedItems.prefix(category.totalPerSet - subsetForPrayer.count)))
-//            }
         case .random:
             for _ in 0...min(category.totalPerSet, availableItems.count) {
                 if let randomElement = availableItems.randomElement() , let index = availableItems.firstIndex(where: {$0.uuid == randomElement.uuid}){
                     availableItems.remove(at: index)
                     subsetForPrayer.append(randomElement)
                 }
-            }
-            
-            if subsetForPrayer.count < category.totalPerSet {
-                let refreshedItems = resetCategory(category: category)
-                
-                for _ in 0...min(category.totalPerSet - subsetForPrayer.count, refreshedItems.count) {
-                    if let randomElement = availableItems.randomElement() , let index = availableItems.firstIndex(where: {$0.uuid == randomElement.uuid}){
-                        availableItems.remove(at: index)
-                        subsetForPrayer.append(randomElement)
-                    }
-                }
-                subsetForPrayer.append(contentsOf: Array(refreshedItems.prefix(category.totalPerSet - subsetForPrayer.count)))
             }
         }
         

@@ -1,69 +1,62 @@
 //
-//  PrayerSelectionViewController.swift
+//  CategorySortSelectionController.swift
 //  PrayerList
 //
-//  Created by Devin  on 1/12/18.
-//  Copyright © 2018 Devin Davies. All rights reserved.
+//  Created by Devin  on 6/02/19.
+//  Copyright © 2019 Devin Davies. All rights reserved.
 //
 
 import UIKit
 
-protocol PrayerSelectionDelegate: class {
-    func prayersSelected(prayers: [PrayerModel])
-}
-
-class PrayerSelectionViewController: BaseViewController {
+class CategorySortSelectionController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var prayers = [PrayerModel]()
-    var selectedPrayers = [PrayerModel]()
-    
-    weak var delegate: PrayerSelectionDelegate?
+    var category: CategoryModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Order Type"
 
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: TextFieldTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.reuseIdentifier)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.backgroundColor = Theme.Color.Background
-        prayers = PrayerInterface.retrieveAllPrayers(inContext: CoreDataManager.mainContext)
-        tableView.reloadData()
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.delegate?.prayersSelected(prayers: self.selectedPrayers)
-    }
+    */
 
 }
 
-extension PrayerSelectionViewController: Instantiatable {
+extension CategorySortSelectionController: Instantiatable {
     static var appStoryboard: AppStoryboard {
         return .organiser
     }
 }
 
-extension PrayerSelectionViewController: UITableViewDelegate, UITableViewDataSource {
+extension CategorySortSelectionController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return prayers.count
+        return SetType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let type = SetType.allCases[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as! TextFieldTableViewCell
-        
-        let prayer = prayers[indexPath.row]
         cell.delegate = self
         cell.tintColor = Theme.Color.PrimaryTint
-        cell.setUp(title: prayers[indexPath.row].name, detail: nil, isEditable: false, indexPath: indexPath)
-        cell.accessoryType = selectedPrayers.contains(where: {$0.uuid == prayer.uuid}) ? .checkmark : .none
+        cell.setUp(title: type.title, detail: nil, isEditable: false, indexPath: indexPath)
+        cell.accessoryType = type == category.setType ? .checkmark : .none
         return cell
     }
     
@@ -102,24 +95,27 @@ extension PrayerSelectionViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let prayer = prayers[indexPath.row]
-        let cell = tableView.cellForRow(at: indexPath)
-        if let index = selectedPrayers.firstIndex(where: {$0.uuid == prayer.uuid}) {
-            cell?.accessoryType = .none
-            selectedPrayers.remove(at: index)
-        } else {
-            cell?.accessoryType = .checkmark
-            selectedPrayers.append(prayer)
+        let type = SetType.allCases[indexPath.row]
+        category.setType = type
+        CategoryInterface.saveCategory(category: category, inContext: CoreDataManager.mainContext)
+        
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        selectedCell?.accessoryType = .checkmark
+        for cell in tableView.visibleCells {
+            if cell != selectedCell {
+                cell.accessoryType = .none
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "Select the prayers times that you would like to see this category"
+        return "Consecutive: Items will appear in prayers in the order they appear in the organiser\n\nRandom: Items will appear in prayers in a random order"
     }
 }
 
-extension PrayerSelectionViewController: CellTextDelegate {
+extension CategorySortSelectionController: CellTextDelegate {
     func textChanged(text: String?, indexPath: IndexPath) {
         print("what in the world?")
     }
 }
+

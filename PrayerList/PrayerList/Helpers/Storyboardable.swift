@@ -12,6 +12,7 @@ import UIKit
 enum AppStoryboard: String {
     case prayer = "Prayer"
     case organiser = "Organiser"
+    case authentication = "Authentication"
 }
 
 protocol Instantiatable: class {

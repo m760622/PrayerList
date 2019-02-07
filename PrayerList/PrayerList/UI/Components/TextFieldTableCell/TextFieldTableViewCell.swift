@@ -22,11 +22,24 @@ class TextFieldTableViewCell: UITableViewCell {
     var indexPath: IndexPath!
     weak var delegate: CellTextDelegate?
     
+    var toolBar: UIToolbar!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         textField.delegate = self
         textField.addTarget(self, action: #selector(updateValues(_:)), for: UIControl.Event.editingChanged)
+        
+        toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.items = [
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))]
+        toolBar.sizeToFit()
+    }
+
+    @objc func donePressed () {
+        textField.resignFirstResponder()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,12 +47,19 @@ class TextFieldTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUp(title: String, detail: String?, placeholder: String? = nil, isEditable: Bool, indexPath: IndexPath, titleColor: UIColor = Theme.Color.Text, detailColor: UIColor = Theme.Color.Text) {
+    func setUp(title: String, detail: String?, placeholder: String? = nil, isEditable: Bool, indexPath: IndexPath, titleColor: UIColor = Theme.Color.Text, detailColor: UIColor = Theme.Color.Text, keyboardType: UIKeyboardType = .alphabet) {
         self.indexPath = indexPath
         self.titleLabel.text = title
         self.textField.text = detail
         self.textField.placeholder = placeholder
         self.textField.isUserInteractionEnabled = isEditable
+        self.textField.keyboardType = keyboardType
+        
+        if keyboardType == .numberPad {
+            textField.inputAccessoryView = toolBar
+        } else {
+            textField.inputAccessoryView = nil
+        }
         
         self.titleLabel.textColor = titleColor
         self.textField.textColor = detailColor
