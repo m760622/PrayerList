@@ -13,6 +13,8 @@ class PasscodeViewController: BaseViewController {
 
     @IBOutlet weak var dotsStack: UIStackView!
     
+    @IBOutlet weak var deleteButton: UIButton!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     
@@ -35,6 +37,8 @@ class PasscodeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        deleteButton.setTitleColor(Theme.Color.Red, for: .normal)
         
         if isEditor {
             titleLabel.text = "Create Passcode"
@@ -123,6 +127,7 @@ class PasscodeViewController: BaseViewController {
                 } else {
                     checkPasscode.removeAll()
                     passcode.removeAll()
+                    isValidating = false
                     reset()
                     titleLabel.text = "Enter New Passcode"
                     subtitleLabel.text = "Passcodes didn't match, try again"

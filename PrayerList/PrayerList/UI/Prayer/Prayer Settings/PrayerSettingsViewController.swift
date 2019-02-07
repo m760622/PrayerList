@@ -117,6 +117,14 @@ extension PrayerSettingsViewController: UITableViewDataSource, UITableViewDelega
         }
     }
     
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        let sectionType = SettingsSection.sections[section]
+        switch sectionType {
+        case .passcode:
+             return "Passcode will be required after leaving the app for more than 2 minutes"
+        }
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //Top Left Right Corners
         let maskPathTop = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 12.0, height: 12.0))

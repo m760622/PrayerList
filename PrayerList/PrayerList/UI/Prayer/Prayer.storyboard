@@ -455,8 +455,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Hcb-il-Mjy" secondAttribute="height" multiplier="1:1" id="PdD-tQ-Jik"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                                <state key="normal" title="x"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                <state key="normal" title="delete"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="number">
                                                         <integer key="value" value="0"/>
@@ -550,6 +550,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteButton" destination="Hcb-il-Mjy" id="r6X-vB-uK1"/>
                         <outlet property="dotFour" destination="0rk-8Y-KSh" id="7Pb-nk-bVo"/>
                         <outlet property="dotOne" destination="b0v-fq-PXs" id="Me9-9j-qak"/>
                         <outlet property="dotThree" destination="53I-HZ-igB" id="q3z-cc-6tn"/>
