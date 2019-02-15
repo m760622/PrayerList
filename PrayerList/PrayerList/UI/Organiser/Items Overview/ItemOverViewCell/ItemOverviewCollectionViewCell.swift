@@ -44,9 +44,15 @@ class ItemOverviewCollectionViewCell: UICollectionViewCell {
         tickImage.tintColor = UIColor.white
     }
     
-    func setUp(title: String, detail: String, backgroundColor: UIColor, textColor: UIColor, detailTextColor: UIColor, tickVisble: Bool = false){
-        titleLabel.text = title
-        titleLabel.textColor = textColor
+    func setUp(title: String, searchText: String?, detail: String, backgroundColor: UIColor, textColor: UIColor, detailTextColor: UIColor, tickVisble: Bool = false){
+        
+        if let searchText = searchText {
+            showSearch(searchString: searchText, title: title)
+        } else {
+            titleLabel.text = title
+            titleLabel.textColor = textColor
+        }
+        
         detailLabel.text = detail
         detailLabel.textColor = detailTextColor
         dropshadowView.layer.shadowColor = Theme.Color.dropShadow.cgColor
@@ -54,6 +60,30 @@ class ItemOverviewCollectionViewCell: UICollectionViewCell {
         tickViewContainer.isHidden = !tickVisble
         
         containerView.backgroundColor = backgroundColor
+    }
+    
+    func showSearch(searchString: String, title: String){
+        titleLabel.attributedText = generateAttributedString(with: searchString, targetString: title)
+    }
+    
+    func generateAttributedString(with searchTerm: String, targetString: String) -> NSAttributedString? {
+        
+        let attributedString = NSMutableAttributedString(string: targetString)
+        do {
+            let regex = try NSRegularExpression(pattern: searchTerm.trimmingCharacters(in: .whitespacesAndNewlines).folding(options: .diacriticInsensitive, locale: .current), options: .caseInsensitive)
+            let range = NSRange(location: 0, length: targetString.utf16.count)
+            
+            let color = Theme.nightMode ? Theme.Color.PrimaryTint.withAlphaComponent(0.8) : Theme.Color.PrimaryTint.withAlphaComponent(0.6)
+            
+            for match in regex.matches(in: targetString.folding(options: .diacriticInsensitive, locale: .current), options: .withTransparentBounds, range: range) {
+                attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: match.range)
+            }
+            
+            return attributedString
+        } catch {
+            NSLog("Error creating regular expresion: \(error)")
+            return nil
+        }
     }
 
 }

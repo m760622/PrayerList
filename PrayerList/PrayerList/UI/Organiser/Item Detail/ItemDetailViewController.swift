@@ -125,8 +125,11 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            selectedNote = selectedItem.currentNotes[indexPath.row]
-            self.performSegue(withIdentifier: "addItemSegue", sender: self)
+            if let cell = collectionView.cellForItem(at: indexPath) as? NoteCollectionViewCell {
+                cell.select(animated: true)
+            }
+//            selectedNote = selectedItem.currentNotes[indexPath.row]
+//            self.performSegue(withIdentifier: "addItemSegue", sender: self)
         }
     }
     

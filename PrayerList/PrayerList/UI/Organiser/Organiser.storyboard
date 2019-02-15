@@ -13,7 +13,7 @@
         <!--Organiser-->
         <scene sceneID="DDD-xR-hFy">
             <objects>
-                <viewController storyboardIdentifier="OrganiserViewController" id="0gK-X8-NGT" customClass="OrganiserOverviewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrganiserViewController" extendedLayoutIncludesOpaqueBars="YES" id="0gK-X8-NGT" customClass="OrganiserOverviewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f1k-kv-y40">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
         <!--Add Category-->
         <scene sceneID="eK3-zQ-rp3">
             <objects>
-                <viewController id="ess-PC-DEn" customClass="AddCategoryViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="ess-PC-DEn" customClass="AddCategoryViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C4b-ty-b0k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,15 +186,15 @@
         <!--Category Detail View Controller-->
         <scene sceneID="uzJ-H6-D7O">
             <objects>
-                <viewController id="fI6-cV-i5s" customClass="CategoryDetailViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="fI6-cV-i5s" customClass="CategoryDetailViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f42-4J-cPg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SM9-if-zOE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SM9-if-zOE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="0fl-tN-Mjo">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" sectionInsetReference="safeArea" id="0fl-tN-Mjo">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -237,7 +237,7 @@
         <!--Title-->
         <scene sceneID="ev5-qF-OcP">
             <objects>
-                <viewController id="J5u-3s-Rds" customClass="ItemDetailViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="J5u-3s-Rds" customClass="ItemDetailViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rtx-9Q-uij">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -409,7 +409,7 @@
         <!--Primary Split View Controller-->
         <scene sceneID="Nrw-tz-nZg">
             <objects>
-                <splitViewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="KIe-Sm-SSt" customClass="PrimarySplitViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="KIe-Sm-SSt" customClass="PrimarySplitViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Organiser" id="FbM-b8-uya"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -424,7 +424,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jmP-Wu-jYn">
             <objects>
-                <navigationController storyboardIdentifier="OrganiserNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="2mT-hV-Mvq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OrganiserNavigationController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="2mT-hV-Mvq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="6hY-rG-8eb">
@@ -443,7 +443,7 @@
         <!--Navigation Controller-->
         <scene sceneID="TdD-id-R6d">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gHx-tl-Ixu" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="gHx-tl-Ixu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ruU-ze-h50">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -461,7 +461,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lz9-zU-xrT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vlc-si-5Bc" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="vlc-si-5Bc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="QC7-Qg-I3W">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -549,7 +549,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nkM-ii-hvu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OzT-5N-5NG" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="OzT-5N-5NG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bGM-2O-wKa">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>

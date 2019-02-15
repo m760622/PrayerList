@@ -36,5 +36,15 @@ class PrimarySplitViewController: UISplitViewController, UISplitViewControllerDe
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
+        if splitViewController.isCollapsed, let navController = vc as? UINavigationController {
+            if let detailVC = navController.topViewController {
+                splitViewController.showDetailViewController(detailVC, sender: sender)
+                return true
+            }
+        }
+        return false
+    }  
 
 }

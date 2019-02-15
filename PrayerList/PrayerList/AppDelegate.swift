@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = Theme.Color.PrimaryTint
         UITabBar.appearance().tintColor = Theme.Color.PrimaryTint
         UITabBar.appearance().unselectedItemTintColor = Theme.Color.TabBarInactive
+        UINavigationBar.appearance().shadowImage = UIImage()
         
         UITabBar.appearance().layer.borderWidth = 0.0
         UITabBar.appearance().clipsToBounds = true
@@ -31,6 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             prepopulateCoreData()
             PLUserDefaults.hasSetUp = true
         }
+        
+        
+        #if DEVELOPMENT
+        print("development")
+        #else
+        print("production")
+        #endif
         
         return true
     }
@@ -54,11 +62,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
         if PLUserDefaults.requiresPasscode, let date = PLUserDefaults.timeExited {
             let difference = Date().timeIntervalSince(date)
-            if difference > 120 {
-                let passcodeVC = PasscodeViewController.instantiate()
-                self.window?.rootViewController?.present(passcodeVC, animated: false, completion: nil)
+            if difference > 1 {
+                DispatchQueue.main.async {
+                    let passcodeVC = PasscodeViewController.instantiate()
+                    self.window?.rootViewController?.present(passcodeVC, animated: false, completion: nil)
+                }
             }
             PLUserDefaults.timeExited = nil
         }

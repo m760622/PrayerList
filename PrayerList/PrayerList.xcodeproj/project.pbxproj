@@ -7,6 +7,90 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03035E0622113851007EF2DB /* PrayerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994121AFCD9A003AF16D /* PrayerSettingsViewController.swift */; };
+		03035E0722113851007EF2DB /* PrayerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997421B1D461003AF16D /* PrayerSelectionViewController.swift */; };
+		03035E0822113851007EF2DB /* GroupOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900C12209624D0064C344 /* GroupOverviewCollectionViewCell.swift */; };
+		03035E0922113851007EF2DB /* PRUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996421B12AE4003AF16D /* PRUserDefaults.swift */; };
+		03035E0A22113851007EF2DB /* PrayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394993621AFB81C003AF16D /* PrayerModel.swift */; };
+		03035E0B22113851007EF2DB /* PassCodeDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353FD98220C03A200CEBC25 /* PassCodeDot.swift */; };
+		03035E0C22113851007EF2DB /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994521AFCF0B003AF16D /* TextFieldTableViewCell.swift */; };
+		03035E0D22113851007EF2DB /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A69321BF7F640021AD66 /* AddNoteViewController.swift */; };
+		03035E0E22113851007EF2DB /* LargeTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A6A621C4474A0021AD66 /* LargeTextTableViewCell.swift */; };
+		03035E0F22113851007EF2DB /* CoreDataCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995C21B12502003AF16D /* CoreDataCategory.swift */; };
+		03035E1022113851007EF2DB /* CoreDataPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394993821AFB82F003AF16D /* CoreDataPrayer.swift */; };
+		03035E1122113851007EF2DB /* PlainHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68F21BE56130021AD66 /* PlainHeaderCollectionReusableView.swift */; };
+		03035E1222113851007EF2DB /* CategoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996221B12912003AF16D /* CategoryInterface.swift */; };
+		03035E1322113851007EF2DB /* CoreDataNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995A21B124F5003AF16D /* CoreDataNote.swift */; };
+		03035E1422113851007EF2DB /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68A21BE55310021AD66 /* ItemTableViewCell.swift */; };
+		03035E1522113851007EF2DB /* CategorySortSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03517671220A3214008E099B /* CategorySortSelectionController.swift */; };
+		03035E1622113851007EF2DB /* LAContext+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353FD9E220C127600CEBC25 /* LAContext+Extensions.swift */; };
+		03035E1722113851007EF2DB /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995621B1246E003AF16D /* CategoryModel.swift */; };
+		03035E1822113851007EF2DB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394992521AFB012003AF16D /* CoreDataManager.swift */; };
+		03035E1922113851007EF2DB /* ItemOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997721B1DA7D003AF16D /* ItemOverviewCollectionViewCell.swift */; };
+		03035E1A22113851007EF2DB /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A6AB21CB69120021AD66 /* EmptyView.swift */; };
+		03035E1B22113851007EF2DB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8D21CDC1D400F88F99 /* GradientView.swift */; };
+		03035E1C22113851007EF2DB /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0351766C220A2AB8008E099B /* SwitchTableViewCell.swift */; };
+		03035E1D22113851007EF2DB /* PrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA422017751007827DF /* PrayerViewController.swift */; };
+		03035E1E22113851007EF2DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039498EE21AFAA92003AF16D /* ViewController.swift */; };
+		03035E1F22113851007EF2DB /* PrayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394993A21AFC9F9003AF16D /* PrayerInterface.swift */; };
+		03035E2022113851007EF2DB /* CoreDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995821B124E8003AF16D /* CoreDataItem.swift */; };
+		03035E2122113851007EF2DB /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996D21B13100003AF16D /* CategoryDetailViewController.swift */; };
+		03035E2222113851007EF2DB /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997D21B25A86003AF16D /* Storyboardable.swift */; };
+		03035E2322113851007EF2DB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394992321AFAFE4003AF16D /* UIColor+Extensions.swift */; };
+		03035E2422113851007EF2DB /* CategorySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997B21B25448003AF16D /* CategorySettingsViewController.swift */; };
+		03035E2522113851007EF2DB /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995221B12419003AF16D /* ItemModel.swift */; };
+		03035E2622113851007EF2DB /* AddNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA622018020007827DF /* AddNoteTableViewCell.swift */; };
+		03035E2722113851007EF2DB /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B48220030DF00F7F0A6 /* DateHelper.swift */; };
+		03035E2822113851007EF2DB /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900CA220977840064C344 /* ButtonTableViewCell.swift */; };
+		03035E2922113851007EF2DB /* PrayerSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B4A220036CF00F7F0A6 /* PrayerSectionViewController.swift */; };
+		03035E2A22113851007EF2DB /* AddItemFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997221B1CF77003AF16D /* AddItemFormViewController.swift */; };
+		03035E2B22113851007EF2DB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A6A321C43BAB0021AD66 /* TabBarController.swift */; };
+		03035E2C22113851007EF2DB /* OrganiserOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394992F21AFB25A003AF16D /* OrganiserOverviewController.swift */; };
+		03035E2D22113851007EF2DB /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68421BE51E30021AD66 /* ListCollectionViewCell.swift */; };
+		03035E2E22113851007EF2DB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394991F21AFAFAC003AF16D /* Theme.swift */; };
+		03035E2F22113851007EF2DB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394993121AFB46A003AF16D /* BaseViewController.swift */; };
+		03035E3022113851007EF2DB /* OrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E407222080AC400A6B292 /* OrderType.swift */; };
+		03035E3122113851007EF2DB /* SnippitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900C7220962C00064C344 /* SnippitView.swift */; };
+		03035E3222113851007EF2DB /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03654B1921CD9A3700465E16 /* AddCategoryViewController.swift */; };
+		03035E3322113851007EF2DB /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995421B12427003AF16D /* NoteModel.swift */; };
+		03035E3422113851007EF2DB /* NoteInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996021B12907003AF16D /* NoteInterface.swift */; };
+		03035E3522113851007EF2DB /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B4322002CD800F7F0A6 /* NoteCollectionViewCell.swift */; };
+		03035E3622113851007EF2DB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */; };
+		03035E3722113851007EF2DB /* PrayerOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394992D21AFB225003AF16D /* PrayerOverviewController.swift */; };
+		03035E3822113851007EF2DB /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A69E21C433D50021AD66 /* PlusView.swift */; };
+		03035E3922113851007EF2DB /* FullNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B412200220200F7F0A6 /* FullNotesViewController.swift */; };
+		03035E3A22113851007EF2DB /* PrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394993D21AFCAF5003AF16D /* PrayerCollectionViewCell.swift */; };
+		03035E3B22113851007EF2DB /* PrayerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA22201772E007827DF /* PrayerPageViewController.swift */; };
+		03035E3C22113851007EF2DB /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353FD91220A996D00CEBC25 /* PasscodeViewController.swift */; };
+		03035E3D22113851007EF2DB /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68221BE4F820021AD66 /* ItemDetailViewController.swift */; };
+		03035E3E22113851007EF2DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039498EC21AFAA92003AF16D /* AppDelegate.swift */; };
+		03035E3F22113851007EF2DB /* ItemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394995E21B128FD003AF16D /* ItemInterface.swift */; };
+		03035E4022113851007EF2DB /* PrimarySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394996F21B1CD6C003AF16D /* PrimarySplitViewController.swift */; };
+		03035E4122113851007EF2DB /* PrayerSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E407522080DD700A6B292 /* PrayerSessionManager.swift */; };
+		03035E4222113851007EF2DB /* PrayerList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 039498F321AFAA92003AF16D /* PrayerList.xcdatamodeld */; };
+		03035E4322113851007EF2DB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394994B21AFE220003AF16D /* Button.swift */; };
+		03035E4422113851007EF2DB /* PasscodeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353FD96220BFD8F00CEBC25 /* PasscodeButton.swift */; };
+		03035E4722113851007EF2DB /* GroupOverviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900C22209624D0064C344 /* GroupOverviewCollectionViewCell.xib */; };
+		03035E4822113851007EF2DB /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0351766D220A2AB8008E099B /* SwitchTableViewCell.xib */; };
+		03035E4922113851007EF2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039498F821AFAA95003AF16D /* LaunchScreen.storyboard */; };
+		03035E4A22113851007EF2DB /* Organiser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0394992721AFB14F003AF16D /* Organiser.storyboard */; };
+		03035E4B22113851007EF2DB /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394994621AFCF0B003AF16D /* TextFieldTableViewCell.xib */; };
+		03035E4C22113851007EF2DB /* SnippitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900C5220962B50064C344 /* SnippitView.xib */; };
+		03035E4D22113851007EF2DB /* LargeTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6A721C4474A0021AD66 /* LargeTextTableViewCell.xib */; };
+		03035E4E22113851007EF2DB /* PassCodeDot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0353FD9C220C03BC00CEBC25 /* PassCodeDot.xib */; };
+		03035E4F22113851007EF2DB /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A68521BE51E30021AD66 /* ListCollectionViewCell.xib */; };
+		03035E5022113851007EF2DB /* PlusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6A021C433DF0021AD66 /* PlusView.xib */; };
+		03035E5122113851007EF2DB /* Prayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0394992921AFB1C0003AF16D /* Prayer.storyboard */; };
+		03035E5222113851007EF2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 039498F621AFAA95003AF16D /* Assets.xcassets */; };
+		03035E5322113851007EF2DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039498F021AFAA92003AF16D /* Main.storyboard */; };
+		03035E5422113851007EF2DB /* PrayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394993E21AFCAF5003AF16D /* PrayerCollectionViewCell.xib */; };
+		03035E5522113851007EF2DB /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A6AD21CB69210021AD66 /* EmptyView.xib */; };
+		03035E5622113851007EF2DB /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900CB220977840064C344 /* ButtonTableViewCell.xib */; };
+		03035E5722113851007EF2DB /* AddNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C3CAA722018020007827DF /* AddNoteTableViewCell.xib */; };
+		03035E5822113851007EF2DB /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A68B21BE55310021AD66 /* ItemTableViewCell.xib */; };
+		03035E5922113851007EF2DB /* ItemOverviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394997821B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib */; };
+		03035E5A22113851007EF2DB /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F32B4422002CD800F7F0A6 /* NoteCollectionViewCell.xib */; };
+		03035E5B22113851007EF2DB /* PlainHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A69021BE56130021AD66 /* PlainHeaderCollectionReusableView.xib */; };
 		030900C32209624D0064C344 /* GroupOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900C12209624D0064C344 /* GroupOverviewCollectionViewCell.swift */; };
 		030900C42209624D0064C344 /* GroupOverviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900C22209624D0064C344 /* GroupOverviewCollectionViewCell.xib */; };
 		030900C6220962B50064C344 /* SnippitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900C5220962B50064C344 /* SnippitView.xib */; };
@@ -69,6 +153,8 @@
 		0394997A21B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0394997821B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib */; };
 		0394997C21B25448003AF16D /* CategorySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997B21B25448003AF16D /* CategorySettingsViewController.swift */; };
 		0394997E21B25A86003AF16D /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394997D21B25A86003AF16D /* Storyboardable.swift */; };
+		03BCE6832213EBF600A6802E /* CB3DSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCE6822213EBF600A6802E /* CB3DSelectCell.swift */; };
+		03BCE6842213EBF600A6802E /* CB3DSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCE6822213EBF600A6802E /* CB3DSelectCell.swift */; };
 		03C2A68321BE4F820021AD66 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68221BE4F820021AD66 /* ItemDetailViewController.swift */; };
 		03C2A68621BE51E30021AD66 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A68421BE51E30021AD66 /* ListCollectionViewCell.swift */; };
 		03C2A68721BE51E30021AD66 /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C2A68521BE51E30021AD66 /* ListCollectionViewCell.xib */; };
@@ -113,6 +199,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03035E5F22113851007EF2DB /* PrayerList Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PrayerList Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03035E6022113851007EF2DB /* PrayerList dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PrayerList dev.plist"; path = "/Users/Devin/Source Tree/Prayer/PrayerList/PrayerList dev.plist"; sourceTree = "<absolute>"; };
 		030900C12209624D0064C344 /* GroupOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		030900C22209624D0064C344 /* GroupOverviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupOverviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		030900C5220962B50064C344 /* SnippitView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnippitView.xib; sourceTree = "<group>"; };
@@ -182,6 +270,7 @@
 		0394997821B1DA7D003AF16D /* ItemOverviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemOverviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		0394997B21B25448003AF16D /* CategorySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySettingsViewController.swift; sourceTree = "<group>"; };
 		0394997D21B25A86003AF16D /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
+		03BCE6822213EBF600A6802E /* CB3DSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CB3DSelectCell.swift; sourceTree = "<group>"; };
 		03C2A68221BE4F820021AD66 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		03C2A68421BE51E30021AD66 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
 		03C2A68521BE51E30021AD66 /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -209,6 +298,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		03035E4522113851007EF2DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		039498E621AFAA92003AF16D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,6 +410,7 @@
 				039498E921AFAA92003AF16D /* PrayerList.app */,
 				0394990021AFAA95003AF16D /* PrayerListTests.xctest */,
 				0394990B21AFAA95003AF16D /* PrayerListUITests.xctest */,
+				03035E5F22113851007EF2DB /* PrayerList Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,6 +420,7 @@
 			children = (
 				03419F9121CDC7DD00F88F99 /* PrayerList.entitlements */,
 				039498FB21AFAA95003AF16D /* Info.plist */,
+				03035E6022113851007EF2DB /* PrayerList dev.plist */,
 				039498EC21AFAA92003AF16D /* AppDelegate.swift */,
 				0394991E21AFAF95003AF16D /* DataModels */,
 				0394992121AFAFD0003AF16D /* Helpers */,
@@ -358,6 +456,7 @@
 				0394991F21AFAFAC003AF16D /* Theme.swift */,
 				039498F021AFAA92003AF16D /* Main.storyboard */,
 				039498F821AFAA95003AF16D /* LaunchScreen.storyboard */,
+				03BCE6822213EBF600A6802E /* CB3DSelectCell.swift */,
 				03C2A6A321C43BAB0021AD66 /* TabBarController.swift */,
 				0394994D21AFE226003AF16D /* Components */,
 				0394992C21AFB205003AF16D /* Organiser */,
@@ -656,6 +755,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		03035E0422113851007EF2DB /* PrayerList Dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03035E5C22113851007EF2DB /* Build configuration list for PBXNativeTarget "PrayerList Dev" */;
+			buildPhases = (
+				03035E0522113851007EF2DB /* Sources */,
+				03035E4522113851007EF2DB /* Frameworks */,
+				03035E4622113851007EF2DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PrayerList Dev";
+			productName = PrayerList;
+			productReference = 03035E5F22113851007EF2DB /* PrayerList Dev.app */;
+			productType = "com.apple.product-type.application";
+		};
 		039498E821AFAA92003AF16D /* PrayerList */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0394991421AFAA95003AF16D /* Build configuration list for PBXNativeTarget "PrayerList" */;
@@ -751,6 +867,7 @@
 			projectRoot = "";
 			targets = (
 				039498E821AFAA92003AF16D /* PrayerList */,
+				03035E0422113851007EF2DB /* PrayerList Dev */,
 				039498FF21AFAA95003AF16D /* PrayerListTests */,
 				0394990A21AFAA95003AF16D /* PrayerListUITests */,
 			);
@@ -758,6 +875,34 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		03035E4622113851007EF2DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03035E4722113851007EF2DB /* GroupOverviewCollectionViewCell.xib in Resources */,
+				03035E4822113851007EF2DB /* SwitchTableViewCell.xib in Resources */,
+				03035E4922113851007EF2DB /* LaunchScreen.storyboard in Resources */,
+				03035E4A22113851007EF2DB /* Organiser.storyboard in Resources */,
+				03035E4B22113851007EF2DB /* TextFieldTableViewCell.xib in Resources */,
+				03035E4C22113851007EF2DB /* SnippitView.xib in Resources */,
+				03035E4D22113851007EF2DB /* LargeTextTableViewCell.xib in Resources */,
+				03035E4E22113851007EF2DB /* PassCodeDot.xib in Resources */,
+				03035E4F22113851007EF2DB /* ListCollectionViewCell.xib in Resources */,
+				03035E5022113851007EF2DB /* PlusView.xib in Resources */,
+				03035E5122113851007EF2DB /* Prayer.storyboard in Resources */,
+				03035E5222113851007EF2DB /* Assets.xcassets in Resources */,
+				03035E5322113851007EF2DB /* Main.storyboard in Resources */,
+				03035E5422113851007EF2DB /* PrayerCollectionViewCell.xib in Resources */,
+				03035E5522113851007EF2DB /* EmptyView.xib in Resources */,
+				03035E5622113851007EF2DB /* ButtonTableViewCell.xib in Resources */,
+				03035E5722113851007EF2DB /* AddNoteTableViewCell.xib in Resources */,
+				03035E5822113851007EF2DB /* ItemTableViewCell.xib in Resources */,
+				03035E5922113851007EF2DB /* ItemOverviewCollectionViewCell.xib in Resources */,
+				03035E5A22113851007EF2DB /* NoteCollectionViewCell.xib in Resources */,
+				03035E5B22113851007EF2DB /* PlainHeaderCollectionReusableView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		039498E721AFAA92003AF16D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -803,6 +948,77 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		03035E0522113851007EF2DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03035E0622113851007EF2DB /* PrayerSettingsViewController.swift in Sources */,
+				03035E0722113851007EF2DB /* PrayerSelectionViewController.swift in Sources */,
+				03035E0822113851007EF2DB /* GroupOverviewCollectionViewCell.swift in Sources */,
+				03035E0922113851007EF2DB /* PRUserDefaults.swift in Sources */,
+				03035E0A22113851007EF2DB /* PrayerModel.swift in Sources */,
+				03035E0B22113851007EF2DB /* PassCodeDot.swift in Sources */,
+				03035E0C22113851007EF2DB /* TextFieldTableViewCell.swift in Sources */,
+				03035E0D22113851007EF2DB /* AddNoteViewController.swift in Sources */,
+				03035E0E22113851007EF2DB /* LargeTextTableViewCell.swift in Sources */,
+				03035E0F22113851007EF2DB /* CoreDataCategory.swift in Sources */,
+				03035E1022113851007EF2DB /* CoreDataPrayer.swift in Sources */,
+				03BCE6842213EBF600A6802E /* CB3DSelectCell.swift in Sources */,
+				03035E1122113851007EF2DB /* PlainHeaderCollectionReusableView.swift in Sources */,
+				03035E1222113851007EF2DB /* CategoryInterface.swift in Sources */,
+				03035E1322113851007EF2DB /* CoreDataNote.swift in Sources */,
+				03035E1422113851007EF2DB /* ItemTableViewCell.swift in Sources */,
+				03035E1522113851007EF2DB /* CategorySortSelectionController.swift in Sources */,
+				03035E1622113851007EF2DB /* LAContext+Extensions.swift in Sources */,
+				03035E1722113851007EF2DB /* CategoryModel.swift in Sources */,
+				03035E1822113851007EF2DB /* CoreDataManager.swift in Sources */,
+				03035E1922113851007EF2DB /* ItemOverviewCollectionViewCell.swift in Sources */,
+				03035E1A22113851007EF2DB /* EmptyView.swift in Sources */,
+				03035E1B22113851007EF2DB /* GradientView.swift in Sources */,
+				03035E1C22113851007EF2DB /* SwitchTableViewCell.swift in Sources */,
+				03035E1D22113851007EF2DB /* PrayerViewController.swift in Sources */,
+				03035E1E22113851007EF2DB /* ViewController.swift in Sources */,
+				03035E1F22113851007EF2DB /* PrayerInterface.swift in Sources */,
+				03035E2022113851007EF2DB /* CoreDataItem.swift in Sources */,
+				03035E2122113851007EF2DB /* CategoryDetailViewController.swift in Sources */,
+				03035E2222113851007EF2DB /* Storyboardable.swift in Sources */,
+				03035E2322113851007EF2DB /* UIColor+Extensions.swift in Sources */,
+				03035E2422113851007EF2DB /* CategorySettingsViewController.swift in Sources */,
+				03035E2522113851007EF2DB /* ItemModel.swift in Sources */,
+				03035E2622113851007EF2DB /* AddNoteTableViewCell.swift in Sources */,
+				03035E2722113851007EF2DB /* DateHelper.swift in Sources */,
+				03035E2822113851007EF2DB /* ButtonTableViewCell.swift in Sources */,
+				03035E2922113851007EF2DB /* PrayerSectionViewController.swift in Sources */,
+				03035E2A22113851007EF2DB /* AddItemFormViewController.swift in Sources */,
+				03035E2B22113851007EF2DB /* TabBarController.swift in Sources */,
+				03035E2C22113851007EF2DB /* OrganiserOverviewController.swift in Sources */,
+				03035E2D22113851007EF2DB /* ListCollectionViewCell.swift in Sources */,
+				03035E2E22113851007EF2DB /* Theme.swift in Sources */,
+				03035E2F22113851007EF2DB /* BaseViewController.swift in Sources */,
+				03035E3022113851007EF2DB /* OrderType.swift in Sources */,
+				03035E3122113851007EF2DB /* SnippitView.swift in Sources */,
+				03035E3222113851007EF2DB /* AddCategoryViewController.swift in Sources */,
+				03035E3322113851007EF2DB /* NoteModel.swift in Sources */,
+				03035E3422113851007EF2DB /* NoteInterface.swift in Sources */,
+				03035E3522113851007EF2DB /* NoteCollectionViewCell.swift in Sources */,
+				03035E3622113851007EF2DB /* UIView+Extensions.swift in Sources */,
+				03035E3722113851007EF2DB /* PrayerOverviewController.swift in Sources */,
+				03035E3822113851007EF2DB /* PlusView.swift in Sources */,
+				03035E3922113851007EF2DB /* FullNotesViewController.swift in Sources */,
+				03035E3A22113851007EF2DB /* PrayerCollectionViewCell.swift in Sources */,
+				03035E3B22113851007EF2DB /* PrayerPageViewController.swift in Sources */,
+				03035E3C22113851007EF2DB /* PasscodeViewController.swift in Sources */,
+				03035E3D22113851007EF2DB /* ItemDetailViewController.swift in Sources */,
+				03035E3E22113851007EF2DB /* AppDelegate.swift in Sources */,
+				03035E3F22113851007EF2DB /* ItemInterface.swift in Sources */,
+				03035E4022113851007EF2DB /* PrimarySplitViewController.swift in Sources */,
+				03035E4122113851007EF2DB /* PrayerSessionManager.swift in Sources */,
+				03035E4222113851007EF2DB /* PrayerList.xcdatamodeld in Sources */,
+				03035E4322113851007EF2DB /* Button.swift in Sources */,
+				03035E4422113851007EF2DB /* PasscodeButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		039498E521AFAA92003AF16D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -818,6 +1034,7 @@
 				03C2A6A821C4474A0021AD66 /* LargeTextTableViewCell.swift in Sources */,
 				0394995D21B12502003AF16D /* CoreDataCategory.swift in Sources */,
 				0394993921AFB82F003AF16D /* CoreDataPrayer.swift in Sources */,
+				03BCE6832213EBF600A6802E /* CB3DSelectCell.swift in Sources */,
 				03C2A69121BE56130021AD66 /* PlainHeaderCollectionReusableView.swift in Sources */,
 				0394996321B12912003AF16D /* CategoryInterface.swift in Sources */,
 				0394995B21B124F5003AF16D /* CoreDataNote.swift in Sources */,
@@ -924,6 +1141,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		03035E5D22113851007EF2DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Preprod";
+				CODE_SIGN_ENTITLEMENTS = PrayerList/PrayerList.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EB8VPKS2W5;
+				INFOPLIST_FILE = "$(SRCROOT)/PrayerList dev.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.devin.prayerlist.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03035E5E22113851007EF2DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Preprod";
+				CODE_SIGN_ENTITLEMENTS = PrayerList/PrayerList.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EB8VPKS2W5;
+				INFOPLIST_FILE = "$(SRCROOT)/PrayerList dev.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.devin.prayerlist.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		0394991221AFAA95003AF16D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1053,6 +1310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DDEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = com.devin.prayerlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1073,6 +1331,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DDEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = com.devin.prayerlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1165,6 +1424,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		03035E5C22113851007EF2DB /* Build configuration list for PBXNativeTarget "PrayerList Dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03035E5D22113851007EF2DB /* Debug */,
+				03035E5E22113851007EF2DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		039498E421AFAA92003AF16D /* Build configuration list for PBXProject "PrayerList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

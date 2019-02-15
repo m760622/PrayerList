@@ -18,6 +18,22 @@ class CategoryDetailViewController: BaseViewController {
     var category: CategoryModel?
     var groups = [ItemModel]()
     
+    var filteredGroups: [ItemModel] {
+        if let searchText = searchText, !searchText.isEmpty {
+            return groups.filter({ (item) -> Bool in
+                item.name.lowercased().contains(searchText.lowercased())
+            })
+        }
+        return groups
+    }
+    
+    var searchController: UISearchController!
+    var searchText: String? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     var selectedGroup: ItemModel?
     
     lazy var emptyView: EmptyView = {
@@ -35,10 +51,27 @@ class CategoryDetailViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: ItemOverviewCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: ItemOverviewCollectionViewCell.reuseIdentifier)
         collectionView.register(UINib(nibName: GroupOverviewCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupOverviewCollectionViewCell.reuseIdentifier)
-        collectionView.contentInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        collectionView.contentInset = UIEdgeInsets(top: 15, left: 15, bottom: 25, right: 15)
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView.addGestureRecognizer(longPressGesture)
+        
+        if #available(iOS 11.0, *) {
+            searchController = UISearchController(searchResultsController: nil)
+            searchController.searchBar.delegate = self
+            self.definesPresentationContext = true
+            searchController.dimsBackgroundDuringPresentation = false
+            searchController.hidesNavigationBarDuringPresentation = false
+            searchController.searchBar.isTranslucent = false
+            searchController.searchBar.tintColor = Theme.Color.PrimaryTint
+            searchController.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationItem.searchController = searchController
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,19 +147,19 @@ extension CategoryDetailViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return groups.count
+         return filteredGroups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemOverviewCollectionViewCell.reuseIdentifier, for: indexPath) as! ItemOverviewCollectionViewCell
         
-        cell.setUp(title: groups[indexPath.row].name, detail: "\(groups[indexPath.row].currentNotes.count) Notes", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle, tickVisble: groups[indexPath.row].completedForSet)
+        cell.setUp(title: filteredGroups[indexPath.row].name, searchText: searchText, detail: "\(groups[indexPath.row].currentNotes.count) Notes", backgroundColor: Theme.Color.cellColor, textColor: Theme.Color.Text, detailTextColor: Theme.Color.Subtitle, tickVisble: groups[indexPath.row].completedForSet)
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedGroup = groups[indexPath.row]
+        self.selectedGroup = filteredGroups[indexPath.row]
         self.performSegue(withIdentifier: "showGroupDetail", sender: self)
     }
     
@@ -211,5 +244,30 @@ extension CategoryDetailViewController: PlusDelegate {
         }
         
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension CategoryDetailViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty{
+            self.searchText = searchText
+        } else {
+            cancelSearch()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            self.searchText = text
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        cancelSearch()
+    }
+    
+    func cancelSearch(){
+        self.searchText = nil
     }
 }
