@@ -26,6 +26,7 @@ class NoteInterface {
         if let coreDataItem = CoreDataNote.fetchItem(withID: item.uuid, in: context){
             coreDataItem.delete(inContext: context)
         }
+        
         CoreDataManager.saveContext(context)
     }
 }

@@ -25,7 +25,7 @@ class PrayerCollectionViewCell: UICollectionViewCell {
         
         dropshadowView.layer.shadowOffset = CGSize(width: 2, height: 6)
         dropshadowView.layer.shadowRadius = 10
-        dropshadowView.layer.shadowOpacity = 0.3
+        dropshadowView.layer.shadowOpacity = 0.2
         dropshadowView.clipsToBounds = false
         self.clipsToBounds = false
         

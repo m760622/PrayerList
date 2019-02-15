@@ -118,7 +118,7 @@ extension PrayerOverviewController: UICollectionViewDelegate, UICollectionViewDa
         
         var dateString: String?
         if let lastCompletedDate = prayers[indexPath.row].lastCompleted {
-            dateString = "Completed: \(DateHelper.timeAgoSinceDate(date: lastCompletedDate as NSDate, numericDates: false))"
+            dateString = "Last Completed: \(DateHelper.timeAgoSinceDate(date: lastCompletedDate as NSDate, numericDates: false))"
         }
         
         cell.setUp(title: prayers[indexPath.row].name, subtitle: dateString, bottomColor: Theme.Color.PrimaryTint.darker()!, topColor: Theme.Color.PrimaryTint, textColor: UIColor.white)

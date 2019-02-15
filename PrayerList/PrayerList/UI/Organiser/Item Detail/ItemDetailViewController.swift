@@ -77,9 +77,10 @@ class ItemDetailViewController: BaseViewController {
             if let child = dest.topViewController as? AddNoteViewController {
                 child.delegate = self
                 child.note = selectedNote
+            } else if let child = dest.topViewController as? ItemSettingsViewController {
+                child.item = selectedItem
+                child.delegate = self
             }
-        } else if let dest = segue.destination as? FullNotesViewController {
-            dest.selectedItem = self.selectedItem
         }
         
         selectedNote = nil
@@ -125,11 +126,8 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            if let cell = collectionView.cellForItem(at: indexPath) as? NoteCollectionViewCell {
-                cell.select(animated: true)
-            }
-//            selectedNote = selectedItem.currentNotes[indexPath.row]
-//            self.performSegue(withIdentifier: "addItemSegue", sender: self)
+            selectedNote = selectedItem.currentNotes[indexPath.row]
+            self.performSegue(withIdentifier: "addItemSegue", sender: self)
         }
     }
     
@@ -195,5 +193,15 @@ extension ItemDetailViewController: AddNoteDelegate {
         }
         
         updateView()
+    }
+}
+
+extension ItemDetailViewController: SettingsDelegate {
+    func thingDeleted() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func nameUpdated(name: String) {
+        self.title = name
     }
 }

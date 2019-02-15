@@ -41,10 +41,12 @@ class ItemInterface {
     }
     
     class func deleteGroup(group: ItemModel, inContext context: NSManagedObjectContext) {
-        
-        if let coreDataGroup = CoreDataItem.fetchItem(withID: group.uuid, in: context){
-            coreDataGroup.delete(inContext: context)
+        context.perform {
+            if let coreDataGroup = CoreDataItem.fetchItem(withID: group.uuid, in: context){
+                coreDataGroup.delete(inContext: context)
+            }
+            CoreDataManager.saveContext(context)
         }
-        CoreDataManager.saveContext(context)
+        try? context.save()
     }
 }

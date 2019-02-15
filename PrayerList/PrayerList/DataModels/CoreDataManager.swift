@@ -137,8 +137,6 @@ class CoreDataManager {
                     
                     self.saveContext(context, saveRetryCount: retryCount)
                 }
-                
-                
             }
             
         }

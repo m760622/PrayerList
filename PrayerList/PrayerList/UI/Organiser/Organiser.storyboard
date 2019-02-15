@@ -272,12 +272,15 @@
                         <viewLayoutGuide key="safeArea" id="j5S-Lc-Pcf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="1qG-Cp-BzD">
-                        <barButtonItem key="rightBarButtonItem" image="Dots" id="mk7-vD-jcA"/>
+                        <barButtonItem key="rightBarButtonItem" image="Dots" id="mk7-vD-jcA">
+                            <connections>
+                                <segue destination="JGf-5o-cuB" kind="presentation" modalPresentationStyle="formSheet" id="3Gc-ti-gI3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="7zB-cS-9Ry" id="7RO-dm-D4w"/>
                         <segue destination="WXs-ic-UQb" kind="presentation" identifier="addItemSegue" modalPresentationStyle="formSheet" id="HpM-8v-Z49"/>
-                        <segue destination="adk-lm-2Iw" kind="show" identifier="fullNotesSegue" id="LuO-2X-U1v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAL-1e-0Jw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -369,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNn-Yb-M2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2807.1999999999998" y="2267.3163418290856"/>
+            <point key="canvasLocation" x="3746.4000000000001" y="2267.3163418290856"/>
         </scene>
         <!--Category Sort Selection Controller-->
         <scene sceneID="PAs-hB-hbX">
@@ -476,39 +479,46 @@
             </objects>
             <point key="canvasLocation" x="181.59999999999999" y="742.5787106446777"/>
         </scene>
-        <!--Full Notes View Controller-->
-        <scene sceneID="REM-99-PXR">
+        <!--Item Settings-->
+        <scene sceneID="Giu-FS-jPq">
             <objects>
-                <viewController id="adk-lm-2Iw" customClass="FullNotesViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="s1g-Ho-PcJ">
+                <viewController id="6sK-Zb-Yko" customClass="ItemSettingsViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sog-vu-Lj8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s2L-Cz-ggH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="6N2-1Z-J1A">
+                                <rect key="frame" x="10" y="0.0" width="355" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="adk-lm-2Iw" id="qdM-bM-v5b"/>
-                                    <outlet property="delegate" destination="adk-lm-2Iw" id="YNS-i8-1La"/>
+                                    <outlet property="dataSource" destination="6sK-Zb-Yko" id="CCU-jg-kgK"/>
+                                    <outlet property="delegate" destination="6sK-Zb-Yko" id="6G8-c9-M7G"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="s2L-Cz-ggH" firstAttribute="top" secondItem="s1g-Ho-PcJ" secondAttribute="top" id="PoL-1O-5EJ"/>
-                            <constraint firstAttribute="trailing" secondItem="s2L-Cz-ggH" secondAttribute="trailing" id="c7a-a2-eo7"/>
-                            <constraint firstItem="s2L-Cz-ggH" firstAttribute="leading" secondItem="AoS-ts-fZz" secondAttribute="leading" id="ibw-F8-Gpe"/>
-                            <constraint firstAttribute="bottom" secondItem="s2L-Cz-ggH" secondAttribute="bottom" id="tbQ-gu-wvq"/>
+                            <constraint firstItem="6N2-1Z-J1A" firstAttribute="top" secondItem="sog-vu-Lj8" secondAttribute="top" id="EiQ-P4-NeU"/>
+                            <constraint firstItem="6N2-1Z-J1A" firstAttribute="leading" secondItem="Zgc-MF-Xdn" secondAttribute="leading" constant="10" id="Ioz-Ki-X0h"/>
+                            <constraint firstAttribute="bottom" secondItem="6N2-1Z-J1A" secondAttribute="bottom" id="d9n-Qs-NoO"/>
+                            <constraint firstItem="Zgc-MF-Xdn" firstAttribute="trailing" secondItem="6N2-1Z-J1A" secondAttribute="trailing" constant="10" id="yXm-mi-QhX"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="AoS-ts-fZz"/>
+                        <viewLayoutGuide key="safeArea" id="Zgc-MF-Xdn"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Item Settings" id="2Hi-Pa-We9">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="SaY-d4-6Oo">
+                            <connections>
+                                <action selector="doneAction:" destination="6sK-Zb-Yko" id="9Mh-aS-fUL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="s2L-Cz-ggH" id="Hhs-Ax-cAv"/>
+                        <outlet property="tableView" destination="6N2-1Z-J1A" id="i8f-M3-Icl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZMS-gk-KSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mJl-Zu-W9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="1539"/>
+            <point key="canvasLocation" x="2838" y="1549"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y5D-xb-kQN">
@@ -526,7 +536,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kz-Cz-EHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="2268.2158920539732"/>
+            <point key="canvasLocation" x="2863.1999999999998" y="2268.2158920539732"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UNe-Go-uyC">
@@ -581,6 +591,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bD-rK-S2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1924" y="3230"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cJk-Zt-uQW">
+            <objects>
+                <navigationController storyboardIdentifier="ItemSettingsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="JGf-5o-cuB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="RlO-d3-ekr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6sK-Zb-Yko" kind="relationship" relationship="rootViewController" id="Ona-Ke-RZa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2c3-qr-f6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="1550"/>
         </scene>
     </scenes>
     <resources>

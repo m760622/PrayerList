@@ -50,7 +50,7 @@ class CategorySettingsViewController: BaseViewController {
     }
     
     func deleteCategory(){
-        let alert = UIAlertController(title: "Delete Category", message: "Are you sure you want to delete this category? You will loose all the related information", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete Category", message: "Are you sure you want to delete this category? You will lose all the related items & notes", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         

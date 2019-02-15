@@ -58,7 +58,6 @@
 		03035E3622113851007EF2DB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */; };
 		03035E3722113851007EF2DB /* PrayerOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394992D21AFB225003AF16D /* PrayerOverviewController.swift */; };
 		03035E3822113851007EF2DB /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C2A69E21C433D50021AD66 /* PlusView.swift */; };
-		03035E3922113851007EF2DB /* FullNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B412200220200F7F0A6 /* FullNotesViewController.swift */; };
 		03035E3A22113851007EF2DB /* PrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394993D21AFCAF5003AF16D /* PrayerCollectionViewCell.swift */; };
 		03035E3B22113851007EF2DB /* PrayerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA22201772E007827DF /* PrayerPageViewController.swift */; };
 		03035E3C22113851007EF2DB /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353FD91220A996D00CEBC25 /* PasscodeViewController.swift */; };
@@ -99,6 +98,8 @@
 		030900CD220977840064C344 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900CB220977840064C344 /* ButtonTableViewCell.xib */; };
 		03419F8E21CDC1D400F88F99 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8D21CDC1D400F88F99 /* GradientView.swift */; };
 		03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */; };
+		0345163C22176CC000841CBB /* ItemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345163B22176CC000841CBB /* ItemSettingsViewController.swift */; };
+		0345163D22176F9300841CBB /* ItemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345163B22176CC000841CBB /* ItemSettingsViewController.swift */; };
 		034E407322080AC400A6B292 /* OrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E407222080AC400A6B292 /* OrderType.swift */; };
 		034E407622080DD700A6B292 /* PrayerSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E407522080DD700A6B292 /* PrayerSessionManager.swift */; };
 		0351766E220A2AB8008E099B /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0351766C220A2AB8008E099B /* SwitchTableViewCell.swift */; };
@@ -174,7 +175,6 @@
 		03C3CAA522017751007827DF /* PrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA422017751007827DF /* PrayerViewController.swift */; };
 		03C3CAA822018020007827DF /* AddNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3CAA622018020007827DF /* AddNoteTableViewCell.swift */; };
 		03C3CAA922018020007827DF /* AddNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C3CAA722018020007827DF /* AddNoteTableViewCell.xib */; };
-		03F32B422200220200F7F0A6 /* FullNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B412200220200F7F0A6 /* FullNotesViewController.swift */; };
 		03F32B4522002CD800F7F0A6 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B4322002CD800F7F0A6 /* NoteCollectionViewCell.swift */; };
 		03F32B4622002CD800F7F0A6 /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F32B4422002CD800F7F0A6 /* NoteCollectionViewCell.xib */; };
 		03F32B49220030DF00F7F0A6 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F32B48220030DF00F7F0A6 /* DateHelper.swift */; };
@@ -210,6 +210,7 @@
 		03419F8D21CDC1D400F88F99 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		03419F9121CDC7DD00F88F99 /* PrayerList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrayerList.entitlements; sourceTree = "<group>"; };
+		0345163B22176CC000841CBB /* ItemSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSettingsViewController.swift; sourceTree = "<group>"; };
 		034E407222080AC400A6B292 /* OrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderType.swift; sourceTree = "<group>"; };
 		034E407522080DD700A6B292 /* PrayerSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSessionManager.swift; sourceTree = "<group>"; };
 		0351766C220A2AB8008E099B /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
@@ -290,7 +291,6 @@
 		03C3CAA422017751007827DF /* PrayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerViewController.swift; sourceTree = "<group>"; };
 		03C3CAA622018020007827DF /* AddNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteTableViewCell.swift; sourceTree = "<group>"; };
 		03C3CAA722018020007827DF /* AddNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNoteTableViewCell.xib; sourceTree = "<group>"; };
-		03F32B412200220200F7F0A6 /* FullNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNotesViewController.swift; sourceTree = "<group>"; };
 		03F32B4322002CD800F7F0A6 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		03F32B4422002CD800F7F0A6 /* NoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCollectionViewCell.xib; sourceTree = "<group>"; };
 		03F32B48220030DF00F7F0A6 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
@@ -666,7 +666,7 @@
 			children = (
 				03C2A68221BE4F820021AD66 /* ItemDetailViewController.swift */,
 				03C2A69321BF7F640021AD66 /* AddNoteViewController.swift */,
-				03F32B412200220200F7F0A6 /* FullNotesViewController.swift */,
+				0345163B22176CC000841CBB /* ItemSettingsViewController.swift */,
 			);
 			path = "Item Detail";
 			sourceTree = "<group>";
@@ -1004,7 +1004,7 @@
 				03035E3622113851007EF2DB /* UIView+Extensions.swift in Sources */,
 				03035E3722113851007EF2DB /* PrayerOverviewController.swift in Sources */,
 				03035E3822113851007EF2DB /* PlusView.swift in Sources */,
-				03035E3922113851007EF2DB /* FullNotesViewController.swift in Sources */,
+				0345163D22176F9300841CBB /* ItemSettingsViewController.swift in Sources */,
 				03035E3A22113851007EF2DB /* PrayerCollectionViewCell.swift in Sources */,
 				03035E3B22113851007EF2DB /* PrayerPageViewController.swift in Sources */,
 				03035E3C22113851007EF2DB /* PasscodeViewController.swift in Sources */,
@@ -1028,6 +1028,7 @@
 				030900C32209624D0064C344 /* GroupOverviewCollectionViewCell.swift in Sources */,
 				0394996521B12AE4003AF16D /* PRUserDefaults.swift in Sources */,
 				0394993721AFB81C003AF16D /* PrayerModel.swift in Sources */,
+				0345163C22176CC000841CBB /* ItemSettingsViewController.swift in Sources */,
 				0353FD9A220C03A200CEBC25 /* PassCodeDot.swift in Sources */,
 				0394994721AFCF0B003AF16D /* TextFieldTableViewCell.swift in Sources */,
 				03C2A69421BF7F640021AD66 /* AddNoteViewController.swift in Sources */,
@@ -1075,7 +1076,6 @@
 				03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */,
 				0394992E21AFB225003AF16D /* PrayerOverviewController.swift in Sources */,
 				03C2A69F21C433D50021AD66 /* PlusView.swift in Sources */,
-				03F32B422200220200F7F0A6 /* FullNotesViewController.swift in Sources */,
 				0394993F21AFCAF5003AF16D /* PrayerCollectionViewCell.swift in Sources */,
 				03C3CAA32201772F007827DF /* PrayerPageViewController.swift in Sources */,
 				0353FD92220A996D00CEBC25 /* PasscodeViewController.swift in Sources */,

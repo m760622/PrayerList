@@ -40,10 +40,14 @@ class CategoryInterface {
     }
     
     class func deleteCategory(category: CategoryModel, inContext context: NSManagedObjectContext) {
-        
-        if let coreDataCategory = CoreDataCategory.fetchCategory(withID: category.uuid, in: context){
-            coreDataCategory.delete(inContext: context)
+        context.perform {
+            if let coreDataCategory = CoreDataCategory.fetchCategory(withID: category.uuid, in: context){
+                coreDataCategory.delete(inContext: context)
+                
+            }
+            
+            CoreDataManager.saveContext(context)
         }
-        CoreDataManager.saveContext(context)
+        try? context.save()
     }
 }

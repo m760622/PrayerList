@@ -13,7 +13,7 @@ enum NoteCellStyle {
     case dark
 }
 
-class NoteCollectionViewCell: CB3DSelectCell {
+class NoteCollectionViewCell: UICollectionViewCell {
     
     static var resuseIdientifier = "NoteCollectionViewCell"
     
