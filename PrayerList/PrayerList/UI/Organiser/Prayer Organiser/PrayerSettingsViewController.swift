@@ -57,12 +57,14 @@ class PrayerSettingsViewController: BaseViewController {
     
     func delete(){
         PrayerInterface.deletePrayer(prayerModel: selectedPrayer, inContext: CoreDataManager.mainContext)
-        self.delegate?.prayerDeleted(prayer: selectedPrayer)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.delegate?.prayerDeleted(prayer: self.selectedPrayer)
+        }
     }
     
 
     @IBAction func doneAction(_ sender: Any) {
+        delegate?.prayerUpdated(prayer: selectedPrayer)
         self.dismiss(animated: true, completion: nil)
     }
 

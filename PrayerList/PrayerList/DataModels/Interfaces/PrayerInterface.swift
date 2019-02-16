@@ -34,11 +34,12 @@ class PrayerInterface {
     }
     
     class func deletePrayer(prayerModel: PrayerModel, inContext context: NSManagedObjectContext) {
-        context.performAndWait {
+        context.perform {
             if let coreDataPrayer = CoreDataPrayer.fetchPrayer(withID: prayerModel.uuid, in: context){
                 coreDataPrayer.delete(inContext: context)
             }
             CoreDataManager.saveContext(context)
         }
+        try? context.save()
     }
 }

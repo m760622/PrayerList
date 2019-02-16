@@ -10,6 +10,7 @@ import UIKit
 
 protocol PrayerSettingsDelegate: class {
     func prayerDeleted(prayer: PrayerModel)
+    func prayerUpdated(prayer: PrayerModel)
 }
 
 class OrganiserOverviewController: BaseViewController {
@@ -246,6 +247,13 @@ extension OrganiserOverviewController: HeaderActionDelegate {
 }
 
 extension OrganiserOverviewController: PrayerSettingsDelegate {
+    func prayerUpdated(prayer: PrayerModel) {
+        if let index = prayers.firstIndex(where: {$0.uuid == prayer.uuid}) {
+            prayers[index] = prayer
+            collectionView.reloadItems(at: [IndexPath(row: index, section: 1)])
+        }
+    }
+    
     func prayerDeleted(prayer: PrayerModel) {
         if let index = prayers.firstIndex(where: {$0.uuid == prayer.uuid}) {
             prayers.remove(at: index)
