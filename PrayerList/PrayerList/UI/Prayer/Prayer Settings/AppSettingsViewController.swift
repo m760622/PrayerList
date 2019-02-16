@@ -36,7 +36,7 @@ enum SettingsRow {
     case biometrics
 }
 
-class PrayerSettingsViewController: BaseViewController {
+class AppSettingsViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -86,7 +86,7 @@ class PrayerSettingsViewController: BaseViewController {
     
 }
 
-extension PrayerSettingsViewController: UITableViewDataSource, UITableViewDelegate {
+extension AppSettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return SettingsSection.sections.count
     }
@@ -190,7 +190,7 @@ extension PrayerSettingsViewController: UITableViewDataSource, UITableViewDelega
     }
 }
 
-extension PrayerSettingsViewController: SwitchCellDelegate {
+extension AppSettingsViewController: SwitchCellDelegate {
     func switchToggled(indexPath: IndexPath) {
         let section = SettingsSection.sections[indexPath.section]
         let row = section.rows[indexPath.row]
@@ -205,7 +205,7 @@ extension PrayerSettingsViewController: SwitchCellDelegate {
     }
 }
 
-extension PrayerSettingsViewController: CellTextDelegate {
+extension AppSettingsViewController: CellTextDelegate {
     func textChanged(text: String?, indexPath: IndexPath) {
         
     }

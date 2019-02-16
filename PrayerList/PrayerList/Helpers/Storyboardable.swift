@@ -13,6 +13,7 @@ enum AppStoryboard: String {
     case prayer = "Prayer"
     case organiser = "Organiser"
     case authentication = "Authentication"
+    case prayerOrganiser = "PrayerOrganiser"
 }
 
 protocol Instantiatable: class {

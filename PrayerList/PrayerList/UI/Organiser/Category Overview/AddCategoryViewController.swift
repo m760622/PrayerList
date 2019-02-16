@@ -52,6 +52,7 @@ class AddCategoryViewController: BaseViewController {
             newCategory.prayers = self.selectedPrayers
             CategoryInterface.saveCategory(category: newCategory, inContext: CoreDataManager.mainContext)
             
+            self.view.endEditing(true)
             self.dismiss(animated: true, completion: nil)
         }
     }

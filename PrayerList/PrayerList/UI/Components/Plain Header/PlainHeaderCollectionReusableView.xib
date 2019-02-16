@@ -22,15 +22,30 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V87-bw-jZM">
+                    <rect key="frame" x="260" y="14" width="60" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="rpl-2Y-CHI"/>
+                        <constraint firstAttribute="width" constant="60" id="zgs-AB-9gG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Add"/>
+                    <connections>
+                        <action selector="buttonAction:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="kuh-jv-QhG"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="cIp-JX-wBz" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="2" id="2PW-ny-rWz"/>
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="cIp-JX-wBz" secondAttribute="bottom" constant="10" id="Bkw-Qg-OCP"/>
+                <constraint firstItem="V87-bw-jZM" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="Gyj-TQ-vdh"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="V87-bw-jZM" secondAttribute="trailing" id="I7C-cR-ufE"/>
                 <constraint firstItem="cIp-JX-wBz" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="KQi-W4-ecq"/>
                 <constraint firstItem="cIp-JX-wBz" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" constant="10" id="nJx-aC-KTd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <connections>
+                <outlet property="button" destination="V87-bw-jZM" id="Hsb-ef-KMY"/>
                 <outlet property="label" destination="cIp-JX-wBz" id="IBK-kQ-5vF"/>
             </connections>
             <point key="canvasLocation" x="52.799999999999997" y="67.466266866566727"/>

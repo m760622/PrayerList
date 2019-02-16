@@ -77,6 +77,8 @@ class CategoryDetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        plusVisibilityDelegate?.show()
+        
         if let tab = self.tabBarController as? TabBarController {
             tab.plus.delegate = self
         }

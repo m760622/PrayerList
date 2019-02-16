@@ -27,16 +27,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="N2m-dP-B2v">
-                                <rect key="frame" x="16" y="-2.5" width="130" height="82"/>
+                                <rect key="frame" x="12" y="-2.5" width="138" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haP-Cz-s1e">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="32"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyx-pc-uxK">
-                                        <rect key="frame" x="0.0" y="32" width="130" height="50"/>
+                                        <rect key="frame" x="0.0" y="32" width="138" height="50"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -48,10 +48,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Dr6-do-dcs" secondAttribute="trailing" id="MH9-py-imm"/>
                             <constraint firstAttribute="bottom" secondItem="Dr6-do-dcs" secondAttribute="bottom" id="Vnm-ny-THJ"/>
-                            <constraint firstItem="kyx-pc-uxK" firstAttribute="width" secondItem="Akb-q9-wdh" secondAttribute="width" multiplier="0.8" id="ccC-6F-Bvq"/>
+                            <constraint firstItem="kyx-pc-uxK" firstAttribute="width" secondItem="Akb-q9-wdh" secondAttribute="width" multiplier="0.85" id="ccC-6F-Bvq"/>
                             <constraint firstItem="N2m-dP-B2v" firstAttribute="centerY" secondItem="Akb-q9-wdh" secondAttribute="centerY" id="fSe-Ho-c9w"/>
                             <constraint firstItem="Dr6-do-dcs" firstAttribute="top" secondItem="Akb-q9-wdh" secondAttribute="top" id="tEh-wU-rLM"/>
-                            <constraint firstItem="haP-Cz-s1e" firstAttribute="width" secondItem="Akb-q9-wdh" secondAttribute="width" multiplier="0.8" id="vbL-am-2Ap"/>
+                            <constraint firstItem="haP-Cz-s1e" firstAttribute="width" secondItem="Akb-q9-wdh" secondAttribute="width" multiplier="0.85" id="vbL-am-2Ap"/>
                             <constraint firstItem="N2m-dP-B2v" firstAttribute="centerX" secondItem="Akb-q9-wdh" secondAttribute="centerX" id="wtn-BV-Ivz"/>
                             <constraint firstItem="Dr6-do-dcs" firstAttribute="leading" secondItem="Akb-q9-wdh" secondAttribute="leading" id="y5s-Gf-CG9"/>
                         </constraints>

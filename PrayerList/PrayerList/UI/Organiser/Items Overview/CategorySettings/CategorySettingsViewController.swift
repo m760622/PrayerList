@@ -76,9 +76,11 @@ class CategorySettingsViewController: BaseViewController {
 }
 
 extension CategorySettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return CategorySettingsCell.sections.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategorySettingsCell.sections[section].count
     }

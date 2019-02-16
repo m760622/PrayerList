@@ -44,7 +44,6 @@ class PrayerOverviewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        plusVisibilityDelegate?.show()
     }
     
     @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {

@@ -43,6 +43,8 @@ class ItemDetailViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.view.layoutIfNeeded()
         
+        plusVisibilityDelegate?.show()
+        
         if let tab = self.tabBarController as? TabBarController {
             tab.plus.delegate = self
         }
@@ -138,9 +140,9 @@ extension ItemDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         case UICollectionView.elementKindSectionHeader:
             if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PlainHeaderCollectionReusableView.reuseIdentifier, for: indexPath) as? PlainHeaderCollectionReusableView {
                 if indexPath.section == 0 {
-                    sectionHeader.setUp(title: "Details")
+                    sectionHeader.setUp(title: "Details", section: indexPath.section)
                 } else {
-                    sectionHeader.setUp(title: "Notes")
+                    sectionHeader.setUp(title: "Notes", section: indexPath.section)
                 }
                 return sectionHeader
             }

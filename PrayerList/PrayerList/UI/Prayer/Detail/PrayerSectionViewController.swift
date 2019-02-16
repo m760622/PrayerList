@@ -77,7 +77,7 @@ extension PrayerSectionViewController: UICollectionViewDelegate, UICollectionVie
             
         case UICollectionView.elementKindSectionHeader:
             if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PlainHeaderCollectionReusableView.reuseIdentifier, for: indexPath) as? PlainHeaderCollectionReusableView {
-                sectionHeader.setUp(title: items[indexPath.section].name, color: UIColor.white)
+                sectionHeader.setUp(title: items[indexPath.section].name, color: UIColor.white, section: indexPath.section)
                 return sectionHeader
             }
             return UICollectionReusableView()

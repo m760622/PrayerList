@@ -34,7 +34,7 @@ class PrayerCollectionViewCell: UICollectionViewCell {
         subtitleLabel.alpha = 0.7
     }
     
-    func setUp(title: String, subtitle: String? = nil, backgroundColor: UIColor, textColor: UIColor){
+    func setUp(title: String, subtitle: String? = nil, backgroundColor: UIColor, textColor: UIColor, fontSize: Int = 26, cornerRadius: Int = 20){
         titleLabel.text = title
         titleLabel.textColor = textColor
         dropshadowView.layer.shadowColor = Theme.Color.dropShadow.cgColor
@@ -42,12 +42,14 @@ class PrayerCollectionViewCell: UICollectionViewCell {
         subtitleLabel.text = subtitle
         subtitleLabel.isHidden = subtitle == nil
         
+        titleLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize), weight: .medium)
+        containerView.cornerRadius = CGFloat(cornerRadius)
         
         containerView.bottomColor = backgroundColor
         containerView.topColor = backgroundColor
     }
     
-    func setUp(title: String, subtitle: String? = nil, bottomColor: UIColor, topColor: UIColor, textColor: UIColor) {
+    func setUp(title: String, subtitle: String? = nil, bottomColor: UIColor, topColor: UIColor, textColor: UIColor, fontSize: Int = 26, cornerRadius: Int = 20) {
         titleLabel.text = title
         titleLabel.textColor = textColor
         dropshadowView.layer.shadowColor = Theme.Color.dropShadow.cgColor
@@ -55,8 +57,12 @@ class PrayerCollectionViewCell: UICollectionViewCell {
         subtitleLabel.text = subtitle
         subtitleLabel.isHidden = subtitle == nil
         
+        containerView.cornerRadius = CGFloat(cornerRadius)
+        
         containerView.bottomColor = bottomColor
         containerView.topColor = topColor
+        
+        titleLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize), weight: .medium)
     }
 
 }
