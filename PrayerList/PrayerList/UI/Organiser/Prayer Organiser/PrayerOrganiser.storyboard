@@ -56,6 +56,40 @@
             </objects>
             <point key="canvasLocation" x="1347.8260869565217" y="-194.19642857142856"/>
         </scene>
+        <!--Day Selection View Controller-->
+        <scene sceneID="Hov-GD-JPI">
+            <objects>
+                <viewController id="rjh-uh-MrV" customClass="DaySelectionViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oGj-Oi-OmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="I93-jH-bQH">
+                                <rect key="frame" x="10" y="0.0" width="394" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rjh-uh-MrV" id="A79-rI-9eH"/>
+                                    <outlet property="delegate" destination="rjh-uh-MrV" id="WJN-mH-fGm"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="I93-jH-bQH" firstAttribute="top" secondItem="oGj-Oi-OmQ" secondAttribute="top" id="JoR-to-RpR"/>
+                            <constraint firstItem="w9X-g7-YCK" firstAttribute="trailing" secondItem="I93-jH-bQH" secondAttribute="trailing" constant="10" id="Yne-ge-8RI"/>
+                            <constraint firstItem="I93-jH-bQH" firstAttribute="leading" secondItem="oGj-Oi-OmQ" secondAttribute="leading" constant="10" id="dSe-Dd-6wa"/>
+                            <constraint firstAttribute="bottom" secondItem="I93-jH-bQH" secondAttribute="bottom" id="yat-mU-hBI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w9X-g7-YCK"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="I93-jH-bQH" id="bgD-Sg-KM1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KSt-Yf-qJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2499" y="-194"/>
+        </scene>
         <!--Prayer Settings-->
         <scene sceneID="pol-9k-rC3">
             <objects>
@@ -91,6 +125,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mWm-Z9-YF3" id="g0N-8D-IDV"/>
+                        <segue destination="rjh-uh-MrV" kind="show" identifier="showDaySelection" id="Y1u-cL-CnE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jrz-3K-raQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

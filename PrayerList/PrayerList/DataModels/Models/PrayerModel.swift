@@ -14,7 +14,13 @@ class PrayerModel {
     var uuid: String!
     var order: Int
     
+    var remindOnDays = [DayAlert]()
+    var shouldRemind: Bool = false
+    var remindTime: TimeAlert = TimeAlert.atTime
+    var notificationIdentifiers = [String]()
+    
     var lastCompleted: Date?
+    var time: Date?
     
     var categoryIds = [String]()
     
@@ -29,6 +35,13 @@ class PrayerModel {
         self.uuid = coreDataPrayer.uuid
         self.order = Int(coreDataPrayer.order)
         self.lastCompleted = coreDataPrayer.lastCompleted as Date?
+        self.time = coreDataPrayer.time as Date?
+        self.shouldRemind = coreDataPrayer.shouldRemind
+        
+        self.remindOnDays = coreDataPrayer.remindOnDays.map({DayAlert(rawValue: $0)!})
+        self.notificationIdentifiers = coreDataPrayer.notificationIdentifiers.components(separatedBy: ",")
+        
+        remindTime = TimeAlert(rawValue: coreDataPrayer.remindTime)!
         
         if !coreDataPrayer.categories.isEmpty {
             let categoriesArray = Array(coreDataPrayer.categories).sorted { (a, b) -> Bool in

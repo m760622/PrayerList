@@ -96,6 +96,14 @@
 		030900C8220962C00064C344 /* SnippitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900C7220962C00064C344 /* SnippitView.swift */; };
 		030900CC220977840064C344 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030900CA220977840064C344 /* ButtonTableViewCell.swift */; };
 		030900CD220977840064C344 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030900CB220977840064C344 /* ButtonTableViewCell.xib */; };
+		03096681221A779A00A95606 /* DateSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0309667F221A779A00A95606 /* DateSelectionCell.swift */; };
+		03096682221A779A00A95606 /* DateSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03096680221A779A00A95606 /* DateSelectionCell.xib */; };
+		03096683221A79D900A95606 /* DateSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0309667F221A779A00A95606 /* DateSelectionCell.swift */; };
+		03096684221A79E400A95606 /* DateSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03096680221A779A00A95606 /* DateSelectionCell.xib */; };
+		03096686221A816C00A95606 /* DaySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03096685221A816C00A95606 /* DaySelectionViewController.swift */; };
+		03096687221A81C000A95606 /* DaySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03096685221A816C00A95606 /* DaySelectionViewController.swift */; };
+		03096689221A932A00A95606 /* ReminderTimeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03096688221A932A00A95606 /* ReminderTimeSelectionViewController.swift */; };
+		0309668A221A932C00A95606 /* ReminderTimeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03096688221A932A00A95606 /* ReminderTimeSelectionViewController.swift */; };
 		03419F8E21CDC1D400F88F99 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8D21CDC1D400F88F99 /* GradientView.swift */; };
 		03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */; };
 		0345163C22176CC000841CBB /* ItemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345163B22176CC000841CBB /* ItemSettingsViewController.swift */; };
@@ -217,6 +225,10 @@
 		030900C7220962C00064C344 /* SnippitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippitView.swift; sourceTree = "<group>"; };
 		030900CA220977840064C344 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		030900CB220977840064C344 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		0309667F221A779A00A95606 /* DateSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSelectionCell.swift; sourceTree = "<group>"; };
+		03096680221A779A00A95606 /* DateSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateSelectionCell.xib; sourceTree = "<group>"; };
+		03096685221A816C00A95606 /* DaySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectionViewController.swift; sourceTree = "<group>"; };
+		03096688221A932A00A95606 /* ReminderTimeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTimeSelectionViewController.swift; sourceTree = "<group>"; };
 		03419F8D21CDC1D400F88F99 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		03419F8F21CDC2AF00F88F99 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		03419F9121CDC7DD00F88F99 /* PrayerList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrayerList.entitlements; sourceTree = "<group>"; };
@@ -364,6 +376,15 @@
 			path = "Button TableCell";
 			sourceTree = "<group>";
 		};
+		0309667E221A778900A95606 /* Date Selection Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0309667F221A779A00A95606 /* DateSelectionCell.swift */,
+				03096680221A779A00A95606 /* DateSelectionCell.xib */,
+			);
+			path = "Date Selection Cell";
+			sourceTree = "<group>";
+		};
 		03451644221778C500841CBB /* Category Overview Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +400,8 @@
 				034516482217844900841CBB /* PrayerOrganiser.storyboard */,
 				034516452217842300841CBB /* AddPrayerViewController.swift */,
 				03DE56E9221788E900D2FC33 /* PrayerSettingsViewController.swift */,
+				03096685221A816C00A95606 /* DaySelectionViewController.swift */,
+				03096688221A932A00A95606 /* ReminderTimeSelectionViewController.swift */,
 			);
 			path = "Prayer Organiser";
 			sourceTree = "<group>";
@@ -538,9 +561,9 @@
 		0394992B21AFB1FE003AF16D /* Prayer */ = {
 			isa = PBXGroup;
 			children = (
+				0394994121AFCD9A003AF16D /* AppSettingsViewController.swift */,
 				0394992921AFB1C0003AF16D /* Prayer.storyboard */,
 				0353FD95220BFC5200CEBC25 /* Passcode */,
-				0394994321AFCEDF003AF16D /* Prayer Settings */,
 				0394994E21AFE438003AF16D /* Overview */,
 				0394995121B10737003AF16D /* Detail */,
 			);
@@ -602,14 +625,6 @@
 			path = "Prayer CollectionViewCell";
 			sourceTree = "<group>";
 		};
-		0394994321AFCEDF003AF16D /* Prayer Settings */ = {
-			isa = PBXGroup;
-			children = (
-				0394994121AFCD9A003AF16D /* AppSettingsViewController.swift */,
-			);
-			path = "Prayer Settings";
-			sourceTree = "<group>";
-		};
 		0394994421AFCEEB003AF16D /* TextFieldTableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +637,7 @@
 		0394994D21AFE226003AF16D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0309667E221A778900A95606 /* Date Selection Cell */,
 				0351766B220A2AA3008E099B /* Switch TableCell */,
 				030900C9220977600064C344 /* Button TableCell */,
 				030900BF220961FF0064C344 /* GroupOverview Cell */,
@@ -917,6 +933,7 @@
 			files = (
 				03035E4722113851007EF2DB /* GroupOverviewCollectionViewCell.xib in Resources */,
 				03035E4822113851007EF2DB /* SwitchTableViewCell.xib in Resources */,
+				03096684221A79E400A95606 /* DateSelectionCell.xib in Resources */,
 				03035E4922113851007EF2DB /* LaunchScreen.storyboard in Resources */,
 				03035E4A22113851007EF2DB /* Organiser.storyboard in Resources */,
 				03035E4B22113851007EF2DB /* TextFieldTableViewCell.xib in Resources */,
@@ -947,6 +964,7 @@
 			files = (
 				030900C42209624D0064C344 /* GroupOverviewCollectionViewCell.xib in Resources */,
 				0351766F220A2AB8008E099B /* SwitchTableViewCell.xib in Resources */,
+				03096682221A779A00A95606 /* DateSelectionCell.xib in Resources */,
 				039498FA21AFAA95003AF16D /* LaunchScreen.storyboard in Resources */,
 				0394992821AFB14F003AF16D /* Organiser.storyboard in Resources */,
 				0394994821AFCF0B003AF16D /* TextFieldTableViewCell.xib in Resources */,
@@ -998,6 +1016,7 @@
 				03035E0922113851007EF2DB /* PRUserDefaults.swift in Sources */,
 				03035E0A22113851007EF2DB /* PrayerModel.swift in Sources */,
 				03035E0B22113851007EF2DB /* PassCodeDot.swift in Sources */,
+				03096687221A81C000A95606 /* DaySelectionViewController.swift in Sources */,
 				03035E0C22113851007EF2DB /* TextFieldTableViewCell.swift in Sources */,
 				03035E0D22113851007EF2DB /* AddNoteViewController.swift in Sources */,
 				03DE56EB22178B2400D2FC33 /* PrayerSettingsViewController.swift in Sources */,
@@ -1030,6 +1049,7 @@
 				03035E2622113851007EF2DB /* AddNoteTableViewCell.swift in Sources */,
 				03035E2722113851007EF2DB /* DateHelper.swift in Sources */,
 				03035E2822113851007EF2DB /* ButtonTableViewCell.swift in Sources */,
+				03096683221A79D900A95606 /* DateSelectionCell.swift in Sources */,
 				03035E2922113851007EF2DB /* PrayerSectionViewController.swift in Sources */,
 				03035E2A22113851007EF2DB /* AddItemFormViewController.swift in Sources */,
 				03035E2B22113851007EF2DB /* TabBarController.swift in Sources */,
@@ -1042,6 +1062,7 @@
 				03035E3222113851007EF2DB /* AddCategoryViewController.swift in Sources */,
 				03035E3322113851007EF2DB /* NoteModel.swift in Sources */,
 				03035E3422113851007EF2DB /* NoteInterface.swift in Sources */,
+				0309668A221A932C00A95606 /* ReminderTimeSelectionViewController.swift in Sources */,
 				03035E3522113851007EF2DB /* NoteCollectionViewCell.swift in Sources */,
 				03035E3622113851007EF2DB /* UIView+Extensions.swift in Sources */,
 				03035E3722113851007EF2DB /* PrayerOverviewController.swift in Sources */,
@@ -1072,6 +1093,7 @@
 				0394996521B12AE4003AF16D /* PRUserDefaults.swift in Sources */,
 				0394993721AFB81C003AF16D /* PrayerModel.swift in Sources */,
 				0345163C22176CC000841CBB /* ItemSettingsViewController.swift in Sources */,
+				03096686221A816C00A95606 /* DaySelectionViewController.swift in Sources */,
 				0353FD9A220C03A200CEBC25 /* PassCodeDot.swift in Sources */,
 				0394994721AFCF0B003AF16D /* TextFieldTableViewCell.swift in Sources */,
 				03DE56EA221788E900D2FC33 /* PrayerSettingsViewController.swift in Sources */,
@@ -1104,6 +1126,7 @@
 				0394995321B12419003AF16D /* ItemModel.swift in Sources */,
 				03C3CAA822018020007827DF /* AddNoteTableViewCell.swift in Sources */,
 				03F32B49220030DF00F7F0A6 /* DateHelper.swift in Sources */,
+				03096681221A779A00A95606 /* DateSelectionCell.swift in Sources */,
 				030900CC220977840064C344 /* ButtonTableViewCell.swift in Sources */,
 				03F32B4B220036CF00F7F0A6 /* PrayerSectionViewController.swift in Sources */,
 				0394997321B1CF77003AF16D /* AddItemFormViewController.swift in Sources */,
@@ -1116,6 +1139,7 @@
 				030900C8220962C00064C344 /* SnippitView.swift in Sources */,
 				03654B1A21CD9A3700465E16 /* AddCategoryViewController.swift in Sources */,
 				0394995521B12427003AF16D /* NoteModel.swift in Sources */,
+				03096689221A932A00A95606 /* ReminderTimeSelectionViewController.swift in Sources */,
 				0394996121B12907003AF16D /* NoteInterface.swift in Sources */,
 				03F32B4522002CD800F7F0A6 /* NoteCollectionViewCell.swift in Sources */,
 				03419F9021CDC2AF00F88F99 /* UIView+Extensions.swift in Sources */,

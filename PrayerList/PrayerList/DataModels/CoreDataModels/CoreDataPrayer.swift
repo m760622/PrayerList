@@ -19,8 +19,14 @@ class CoreDataPrayer: NSManagedObject {
     @NSManaged var uuid: String
     @NSManaged var order: Int64
     
-    
+    @NSManaged var shouldRemind: Bool
+    @NSManaged var remindOnDays: [Int]
+    @NSManaged var remindTime: Int
+    @NSManaged var notificationIdentifiers: String
+
     @NSManaged var lastCompleted: NSDate?
+    
+    @NSManaged var time: NSDate?
     
     @NSManaged var categories: Set<CoreDataCategory>
     
@@ -40,16 +46,10 @@ class CoreDataPrayer: NSManagedObject {
         prayer.name = prayerModel.name
         prayer.order = Int64(prayerModel.order)
         prayer.lastCompleted = prayerModel.lastCompleted as NSDate?
-        
-//        if !prayerModel.categoryIds.isEmpty {
-//            prayer.categories = Set<CoreDataPrayerCategory>()
-//            for categoryID in prayerModel.categoryIds {
-//                if let category = CategoryInterface.retrieveCategory(forID: categoryID, context: context){
-//                    let coredataCategory = CoreDataPrayerCategory.new(forGroup: category, in: context)
-//                    prayer.groups.insert(coreGroup)
-//                }
-//            }
-//        }
+        prayer.time = prayerModel.time as NSDate?
+        prayer.shouldRemind = prayerModel.shouldRemind
+        prayer.remindOnDays = prayerModel.remindOnDays.map({$0.rawValue})
+        prayer.notificationIdentifiers = prayerModel.notificationIdentifiers.joined(separator: ",")
         
         return prayer
     }

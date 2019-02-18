@@ -20,6 +20,24 @@ class DateHelper {
         return formatter.string(from: date)
     }
     
+    class func getMinutesFromDate(_ date: Date) -> Int? {
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.hour, .minute], from: date)
+        return comp.minute
+    }
+    
+    class func getHoursFromDate(_ date: Date) -> Int? {
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.hour, .minute], from: date)
+        return  comp.hour
+    }
+    
+    class func getYearFromDate(_ date: Date) -> Int? {
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.hour, .minute, .year], from: date)
+        return  comp.year
+    }
+    
     class func timeAgoSinceDate(date: NSDate, numericDates: Bool) -> String {
         let calendar = NSCalendar.current
         let unitFlags: Set<Calendar.Component> = [.minute, .hour, .day, .weekOfYear, .month, .year, .second]
