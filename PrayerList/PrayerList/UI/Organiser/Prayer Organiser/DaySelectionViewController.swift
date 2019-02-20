@@ -52,7 +52,7 @@ class DaySelectionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Select Days"
+        self.title = "Days"
         
         tableView.register(UINib(nibName: TextFieldTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier:  TextFieldTableViewCell.reuseIdentifier)
         
@@ -65,6 +65,7 @@ class DaySelectionViewController: BaseViewController {
     }
     
 }
+
 extension DaySelectionViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

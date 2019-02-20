@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSt-Yf-qJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2499" y="-194"/>
+            <point key="canvasLocation" x="2377" y="-194"/>
         </scene>
         <!--Prayer Settings-->
         <scene sceneID="pol-9k-rC3">
@@ -126,11 +126,46 @@
                     <connections>
                         <outlet property="tableView" destination="mWm-Z9-YF3" id="g0N-8D-IDV"/>
                         <segue destination="rjh-uh-MrV" kind="show" identifier="showDaySelection" id="Y1u-cL-CnE"/>
+                        <segue destination="73X-NO-rxm" kind="show" identifier="showAlertSelectionSegue" id="r0O-54-d8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jrz-3K-raQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1346" y="520"/>
+        </scene>
+        <!--Reminder Time Selection View Controller-->
+        <scene sceneID="GhY-Ub-nmk">
+            <objects>
+                <viewController id="73X-NO-rxm" customClass="ReminderTimeSelectionViewController" customModule="PrayerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qjb-NU-nxG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="AHP-L0-CaL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="73X-NO-rxm" id="XN7-Cp-dkr"/>
+                                    <outlet property="delegate" destination="73X-NO-rxm" id="E5O-5X-eca"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AHP-L0-CaL" firstAttribute="top" secondItem="qjb-NU-nxG" secondAttribute="top" id="85w-dp-uME"/>
+                            <constraint firstItem="hhR-AF-090" firstAttribute="trailing" secondItem="AHP-L0-CaL" secondAttribute="trailing" id="Bl5-6c-Aud"/>
+                            <constraint firstItem="AHP-L0-CaL" firstAttribute="leading" secondItem="hhR-AF-090" secondAttribute="leading" id="bUO-WE-yTc"/>
+                            <constraint firstAttribute="bottom" secondItem="AHP-L0-CaL" secondAttribute="bottom" id="oIL-rh-QYR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hhR-AF-090"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="AHP-L0-CaL" id="zfh-zj-0VO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PHv-l5-dSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2377" y="520"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="U9I-0A-qis">

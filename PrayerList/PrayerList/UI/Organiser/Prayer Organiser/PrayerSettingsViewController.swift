@@ -67,11 +67,18 @@ class PrayerSettingsViewController: BaseViewController {
     func updateNotifications(){
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: selectedPrayer.notificationIdentifiers)
         
-        if selectedPrayer.shouldRemind, let time = selectedPrayer.time, let minute = DateHelper.getMinutesFromDate(time), let hour = DateHelper.getHoursFromDate(time) {
+        guard selectedPrayer.shouldRemind, let time = selectedPrayer.time else { return }
+        
+        if let correctedDate = Calendar.current.date(byAdding: .minute, value: -(selectedPrayer.remindTime.rawValue), to: time), let minute = DateHelper.getMinutesFromDate(correctedDate), let hour = DateHelper.getHoursFromDate(correctedDate) {
             
             for day in selectedPrayer.remindOnDays {
                 let date = createDate(weekday: day.rawValue, hour: hour, minute: minute)
-                scheduleNotification(at: date, body: "It's time to do your \(selectedPrayer.name!) prayer", titles: "Prayer Reminder")
+                var message = "It's time to do your \(selectedPrayer.name!) prayer"
+                if(selectedPrayer.remindTime != .atTime) {
+                    message = "\(selectedPrayer.remindTime.rawValue) minutes until your \(selectedPrayer.name!) prayer"
+                }
+                
+                scheduleNotification(at: date, body: message, titles: "Prayer Reminder")
             }
         }
     }
@@ -107,6 +114,9 @@ class PrayerSettingsViewController: BaseViewController {
         if let dest = segue.destination as? DaySelectionViewController {
             dest.delegate = self
             dest.selectedDays = selectedPrayer.remindOnDays
+        } else if let dest = segue.destination as? ReminderTimeSelectionViewController {
+            dest.delegate = self
+            dest.selectedTime = selectedPrayer.remindTime
         }
     }
 
@@ -238,7 +248,7 @@ extension PrayerSettingsViewController: UITableViewDelegate, UITableViewDataSour
         case .remind:
             print("push away!!")
         case .alert:
-            print("push away!!")
+             self.performSegue(withIdentifier: "showAlertSelectionSegue", sender: self)
         }
     }
     
@@ -381,6 +391,12 @@ extension PrayerSettingsViewController: DaySelectionDelegate {
     }
 }
 
+extension PrayerSettingsViewController: ReminderTimeDelegate {
+    func reminderTimeUpdates(timeAlert: TimeAlert) {
+        selectedPrayer.remindTime = timeAlert
+    }
+}
+
 extension PrayerSettingsViewController: UNUserNotificationCenterDelegate {
     func createDate(weekday: Int, hour: Int, minute: Int )-> Date{
         var components = DateComponents()
@@ -419,3 +435,4 @@ extension PrayerSettingsViewController: UNUserNotificationCenterDelegate {
 
     }
 }
+

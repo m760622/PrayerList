@@ -41,7 +41,7 @@ class PrayerModel {
         self.remindOnDays = coreDataPrayer.remindOnDays.map({DayAlert(rawValue: $0)!})
         self.notificationIdentifiers = coreDataPrayer.notificationIdentifiers.components(separatedBy: ",")
         
-        remindTime = TimeAlert(rawValue: coreDataPrayer.remindTime)!
+        self.remindTime = TimeAlert(rawValue: coreDataPrayer.remindTime)!
         
         if !coreDataPrayer.categories.isEmpty {
             let categoriesArray = Array(coreDataPrayer.categories).sorted { (a, b) -> Bool in

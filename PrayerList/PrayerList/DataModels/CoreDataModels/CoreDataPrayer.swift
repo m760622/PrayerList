@@ -49,6 +49,7 @@ class CoreDataPrayer: NSManagedObject {
         prayer.time = prayerModel.time as NSDate?
         prayer.shouldRemind = prayerModel.shouldRemind
         prayer.remindOnDays = prayerModel.remindOnDays.map({$0.rawValue})
+        prayer.remindTime = prayerModel.remindTime.rawValue
         prayer.notificationIdentifiers = prayerModel.notificationIdentifiers.joined(separator: ",")
         
         return prayer
